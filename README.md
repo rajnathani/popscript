@@ -1,3 +1,8 @@
+## What is popup.js?
+
+_pop_up_.js is a JavaScript library for creating pop ups with support for animations, lightweight with zero dependencies. 
+
+
 ## Working of the Pop Up
 
 The function _pop_up_ takes in two parameters, one of which
