@@ -422,9 +422,6 @@ function _pAnimateOut(delay_length, main, todo) {
             key_node.style.mozAnimation = (value + ' ' + delay_length + 'ms');
             key_node.style.oAnimation = (value + ' ' + delay_length + 'ms');
             key_node.style.msAnimation = (value + ' ' + delay_length + 'ms');
-            key_node.onanimationstart = function () {
-                alert('fre');
-            }
         }
     } else {
         main.parentNode.removeChild(main);
