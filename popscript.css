@@ -1,0 +1,192 @@
+/**animations**/
+
+@-webkit-keyframes in-backy {
+    from {
+        background: rgba(0, 0, 0, 0)
+    }
+    to {
+        background: rgba(0, 0, 0, .3)
+    }
+}
+
+@-webkit-keyframes in-pop {
+    from {
+        opacity: 0.1;
+        -webkit-transform: scale(1.8, 1.8)
+    }
+    to {
+        -webkit-transform: scale(1, 1)
+    }
+}
+
+@keyframes in-pop {
+    from {
+        opacity: 0.1;
+        transform: scale(1.8, 1.8)
+    }
+    to {
+        transform: scale(1, 1)
+    }
+}
+
+@-webkit-keyframes out-backy {
+    from {
+        background: rgba(0, 0, 0, .3)
+    }
+    to {
+        background: rgba(0, 0, 0, 0)
+    }
+}
+
+
+@keyframes in-backy {
+    from {
+        background: rgba(0, 0, 0, 0)
+    }
+    to {
+        background: rgba(0, 0, 0, .3)
+    }
+}
+
+
+
+@keyframes out-backy {
+    from {
+        background: rgba(0, 0, 0, .3)
+    }
+    to {
+        background: rgba(0, 0, 0, 0)
+    }
+}
+
+
+@-webkit-keyframes out-pop {
+    from {
+        -webkit-transform: scale(1, 1)
+    }
+    to {
+        -webkit-transform: scale(1.5, 1.5);
+        opacity:0.1;
+    }
+}
+
+
+@keyframes out-pop {
+    from {
+        transform: scale(1, 1)
+    }
+    to {
+        transform: scale(1.5, 1.5);
+        opacity:0.1;
+    }
+}
+
+
+@-webkit-keyframes arrive-right {
+    from {
+        -webkit-transform: translate(-700px,0);
+        opacity: 0.1;
+    }
+    to {
+        -webkit-transform: translate(0,0);
+
+    }
+}
+
+
+@keyframes arrive-right {
+    from {
+        transform: translate(-700px,0);
+        opacity: 0.1;
+    }
+    to {
+        transform: translate(0,0);
+
+    }
+}
+
+@-webkit-keyframes depart-right {
+    from {
+        -webkit-transform: translate(0,0);
+    }
+    to {
+        -webkit-transform: translate(700px,0);
+        opacity:0.1;
+    }
+}
+
+
+@keyframes depart-right {
+    from {
+        transform: translate(0,0);
+    }
+    to {
+        transform: translate(700px,0);
+        opacity:0.1;
+    }
+}
+
+
+
+/****popups***/
+
+.popup-popup {
+
+    background-color: rgb(50,50,50);
+    width: 310px;
+    padding: 20px;
+    -webkit-animation: in-pop 320ms;
+    animation: in-pop 320ms;
+
+    color: #ffffff !important;
+}
+
+.popup-popup * {
+    color:#ffffff;
+}
+
+.popup-cover {
+    background-color: rgba(0, 0, 0, 0.3);
+    -webkit-animation: in-backy 320ms;
+    animation: in-backy 320ms;
+}
+
+.error-popup {
+    background-color: #ff475a;
+}
+
+
+
+.popup-large {
+    width:100%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+
+}
+
+.arrive-right {
+    -webkit-animation: arrive-right  320ms;
+    animation: arrive-right 320ms;
+}
+
+
+.popup-close{
+    color: #ffffff;
+    background-color: transparent;
+    width: 15px;
+    text-align: center;
+    margin: 2px 2px 0 0;
+    padding: 1px;
+}
+
+
+.popup-close:hover{
+    olor: #ff475a;
+    background-color: #ff475a;
+    border-radius: 100%;
+
+}
+
+.popup-close:active{color: black;box-shadow: 0 0 1px 1px #00008b}
+
+/***end****/
