@@ -6,12 +6,12 @@ A JS + CSS library for creating pop ups (modals) with support for animations, li
 ###How to get popping?
 
 Let us begin with what comes out of the box, you will need these to start poppin':
-- **`popscript.js`**  
+- `popscript.js`  
 This contains the code responsible for providing you with functions such as `pop()`, `closePop()`, `popOut()`, `noPopsLeft()`, etc,
 and also gives you access to the internal Pop class which is used in the code to create a layer of abstraction. The scripting
 of the pops is also done in this file.
 
-- **`popscript.css`**  
+- `popscript.css`  
 popscript.css is the boilerplate CSS file for generating the pops. The default popscript provided in popscript.js references
 CSS classes and animations defined in popscript.css.  
 
@@ -56,9 +56,10 @@ To include these two files (popscript.js & popscript.css), your webpage would lo
     </html>
 
 
-The way you go about it is upto you.
+The way you go about it is entirely upto you, just as long as both the resorces will
+be loaded before uou call `pop()`
 
-###
+###pop
     
     
     
