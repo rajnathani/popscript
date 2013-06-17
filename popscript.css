@@ -150,7 +150,7 @@
         -webkit-transform: translate(0, 0);
     }
     to {
-        -webkit-transform: translate(0, 100px);
+        -webkit-transform: translate(0, -100px);
     }
 }
 
@@ -160,7 +160,7 @@
         transform: translate(0, 0);
     }
     to {
-        transform: translate(0, 100px);
+        transform: translate(0, -100px);
     }
 }
 
