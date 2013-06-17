@@ -126,6 +126,47 @@
     }
 }
 
+@-webkit-keyframes in-error {
+    from {
+        -webkit-transform: translate(0, -100px);
+    }
+    to {
+        -webkit-transform: translate(0, 0);
+    }
+}
+
+
+@keyframes in-error {
+    from {
+        transform: translate(0, -100px);
+    }
+    to {
+        transform: translate(0, 0);
+    }
+}
+
+@-webkit-keyframes out-error {
+    from {
+        -webkit-transform: translate(0, 0);
+    }
+    to {
+        -webkit-transform: translate(0, 100px);
+    }
+}
+
+
+@keyframes out-error {
+    from {
+        transform: translate(0, 0);
+    }
+    to {
+        transform: translate(0, 100px);
+    }
+}
+
+
+
+
 
 
 /****popups***/
@@ -153,6 +194,8 @@
 
 .error-popup {
     background-color: #ff475a;
+    -webkit-animation:in-error 320ms;
+    animation:in-error 320ms;
 }
 
 
@@ -189,4 +232,4 @@
 
 .popup-close:active{color: black;box-shadow: 0 0 1px 1px #00008b}
 
-/***end****/
+/***end of popups**/
