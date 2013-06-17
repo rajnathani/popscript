@@ -23,16 +23,24 @@ var popscript = {
         popup_class:'popup-popup arrive-right',
         popup_animation_out_keyframes_name:'depart-right cubic-bezier(1,0,.46,1)'
     },
+
     error:{
         popup_class:'popup-popup error-popup',
-        'top':'20%'
+        'top':'45px'
 
     }
 };
 
 var _total_pops_created = 0;
 var _rough_total_pops_atm = 0;
-var _original_key_down = null;
+
+
+function _escapePopOut(e) {
+    var keycode = e ? e.keyCode : (window.event).keyCode;
+    if (keycode === 27) {
+        popOut();
+    }
+}
 
 //Source: Mozilla Development Network
 function _animationPossible() {
@@ -164,7 +172,7 @@ function _findMarginTopByHeight(h) {
 function _findNonAutoMarginTop(pop_top) {
     pop_top = pop_top.trim();
     if (pop_top[pop_top.length - 1] === "%") {
-        return _getScrolled() + (parseFloat(_getInnerHeight()) * (parseInt(pop_top.match(/([\d]+)%/)[1])/100));
+        return _getScrolled() + (parseFloat(_getInnerHeight()) * (parseInt(pop_top.match(/([\d]+)%/)[1]) / 100));
     } else {
         return _getScrolled() + parseInt(pop_top.match(/([\d]+)/)[1]);
     }
@@ -278,16 +286,12 @@ function pop(content, pop_input, extra_dict) {
 
     document.body.appendChild(backy);
 
-    _original_key_down = document.onkeydown;
-    document.onkeydown = function (e) {
+    if (document.addEventListener) {
+        document.addEventListener('keydown', _escapePopOut, false);
+    } else if (document.detachEvent){
+        document.attachEvent('keydown', _escapePopOut);
+    }
 
-        var keycode = e ? e.keyCode : (window.event).keyCode;
-        if (keycode === 27) {
-            document.onkeydown = _original_key_down;
-
-            popOut();
-        }
-    };
 
     _total_pops_created++;
 }
@@ -324,7 +328,7 @@ function popOut() {
         _pAnimateOut(animation_out_length, document.getElementById('popscript-cover-' + current_highest_pop_num),
             animate_out_dict);
         decreasePopup();
-        document.keydown = _original_key_down;
+
 
     }
 }
@@ -359,9 +363,8 @@ function onePopLeft() {
 }
 
 function closePop() {
+
     if (!noPopsLeft()) {
-
-
         var pat = /popscript\-cover\-([\d]+)/;
         var cur_element = this;
 
@@ -401,7 +404,14 @@ function closePop() {
             _pAnimateOut(animation_out_length, document.getElementById('popscript-cover-' + pop_num),
                 animate_out_dict);
             decreasePopup();
-            document.keydown = _original_key_down;
+            if (noPopsLeft()) {
+                if (document.removeEventListener) {
+                    document.removeEventListener('keydown', _escapePopOut, false)
+                } else if (document.detachEvent) {
+                    document.detachEvent('keydown', _escapePopOut);
+                }
+            }
+
         }
     }
 }
