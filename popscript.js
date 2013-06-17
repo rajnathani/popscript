@@ -14,10 +14,6 @@ var popscript = {
         animation_out_duration:410,
 
         align_check:[20, 350, 900]
-
-
-
-
     },
     slide:{
         popup_class:'popup-popup arrive-right',
@@ -26,7 +22,9 @@ var popscript = {
 
     error:{
         popup_class:'popup-popup error-popup',
-        'top':'45px'
+        'top':'45px',
+        popup_animation_out_keyframes_name:'out-error'
+
 
     }
 };
