@@ -216,14 +216,13 @@ function pop(content, pop_input, extra_dict) {
     popy.setAttribute('data-popscript-top', pop_top);
     popy.className = pop.scan('popup_class');
 
-    var content_area;
+
     if ((content.substring) !== undefined) {
-        content_area = document.createElement('p');
-        content_area.appendChild(document.createTextNode(content));
+        popy.appendChild(document.createTextNode(content));
     } else {
-        content_area = content;
+        popy.appendChild(content);
     }
-    popy.appendChild(content_area);
+
 
     if (!pop_top || pop_top === "auto") {
         popy.style.marginTop = _findMarginTopByNode(popy) + "px";
