@@ -31,6 +31,13 @@ var popscript = {
     }
 };
 
+for (var k in popscript) {
+    if (k.indexOf(" ") !== -1){
+        console.error("PopScript Error 2: Invalid Pop Class Name: '" + popscript[k] + "'");
+        alert("PopScript Error 2: Invalid Pop Class Name: '" + popscript[k] + "'");
+    }
+}
+
 var _total_pops_created = 0;
 var _rough_total_pops_atm = 0;
 
@@ -115,7 +122,7 @@ var Pop = function (pop_class) {
     this.pop_class_list = _checkValidPopClasses(pop_class);
     this.compiled = this.pop_class_list ? _compilePopClass(this.pop_class_list) : {};
     this.isValid = function () {
-        return this.pop_class_list === false;
+        return this.pop_class_list;
     };
     this.scan = function (attr) {
         return this.compiled[attr];
@@ -193,6 +200,10 @@ function pop(content, pop_input, extra_dict) {
     var new_popscript_number = _total_pops_created + 1;
 
     var pop = new Pop(pop_input);
+    if (pop.isValid() === false) {
+
+        return false;
+    }
     increasePopup();
     var backy = document.createElement('div');
     backy.style.height = _getDocHeight() + "px";
@@ -215,7 +226,6 @@ function pop(content, pop_input, extra_dict) {
     var pop_top = pop.scan('top');
     popy.setAttribute('data-popscript-top', pop_top);
     popy.className = pop.scan('popup_class');
-
 
     if ((content.substring) !== undefined) {
         popy.appendChild(document.createTextNode(content));
@@ -436,4 +446,3 @@ function _pAnimateOut(delay_length, main, todo) {
         main.parentNode.removeChild(main);
     }
 }
-
