@@ -25,7 +25,6 @@ var popscript = {
         'top':'45px',
         popup_animation_out_keyframes_name:'out-error'
 
-
     }
 };
 
@@ -211,7 +210,10 @@ function pop(content, pop_input, extra_dict) {
     backy.style.left = '0';
     backy.style.right = '0';
     backy.style.zIndex = '999999';
-    backy.className = pop.scan('cover_class');
+    var given_cover_class = pop.scan('cover_class');
+    if (given_cover_class && given_cover_class !== 'none'){
+        backy.className = pop.scan('cover_class');
+    }
     backy.setAttribute('data-pop', pop_input);
     backy.id = 'popscript-cover-' + new_popscript_number;
     backy.onclick = closePop;
@@ -433,12 +435,14 @@ function _pAnimateOut(delay_length, main, todo) {
         }, delay);
         for (var key in todo) {
             var value = todo[key];
-            var key_node = document.getElementById(key);
-            key_node.style.animation = (value + ' ' + delay_length + 'ms');
-            key_node.style.webkitAnimation = (value + ' ' + delay_length + 'ms');
-            key_node.style.mozAnimation = (value + ' ' + delay_length + 'ms');
-            key_node.style.oAnimation = (value + ' ' + delay_length + 'ms');
-            key_node.style.msAnimation = (value + ' ' + delay_length + 'ms');
+	    if (value && value !== "none"){
+                var key_node = document.getElementById(key);
+                key_node.style.animation = (value + ' ' + delay_length + 'ms');
+                key_node.style.webkitAnimation = (value + ' ' + delay_length + 'ms');
+                key_node.style.mozAnimation = (value + ' ' + delay_length + 'ms');
+                key_node.style.oAnimation = (value + ' ' + delay_length + 'ms');
+                key_node.style.msAnimation = (value + ' ' + delay_length + 'ms');
+	    }
         }
     } else {
         main.parentNode.removeChild(main);
