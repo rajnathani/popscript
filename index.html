@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PopScript</title>
+
+    <!--link href='http://fonts.googleapis.com/css?family=Skranji|Sigmar+One|Merienda:400,700' rel='stylesheet' type='text/css'-->
+
+    <link rel="stylesheet" type="text/css" href="docs/static/css/google-web-fonts.css"/>
+    <link rel="stylesheet" href="docs/static/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="src/popscript.css"/>
+    <link rel="stylesheet" type="text/css" href="docs/static/css/normalize.css"/>
+
+
+    <link rel="stylesheet" type="text/css" href="docs/static/css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="docs/static/css/google-prettify-tomorrow-theme.css"/>
+
+</head>
+<body>
+<div id="header" class="cf">
+    <a id="logo" href="/"><span>POP</span><span>SCRIPT</span></a>
+    <a href="/docs">DOCS</a>
+    <a href="/demos">DEMO</a>
+    <a href="/downloads">DOWNLOAD</a>
+</div>
+<div id="content" class="cf">
+    <div id="sample-popscript-code">
+        <pre>
+var popscript = {
+    basic: {    <span class="nocode sample-popscript-tooltip" data-tooltip="This is a pop class"></span>
+        CSS_CLASSES: {
+            box: 'simple-box',
+            cover: 'curtain',
+            close: 'cross'
+        },
+        ANIMATIONS: { <span class="nocode sample-popscript-tooltip" data-tooltip="Animate your pops with CSS Animations"></span>
+            IN: {
+                box: 'zap-in',
+                cover: 'fade-in',
+                duration: 500 <span class="nocode sample-popscript-tooltip" data-tooltip="Enter a number for the duration, and the animation will go on for the given length"></span>
+            },
+            OUT: {
+                box: 'zap-out',
+                cover: 'fade-out',
+                duration: 400
+            }
+        },
+
+        POSITION: {
+            fixed: 'nope',
+            vertical: 'auto',
+            horizontal: 'auto',
+            check: '20, 20*, 50'
+        },
+
+        click_to_close: false,
+        close_content: 'x',
+        cover: 'no',
+        close: 'yes'
+    },
+
+    trailer: {
+
+    }
+
+};
+
+</pre>
+    </div>
+    <div id="main-features">
+        <div>
+
+            <h2><i class="icon-ok-sign"></i>Flexible</h2>
+
+            <div>
+                <p>Throw in pop (up) with a translucent cover if you like, enable/disable
+                    dispatching your pop with the 'esc' key, control which element in the pop
+                    will allow the user to drag it around, and many more for you to discover.
+                </p>
+            </div>
+        </div>
+
+        <div>
+
+            <h2><i class="icon-th-list"></i>Organized</h2>
+
+            <div>
+                <p>PopScript is organized into 'pop classes' all in one place, which
+                    can be then powerfully be combined together to form inheritance
+                    of properties very similar to that of css.</p>
+            </div>
+        </div>
+        <div>
+
+            <h2><i class="icon-group"></i>Simple</h2>
+
+            <div>
+                <p>After the popscript.js and popscript.css files have been inserted
+                    into the webpage one can as simply deploy a pop (up) as follows:</p>
+                <pre>
+pop('Your comment was successfully posted!');</pre>
+                <p>Further using pop classes is as simple as:</p>
+                <pre>
+pop('The transaction has been completed. Thank you!', 'success');</pre>
+                <p><b>OR</b> (depending on the situation)</p>
+                <pre>
+pop('The transaction could not be completed. Please try again later', 'error');</pre>
+
+            </div>
+        </div>
+        <div>
+
+            <h2><i class="icon-anchor"></i>Robust</h2>
+
+            <div>
+                <p>Giving you features such as positioning fixed or non fixed,
+                    dragging, closing by clicking on the cover and/or by hitting
+                    the escape key, specifying CSS animations for better experiences,
+                    issuing align checks on the pops visible and all very well tested.</p>
+
+            </div>
+        </div>
+        <div>
+
+            <h2><i class="icon-magic"></i>Dependency Free</h2>
+
+            <div>
+                <p>
+                    The only js file you need is 'popscript.js'.<br>
+                    This is because PopScript has been built to be free from any dependency, be it
+                    jquery.js or underscore.js, no extra file is required.
+                </p>
+
+            </div>
+        </div>
+        <div>
+
+
+            <h2><i class="icon-globe"></i>Open Source &amp; Free</h2>
+
+            <div>
+                <p>Licensed under the great MIT License this is an <b>open source</b> initiative, with no monetary cost
+                    to the developers using it.</p></div>
+        </div>
+    </div>
+
+</div>
+<script src="src/popscript.js" defer></script>
+<script src="docs/static/js/prettify.js" defer></script>
+
+<script src="docs/static/js/index.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+@import url(http://fonts.googleapis.com/css?family=Noto+Sans:400,700);
+/**
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    contenteditable attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that are clearfixed.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+.cf:before,
+.cf:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */ }
+
+.cf:after {
+  clear: both; }
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.cf {
+  *zoom: 1; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Skranji"; }
+
+body {
+  background-color: whitesmoke;
+  font-family: 'Noto Sans', verdana;
+  font-size: 18px;
+  /*min-height: 5000px;
+  min-width: 5000px;*/ }
+
+#header {
+  position: fixed;
+  z-index: 100000000;
+  width: 100%;
+  top: 0;
+  background-color: black;
+  background-image: -webkit-repeating-linear-gradient(top, #3c3c3c, #3c3c3c 13%, black 13%, black 26%);
+  padding-left: 45px; }
+  #header a {
+    display: block;
+    float: left;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    margin-left: 150px;
+    border-right-width: 0;
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    font-family: 'Skranji', verdana;
+    line-height: 65px; }
+  #header a:hover {
+    color: yellow; }
+  #header #logo {
+    margin-left: 0;
+    padding-left: 0;
+    width: auto;
+    border-left-width: 0;
+    font-family: 'Sigmar One';
+    letter-spacing: 1px;
+    border: none; }
+  #header #logo span {
+    font-family: inherit; }
+  #header #logo span:first-child {
+    border-radius: 100%;
+    background-color: #ff5858;
+    ackground-image: -webkit-linear-gradient(top, #ff5858, #bc2d35 100%);
+    padding: 19px;
+    color: white; }
+  #header #logo span:last-child {
+    color: #7684ff;
+    color: #ff5858; }
+
+#content {
+  margin-top: 65px;
+  width: 100%;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  padding-left: 45px; }
+  #content #sample-popscript-code {
+    width: 50%;
+    float: left; }
+    #content #sample-popscript-code pre {
+      font-weight: bold; }
+  #content #main-features {
+    float: left;
+    width: 50%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    border-left: 2px solid gainsboro; }
+    #content #main-features > div {
+      padding: 20px;
+      border-bottom: 2px solid gainsboro; }
+      #content #main-features > div > h2 {
+        margin: 10px 0;
+        font-size: 25px; }
+        #content #main-features > div > h2 > i {
+          margin-right: 15px; }
+      #content #main-features > div > div p {
+        color: #505050;
+        font-style: italic; }

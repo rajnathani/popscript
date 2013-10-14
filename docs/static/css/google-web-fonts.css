@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'Merienda';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Merienda'), local('Merienda-Regular_0_wt'), url('../fonts/MeriendaRegular.woff') format('woff');
+}
+@font-face {
+    font-family: 'Merienda';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Merienda Bold'), local('Merienda-Bold'), url('../fonts/MeriendaBold.woff') format('woff');
+}
+@font-face {
+    font-family: 'Sigmar One';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Sigmar One'), local('SigmarOne'), url('../fonts/SigmarOne.woff') format('woff');
+}
+@font-face {
+    font-family: 'Skranji';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Skranji'), url('../fonts/Skranji.woff') format('woff');
+}
