@@ -1,4 +1,3 @@
-//TODO: integrate moving: http://jsbin.com/odohiz/3/edit
 //TODO: will pAnimateOut remove elements in order? uhh? ugh stupid idiot person
 var popscript = {
     basic: {
@@ -9,37 +8,41 @@ var popscript = {
         },
         ANIMATIONS: {
             IN: {
-                box: 'zap-in',
+                box: 'zap-in cubic-bezier(.73,.75,.72,1.77)',
                 cover: 'fade-in',
-                duration: 500
+                duration: 300
             },
             OUT: {
-                box: 'zap-out',
+                box: 'zap-out cubic-bezier(.73,.75,.72,1.77)',
                 cover: 'fade-out',
-                duration: 400
+                duration: 300
             }
         },
 
         POSITION: {
-            fixed: 'yes for sure',
             vertical: 'auto',
             horizontal: 'auto',
-            check: '200, 20000*'
+            check: '200, 1000*'
         },
 
-        click_to_close: false,
         close_content: 'x',
-        close: 'yes',
-        cover_fixed: 'yes, we want this as the pop deployed could be really long',
-        esc: 'ye'
+        click_to_close: 'yess',
+        close_button: 'yes',
+        cover_fixed: 'no',
+        esc: 'ye',
+        full_draggable:'yes'
     },
 
-    trailer: {
-        full_draggable: false,
-        POSITION: {
+    error :{
+        CSS_CLASSES: {
+            box: 'simple-box error'
+        }
+    },
 
-        },
-        cover: 'yes'
+    success :{
+        CSS_CLASSES: {
+            box: 'simple-box error'
+        }
     },
 
     tooltip: {
@@ -52,22 +55,42 @@ var popscript = {
                 box: 'short-arrive-left-fade-in'
             },
             OUT: {
-                box: 'depart-right'
+                box: 'fade-out'
             }
-
         },
-        POSITION: {
-
-        },
-
-        close: 'no',
+        click_to_close:'yeh',
+        close_button: 'no',
         cover: 'no',
         blur: 'no',
         esc: 'no',
-        full_draggable: 'yes'
+        full_draggable: 'no'
+    },
 
+    arrow_left: {
+        CSS_CLASSES:{
+            box:'popscript-tooltip left'
+        }
+    },
+    arrow_right: {
+        CSS_CLASSES:{
+            box:'popscript-tooltip right'
+        }
+    },
+    arrow_up: {
+        CSS_CLASSES:{
+            box:'popscript-tooltip up'
+        }
+    },
+    arrow_down: {
+        CSS_CLASSES:{
+            box:'popscript-tooltip down'
+        }
     }
+
 };
+
+
+
 
 
 var popscript_flags = {
@@ -106,8 +129,9 @@ var PS = {
         if (!PS.findAncestorPop(e.srcElement)) {
             var keycode = e ? e.keyCode : (window.event).keyCode;
             if (keycode === 27) {
-                var highest = PS.highestConditionPopNum(function () {
-                    return PS.pop_dict[this.getAttribute('data-pop-num')].scan('esc')
+                var highest = PS.highestConditionPopNum(function (num) {
+                    var pop = PS.pop_dict[num];
+                    return pop && pop.scan('esc');
                 });
 
                 if (highest !== -1) popOut(highest)
@@ -117,9 +141,9 @@ var PS = {
     blurPopOut: function (e) {
 
         if (!PS.findAncestorPop(e.srcElement)) {
-            var highest = PS.highestConditionPopNum(function () {
-                console.log('pop out');
-                return PS.pop_dict[this.getAttribute('data-pop-num')].scan('blur')
+            var highest = PS.highestConditionPopNum(function (num) {
+                var pop = PS.pop_dict[num];
+                return pop && pop.scan('blur');
             });
             if (highest !== -1) popOut(highest)
         }
@@ -144,8 +168,7 @@ var PS = {
         var cur_pop;
         while (cur_num !== 0) {
             cur_pop = document.getElementById('popscript-box-' + cur_num);
-            if (cur_pop && condition.call(cur_pop)) {
-
+            if (PS.pop_dict[cur_num] && cur_pop && condition(cur_num)) {
                 return cur_num;
             }
             cur_num--;
@@ -168,13 +191,13 @@ var PS = {
             var domPrefixes = 'Webkit O MS MOZ'.split(' ');
             pfx = '';
 
-            if (elm.style.animationName) {
+            if (document.body.style.animationName) {
                 animation = true;
             }
 
             if (animation === false) {
                 for (var i = 0; i < domPrefixes.length; i++) {
-                    if (elm.style[ domPrefixes[i] + 'AnimationName' ] !== undefined) {
+                    if (document.body.style[ domPrefixes[i] + 'AnimationName' ] !== undefined) {
                         var pfx = domPrefixes[ i ];
                         animationstring = pfx + 'Animation';
                         keyframeprefix = '-' + pfx.toLowerCase() + '-';
@@ -345,7 +368,7 @@ var PS = {
         blur: true,
         esc: true,
         cover: true,
-        close: true,
+        close_button: true,
         full_draggable: false,
         close_content: "x",
         moved: false
@@ -533,27 +556,69 @@ var PS = {
 
     drag: {
 
-        cur_pop: null,
-        cur_pop_num: -1,
+        box_node: null,
+        pop_num: -1,
+        pop_position_fixed:null,
         diff: [],
         /*
          Event Binding for mousedown on drag begin.
          */
         start: function (e) {
 
+
             PS.drag.no_user_select();
             var mp = PS.pos.mouse(e ?
                 e : window.event);
             var ancestor_pop = PS.findAncestorPop(this);
+
             if (ancestor_pop) {
                 PS.event.add(document, 'mousemove', PS.drag.while);
-                PS.drag.cur_pop = ancestor_pop;
-                PS.drag.cur_pop_num = ancestor_pop.getAttribute('data-pop-num');
-                PS.drag.diff[0] = mp[0] - (PS.pos.offset(ancestor_pop).left);
-                PS.drag.diff[1] = mp[1] - (PS.pos.offset(ancestor_pop).top);
+                PS.drag.box_node = ancestor_pop;
+                PS.drag.pop_num = parseInt(ancestor_pop.getAttribute('data-pop-num'));
+                PS.drag.pop_position_fixed = PS.pop_dict[PS.drag.pop_num].scan('position_fixed');
 
+                var x_fix=0, y_fix = 0;
+                if (PS.drag.pop_position_fixed) {
+                    var scrolled = PS.pos.scrolled();
+                    x_fix = scrolled.h;
+                    y_fix = scrolled.v;
+                }
+
+                PS.drag.diff[0] = mp[0] - x_fix  - (PS.pos.offset(ancestor_pop).left);
+                PS.drag.diff[1] = mp[1] - y_fix - (PS.pos.offset(ancestor_pop).top);
 
             }
+
+        },
+
+        /*
+         Event Binding for mousemove on dragging.
+         */
+        while: function (e) {
+
+            if (!PS.drag.box_node) {
+                return null;
+            }
+
+            var x_fix =0, y_fix = 0;
+            if (PS.drag.pop_position_fixed) {
+                var scrolled = PS.pos.scrolled();
+                x_fix = scrolled.h;
+                y_fix = scrolled.v;
+            }
+
+            var mp = PS.pos.mouse(e ?
+                e : window.event);
+
+            var x = mp[0] - x_fix - PS.drag.diff[0];
+            var y = mp[1] - y_fix -  PS.drag.diff[1];
+            PS.drag.box_node.style.left = (x) + "px";
+            PS.drag.box_node.style.top = (y) + "px";
+
+
+            // Update the pop to store the information that it has been moved
+            PS.pop_dict[PS.drag.pop_num].set('moved', true);
+
 
         },
         /*
@@ -562,31 +627,8 @@ var PS = {
         done: function (e) {
             PS.event.remove(document, 'mousemove', PS.drag.while);
             PS.drag.no_no_user_select();
-            PS.drag.cur_pop = null;
-            PS.drag.cur_pop_num = -1;
-
-        },
-        /*
-         Event Binding for mousemove on dragging.
-         */
-        while: function (e) {
-
-            if (!PS.drag.cur_pop) {
-                return null;
-            }
-
-            var mp = PS.pos.mouse(e ?
-                e : window.event);
-
-            var x = mp[0] - PS.drag.diff[0];
-            var y = mp[1] - PS.drag.diff[1];
-            PS.drag.cur_pop.style.left = (x) + "px";
-            PS.drag.cur_pop.style.top = (y) + "px";
-
-
-            // Update the pop to store the information that it has been moved
-            PS.pop_dict[PS.drag.cur_pop_num].set('moved', true);
-
+            PS.drag.box_node = null;
+            PS.drag.pop_num = -1;
 
         },
         user_select: {
@@ -635,18 +677,21 @@ var PS = {
          @param `el` {DOM Node Element}
          */
         offset: function (el) {
+            if (el.style.position === 'fixed') {
+                return el.getBoundingClientRect()
+            }
             //return el.getBoundingClientRect(); //WARNING: this line will not work here
             // Source: http://www.quirksmode.org/js/findpos.html
-             var cur_left = 0;
-             var cur_top = 0;
-             if (el.offsetParent) {
-             do {
-             cur_left += el.offsetLeft;
-             cur_top += el.offsetTop;
+            var cur_left = 0;
+            var cur_top = 0;
+            if (el.offsetParent) {
+                do {
+                    cur_left += el.offsetLeft;
+                    cur_top += el.offsetTop;
 
-             } while (el = el.offsetParent);
-             }
-             return {left: cur_left, top: cur_top};
+                } while (el = el.offsetParent);
+            }
+            return {left: cur_left, top: cur_top};
 
         },
         mouse: function (e) {
@@ -717,20 +762,23 @@ var PS = {
             // (3) percent based (boolean)
 
             var pop_vertical, pop_horizontal, position_fixed, cover_fixed;
-            position_fixed = pop.scan('position_fixed');
+
             cover_fixed = pop.scan('cover_fixed');
 
             if (pop.scan('near_element')) {
                 var pop_vh = PS.nearElement(pop.scan('near_element'), pop.scan('nearElement'));
-                position_fixed = PS.pos.isFixed(pop.scan('near_element'));
-                console.log(position_fixed);
+                pop.compiled.position_fixed = PS.pos.isFixed(pop.scan('near_element'));
                 pop_horizontal = PS.convert.boxPosition(pop_vh[0]);
                 pop_vertical = PS.convert.boxPosition(pop_vh[1]);
+
 
             } else {
                 pop_vertical = pop.scan('position_vertical');
                 pop_horizontal = pop.scan('position_horizontal');
             }
+
+            position_fixed = pop.scan('position_fixed');
+
             box_node.style.position = position_fixed ? 'fixed' : 'absolute';
             // if its one of the following:
             // (1) fixed pop
@@ -745,6 +793,7 @@ var PS = {
             box_node.style.right = "auto";
             box_node.style.bottom = "auto";
             box_node.style.left = "auto";
+
             if (pop_vertical[0] !== 'auto') {
                 // check if its a left/(top) position pop
                 if (pop_vertical[2]) {
@@ -771,7 +820,10 @@ var PS = {
 
 
         }, isFixed: function (ele) {
-            return (ele.style && ele.style.position === 'fixed') || (ele.parentNode && PS.pos.isFixed(ele.parentNode));
+            return ((ele.style && ele.style.position === 'fixed') || (!(ele.style && ele.style.position) &&
+                window.getComputedStyle(ele, null) &&
+                window.getComputedStyle(ele, null).getPropertyValue('position') === 'fixed')) ||
+                (ele.parentNode && PS.pos.isFixed(ele.parentNode));
         },
 
         checkAll:function () {
@@ -1090,13 +1142,11 @@ var PS = {
             // Check if the browser natively supports
             // the method getcss_class.elementsName
             if (parent.getElementsByClassName) {
-
                 all_of_class = parent.getElementsByClassName(class_name);
-
             }
             // Check if it supports querySelectorAll (IE 8 supports
             else if (parent.querySelectorAll) {
-                all_of_class = parent.querySelectorAll(class_name).length;
+                all_of_class = parent.querySelectorAll(class_name);
             }
 
             else { // Else the browser being used is a legacy browser
@@ -1166,7 +1216,7 @@ var PS = {
         var offset = PS.pos.offset(node);
         var dims = PS.dims.node(node, true);
 
-        console.log(offset);
+
         return cb(offset.left, offset.top, dims.w, dims.h);
         // TODO: Use offset function to find the offset
     }
@@ -1301,7 +1351,7 @@ function pop(content, pop_input, extra_dict) {
         cover_node.style.top = '0';
         cover_node.style.left = '0';
         cover_node.style.right = '0';
-        cover_node.style.zIndex = '9999';
+        cover_node.style.zIndex = String(9999 + new_popscript_number);
 
         if (pop.scan('cover_fixed')) {
             PS.cover_fix.fix();
@@ -1327,7 +1377,7 @@ function pop(content, pop_input, extra_dict) {
 
 
 
-    box_node.style.zIndex = '1000000';
+    box_node.style.zIndex = String(10000 + new_popscript_number);
     box_node.setAttribute('data-pop-num', new_popscript_number.toString());
     // Add the to be created pop to the object reference of pops,
     // for further look ups and manipulations.
@@ -1416,6 +1466,14 @@ function pop(content, pop_input, extra_dict) {
 
     PS.num_pops_created++;
 
+    var orig_blur = pop.compiled.blur;
+    pop.compiled.blur = false;
+
+    setTimeout(function(){
+        pop.compiled.blur = orig_blur
+    },500);
+
+
     // Return the popscript number
     // for tracking purposes
     return new_popscript_number;
@@ -1429,6 +1487,7 @@ function popOut(pop_num) {
     var pop_popup = document.getElementById('popscript-box-' + pop_num);
     var pop = PS.pop_dict[pop_num];
 
+    if (!pop){return}
 
     if (pop.scan('beforePopOut') && pop.scan('beforePopOut').call(pop_popup) === false) {
         return false;
@@ -1506,7 +1565,7 @@ PS.all_properties = {
     animation_out_cover: PS.convert.n,
     esc: PS.convert.bool,
     blur: PS.convert.bool,
-    close: PS.convert.bool,
+    close_button: PS.convert.bool,
     animation_in_cover: PS.convert.n,
     position_check: PS.convert.positionCheck,
     animation_in_box: PS.convert.n,
@@ -1529,6 +1588,8 @@ function initiatePopScript() {
     PS.event.add(document, 'keydown', PS.escapePopOut);
     PS.event.add(document, 'click', PS.blurPopOut);
     PS.event.add(window, 'resize', PS.pos.checkAll );
+    PS.event.add(window, 'scroll', PS.pos.checkAll );
+
     //PS.event.add(window, 'scroll', PS.checkAll );
 }
 

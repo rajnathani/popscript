@@ -1,6 +1,6 @@
 prettyPrint();
 
-var tooltip_gap = 1000;
+var tooltip_gap = 400;
 
 PopScript.event.add(document,'click', function(){tooltip_gap = 10});
 
@@ -16,11 +16,10 @@ if (tooltip_index < all_tooltips.length) {
 function popTooltip() {
     pop(
         all_tooltips[tooltip_index].getAttribute('data-tooltip')
-        , 'tooltip', {
+        , 'tooltip arrow_left', {
 
             near_element: all_tooltips[tooltip_index],
             nearElement: function (x,y,width,height) {
-                console.log([x + width + 30, y - 8]);
                 return [x + width + 30, y - 8]
             }
 
@@ -35,7 +34,5 @@ function popTooltip() {
 
 
 //pop('hello');
-
-
 
 

@@ -1706,20 +1706,20 @@ QUnit.equiv = (function() {
 								if ( a[i] === b[i] || aCircular && bCircular ) {
 									loop = true;
 								} else {
-									parents.pop();
-									parentsB.pop();
+									parents.box_node();
+									parentsB.box_node();
 									return false;
 								}
 							}
 						}
 						if ( !loop && !innerEquiv(a[i], b[i]) ) {
-							parents.pop();
-							parentsB.pop();
+							parents.box_node();
+							parentsB.box_node();
 							return false;
 						}
 					}
-					parents.pop();
-					parentsB.pop();
+					parents.box_node();
+					parentsB.box_node();
 					return true;
 				},
 
@@ -1771,9 +1771,9 @@ QUnit.equiv = (function() {
 						}
 					}
 
-					parents.pop();
-					parentsB.pop();
-					callers.pop(); // unstack, we are done
+					parents.box_node();
+					parentsB.box_node();
+					callers.box_node(); // unstack, we are done
 
 					for ( i in b ) {
 						bProperties.push( i ); // collect b's properties
@@ -1865,7 +1865,7 @@ QUnit.jsDump = (function() {
 				if ( type === "function" )  {
 					stack.push( obj );
 					res = parser.call( this, obj, stack );
-					stack.pop();
+					stack.box_node();
 					return res;
 				}
 				return ( type === "string" ) ? parser : this.parsers.error;

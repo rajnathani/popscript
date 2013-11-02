@@ -109,7 +109,7 @@ var prettyPrint;
             "throws,transient"];
     var CSHARP_KEYWORDS = [COMMON_KEYWORDS,
         "abstract,as,base,bool,by,byte,checked,decimal,delegate,descending," +
-            "dynamic,event,finally,fixed,foreach,from,group,implicit,in,interface," +
+            "dynamic,event,finally,foreach,from,group,implicit,in,interface," +
             "internal,into,is,let,lock,null,object,out,override,orderby,params," +
             "partial,readonly,ref,sbyte,sealed,stackalloc,string,select,uint,ulong," +
             "unchecked,unsafe,ushort,var,virtual,where"];

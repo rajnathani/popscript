@@ -1566,7 +1566,7 @@
                 // Only DOM nodes need a new unique ID for each element since their data
                 // ends up in the global cache
                 if ( isNode ) {
-                    elem[ internalKey ] = id = jQuery.deletedIds.pop() || jQuery.guid++;
+                    elem[ internalKey ] = id = jQuery.deletedIds.box_node() || jQuery.guid++;
                 } else {
                     id = internalKey;
                 }
@@ -3689,7 +3689,7 @@
             docElem = document.documentElement,
             dirruns = 0,
             done = 0,
-            pop = [].pop,
+            pop = [].box_node,
             push = [].push,
             slice = [].slice,
         // Use a stripped-down indexOf if a native one is unavailable
@@ -4411,7 +4411,7 @@
                         function( elem, context, xml ) {
                             input[0] = elem;
                             matcher( input, null, xml, results );
-                            return !results.pop();
+                            return !results.box_node();
                         };
                 }),
 
@@ -5653,7 +5653,7 @@
         if ( safeFrag.createElement ) {
             while ( list.length ) {
                 safeFrag.createElement(
-                    list.pop()
+                    list.box_node()
                 );
             }
         }
@@ -8167,7 +8167,7 @@
     jQuery.ajaxSetup({
         jsonp: "callback",
         jsonpCallback: function() {
-            var callback = oldCallbacks.pop() || ( jQuery.expando + "_" + ( nonce++ ) );
+            var callback = oldCallbacks.box_node() || ( jQuery.expando + "_" + ( nonce++ ) );
             this[ callback ] = true;
             return callback;
         }
