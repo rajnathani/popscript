@@ -41,7 +41,7 @@ var popscript = {
 
     success :{
         CSS_CLASSES: {
-            box: 'simple-box error'
+            box: 'simple-box success'
         }
     },
 
@@ -259,7 +259,8 @@ var PS = {
             left: true,
             top: true,
             right: false,
-            bottom: false
+            bottom: false,
+            auto:null
         },
         /*
          Converts the vertical/horizontal position
@@ -281,9 +282,10 @@ var PS = {
             if (typeof v === 'number') {
                 return [Math.abs(v), false, v >= 0, false]
             }
-            var split = v.split(/ *\+ */);
-            split[1] = split[1] && split[1].toLowerCase() === 'scrolled';
-
+            var tokens = v.split(/ *\+ */);
+            var split = [false,false,false,false];
+            split[1] = Boolean(tokens[1] && tokens[1].toLowerCase() === 'scrolled');
+            split[0] = tokens[0];
 
             if (['auto', 'left', 'right', 'top', 'bottom'].indexOf(split[0]) === -1) {
                 split[3] = split[0][split[0].length - 1] === "%";
@@ -300,10 +302,8 @@ var PS = {
                 // as a ratio to 1.
                 split[0] = parseInt(extracted_number[2]) / (split[3] ? 100 : 1);
             } else if (split[0] !== 'auto') {
-
                 split[2] = PS.convert._position_macros[split[0]];
                 split[0] = 0;
-
 
             }
 
@@ -389,7 +389,6 @@ var PS = {
      @param popscript: inputted popscript
      */
     compile: function (popscript) {
-
         // store the compiled popscript in
         this.compiled_popscript = {};
         for (var pop_class in popscript) {
@@ -398,8 +397,8 @@ var PS = {
             }
         }
 
-        // free memory of the user inputted pop script
-        popscript = null;
+        //TODO: Free memory of original popscript
+
     },
 
     /*
@@ -431,26 +430,27 @@ var PS = {
      Compiles the popscript scope `scope_names` (Array) [scopes are present in the order of nesting]
      and registers its properties into
      the `compiled_pop_script` object.
-     @param `scope_names` (Array) : name of the entire scope
+     @param `scope_chain` (Array) : name of the entire scope
      @param `scope` (Object): the scope properties of the current scope.
-     @param `compiled_pop_class_script` (Object): the object in which to register the scope properties.
+     @param `compiled_pop_classes_script` (Object): the object in which to register the scope properties.
      @param `pop_class_script` (Object): user inputted popscript for a given class/anonymous class
      */
-    compileScope: function (scope_names, scope, compiled_pop_class_script, pop_class_script) {
+    compileScope: function (scope_chain, scope, compiled_pop_classes_script, pop_class_script) {
 
         // Check if the scope is given as an object
         if (typeof scope !== 'object') {
-            this.popError(26, "Scope '" + scope_names.join('>') + "' has to be an object");
+            this.popError(26, "Scope '" + scope_chain.join('>') + "' has to be an object");
+            return null
         } else {
             for (var scope_property in scope) {
                 if (scope.hasOwnProperty(scope_property))
                 // Check if the given key is a standalone property or a scope.
                     if (this.scope_converter[scope_property.toUpperCase()]) { // Scope
-                        this.compileScope(this.helper.cloneAndPushArray(scope_names, scope_property), scope[scope_property],
-                            compiled_pop_class_script, pop_class_script)
+                        this.compileScope(this.helper.cloneAndPushArray(scope_chain, scope_property), scope[scope_property],
+                            compiled_pop_classes_script, pop_class_script)
                     } else {
                         this.registerPopProperty(
-                            compiled_pop_class_script, scope_property, scope[scope_property], pop_class_script, scope_names);
+                            compiled_pop_classes_script, scope_property, scope[scope_property], pop_class_script, scope_chain);
                     }
             }
         }
@@ -477,9 +477,9 @@ var PS = {
      @param `property` (string)
      @param `val` (string/number/boolean)
      @param `pop_class_dict` (object) user inputted popscript object for the pop class in context
-     @param [`scopes`] (Array) optional for non-scope properties
+     @param [`scope_chain`] (Array) optional for non-scope properties
      */
-    registerPopProperty: function (dict, property, val, pop_class_dict, scopes) {
+    registerPopProperty: function (dict, property, val, pop_class_dict, scope_chain) {
         // The property mentioned within a scope needs to be converted into
         // its compiled name before registering the pop property.
         // This step is step which
@@ -487,15 +487,14 @@ var PS = {
         // Read the doc given above for more details.
 
 
-        var compiled_property_name = scopes ? (this.compiledScopeName(scopes) + property.toLowerCase()) : property.toLowerCase();
+        var compiled_property_name = scope_chain ? (this.compiledScopeName(scope_chain) + property.toLowerCase()) : property.toLowerCase();
 
 
         // Check if the specificity of the property (rule 5 in doc)
         //TODO: check for scopes between the current and the standalone scope
-        if (scopes && this.hasStandaloneProperty(pop_class_dict, compiled_property_name)) {
+        if (scope_chain && this.hasStandaloneProperty(pop_class_dict, compiled_property_name)) {
             return null;
         }
-
 
         // TODO: add type and regex checks
         if (this.all_properties[compiled_property_name]) {
@@ -505,7 +504,7 @@ var PS = {
         } else {
 
             this.popError(29, ('Invalid pop property name: "' + property + '"') +
-                (!scopes ? "" : ' within scope: ' + scopes.join('>')));
+                (!scope_chain ? "" : ' within scope: ' + scope_chain.join('>')));
         }
 
 
@@ -542,7 +541,6 @@ var PS = {
      @returns (boolean)
      */
     hasStandaloneProperty: function (dict, prop) {
-
         prop = prop.toLowerCase();
         for (var key in dict) {
             if (dict.hasOwnProperty(key)) {
@@ -1012,9 +1010,7 @@ var PS = {
 
 
     checkValidPopClasses: function (pop_class) {
-
         var pop_class_list = PS.helper.trimString(pop_class).split(/[\s]+/);
-
         for (var i = 0; i < pop_class_list.length; i++) {
             if (!this.compiled_popscript[pop_class_list[i]]) {
                 return this.popError(3, "Inexistent Pop Class: '" + pop_class_list[i] + "'");
@@ -1482,6 +1478,7 @@ function pop(content, pop_input, extra_dict) {
 function popOut(pop_num) {
     if (pop_num === undefined) {
         pop_num = PS.highestConditionPopNum();
+        if (pop_num === -1) return;
     }
     var pop_cover = document.getElementById('popscript-cover-' + pop_num);
     var pop_popup = document.getElementById('popscript-box-' + pop_num);
