@@ -1,6 +1,7 @@
 popscript
 =========
 
+**Note the below documentation is not up to date, the official documentation shall be posted on the website soon**
 A JS + CSS library for creating pop ups (modals) with support for animations, lightweight with zero dependencies. (MIT licensed)
 
 ###How to get popping?
@@ -84,10 +85,13 @@ Let us see how it used, here are the function parameters:
     More about pop classes will be mentioned later in the documentation as well.
 
 - `extra_dict`
-    As of writing the documentation, `extra_dict` has only one key which can be mentioned:
-    - `onpopout`  
-    The value of this key is a function. This function will be called when the user closes the
-    pop up.
+    As of writing the documentation, `extra_dict` has the followig:
+    - `beforePopOut` 
+    - `afterPopOut`
+    - `near_element`
+    - `nearElement`
+    - ..more, check upcoming docs on the website
+    
 
 
 ## Pop Classes
@@ -95,31 +99,184 @@ Let us see how it used, here are the function parameters:
 As you have seen before the top of your popscript files contain:
 
     var popscript = {
-        basic:{
-            popup_class:'popup-popup',
-            cover_class:'popup-cover',
-            
-            close_pop:true,
-            close_pop_class:'popup-close',
-            
-            cover_animation_out_keyframes_name:'out-backy',
-            popup_animation_out_keyframes_name:'out-pop',
-            animation_out_duration:410,
-            
-            align_check:[20, 350, 900]
+        basic: {
+            CSS_CLASSES: {
+                box: 'simple-box',
+                cover: 'curtain',
+                close: 'cross'
+            },
+            ANIMATIONS: {
+                IN: {
+                    box: 'zap-in cubic-bezier(.73,.75,.72,1.77)',
+                    cover: 'fade-in',
+                    duration: 300
+                },
+                OUT: {
+                    box: 'zap-out cubic-bezier(.73,.75,.72,1.77)',
+                    cover: 'fade-out',
+                    duration: 300
+                }
+            },
+            POSITION: {
+                y: 'auto',
+                x: 'auto',
+                check: '20, 1000*'
+            },
+    
+            close_content: 'x',
+            close_button: 'yes',
+            cover_fixed: 'no',
+            esc: 'ye',
+            full_draggable: 'yes'
         },
-        
-        slide:{
-            popup_class:'popup-popup arrive-right',
-            popup_animation_out_keyframes_name:'depart-right cubic-bezier(1,0,.46,1)'
+    
+        success: {
+            CSS_CLASSES: {
+                box: 'success'
+            },
+            ANIMATIONS: {
+                IN: {
+                    box: 'drop'
+                },
+                OUT: {
+                    box: 'undrop'
+                }
+            },
+            POSITION: {
+                x: 0,
+                y: 0
+            },
+    
+            close_button: 'no',
+            full_draggable: 'naaaaoh',
+            click_to_close: 'yes, tis is convenient'
         },
-        
-        error:{
-            popup_class:'popup-popup error-popup',
-            'top':'45px',
-            popup_animation_out_keyframes_name:'out-error'
+    
+        error: {
+            CSS_CLASSES: {
+                box: 'error'
+            },
+            ANIMATIONS: {
+                IN: {
+                    box: 'short-arrive-left-fade-in'
+                },
+                OUT: {
+                    box: 'fade-out'
+                }
+            },
+            POSITION: {
+                y: '10',
+                x: '-10'
+            }
+        },
+    
+        dropdown: {
+            CSS_CLASSES: {
+                box: 'dropdown'
+            },
+            ANIMATIONS: {
+                IN: {
+                    duration: 0
+                },
+                OUT: {
+                    duration: 0
+                }
+            },
+            POSITION: {
+                z: '-1'
+            },
+    
+            close_button:'no',
+            cover: 'no',
+            full_draggable: 'no'
+        },
+    
+        tooltip: {
+            CSS_CLASSES: {
+                box: 'popscript-tooltip'
+            },
+    
+            ANIMATIONS: {
+                OUT: {
+                    box: 'fade-out'
+                }
+            },
+            POSITION: {
+                z: '-1'
+            },
+    
+            click_to_close: 'yeh',
+            close_button: 'no',
+            cover: 'no',
+            blur: 'no',
+            esc: 'yes',
+            full_draggable: 'no'
+        },
+    
+        context_menu: {
+            CSS_CLASSES: {
+                box: 'context-menu'
+            },
+            ANIMATIONS: {
+                IN: {
+                    duration: 0
+                },
+                OUT: {
+                    box: 'fade-out'
+                }
+            },
+            POSITION: {
+                fixed: 'no',
+                z: '-1'
+            },
+    
+            cover: 'no',
+            close_button:'no',
+            full_draggable: 'no'
+        },
+    
+        tip_left: {
+            ANIMATIONS: {
+                IN: {
+                    box: 'short-arrive-left-fade-in'
+                }
+            },
+            CSS_CLASSES: {
+                box: 'popscript-tooltip left'
+            }
+        },
+        tip_right: {
+            ANIMATIONS: {
+                IN: {
+                    box: 'short-arrive-right-fade-in'
+                }
+            },
+            CSS_CLASSES: {
+                box: 'popscript-tooltip right'
+            }
+        },
+        tip_up: {
+            ANIMATIONS: {
+                IN: {
+                    box: 'short-arrive-up-fade-in'
+                }
+            },
+            CSS_CLASSES: {
+                box: 'popscript-tooltip up'
+            }
+        },
+        tip_down: {
+            ANIMATIONS: {
+                IN: {
+                    box: 'short-arrive-down-fade-in'
+                }
+            },
+            CSS_CLASSES: {
+                box: 'popscript-tooltip down'
+            }
         }
     };
+
     
 The above is simply a default, you can write your pop classes and add it in `popscript`,
 let us take a look at some key points of pop classes.
