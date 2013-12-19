@@ -1558,7 +1558,7 @@ function pop(content, pop_input, extra_dict) {
         close_node.style.top = '0';
         close_node.style.right = '0';
         close_node.className = pop.scan('css_class_close') + ' popscript-close';
-        close_node.innerText = pop.scan('close_content');
+        close_node.appendChild(document.createTextNode(pop.scan('close_content')));
 
         box_node.appendChild(close_node);
     }
