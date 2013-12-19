@@ -1,0 +1,62 @@
+@import 'variables';
+
+#header {
+  position: fixed;
+  #logo {
+    font-size:30px;
+  }
+  #nav {
+    min-width: 700px;
+    float: left;
+  a {
+    margin-left: 10%;
+    font-size: 30px;
+  }
+  }
+}
+
+.tablet {
+#header {
+  position: fixed;
+  #logo {
+    font-size:20px;
+  }
+  #nav {
+    min-width: 500px;
+    float: left;
+    a {
+      margin-left: 5%;
+      font-size: 20px;
+    }
+  }
+}
+}
+
+.mobile {
+  min-width: 500px;
+  #github-ribbon {
+    position: absolute;
+  }
+  #header {
+    position: absolute;
+
+    #logo {
+      font-size:15px;
+    }
+    #nav {
+      min-width: 500px;
+      float: left;
+      a:first-child {
+        margin-left: 0;
+      }
+    a {
+      font-size:15px;
+    }
+    }
+  }
+}
+
+
+
+
+

@@ -1,0 +1,40 @@
+!!! 5
+html
+    head
+        meta(charset='utf-8')
+        title PopScript
+        //
+          link href='http://fonts.googleapis.com/css?family=Skranji|Sigmar+One|Merienda:400,700' rel='stylesheet' type='text/css'
+        link(rel='stylesheet', type='text/css', href='/static/css/google-web-fonts.css')
+        link(rel='stylesheet', href='/static/css/font-awesome.min.css')
+        link(rel='stylesheet', type='text/css', href='/src/popscript.css')
+        link(rel='stylesheet', type='text/css', href='/static/css/normalize.css')
+        link(rel='stylesheet', type='text/css', href='/static/css/main.css')
+        link(rel='stylesheet', type='text/css', href='/static/css/responsive.css')
+        block google_prettify_theme
+    body
+        #header.cf
+            a#logo(href='/')
+                span POP
+                span SCRIPT
+            #nav.cf
+                a(href='/pending-docs.html')
+                    span.icon-book
+                    |  DOCS
+                a(href='/demo.html')
+                    span.icon-hand-up
+                    |  DEMO
+                a(href='http://github.com/relfor/popscript')
+                    span.icon-download
+                    |  DOWNLOAD
+        block content
+        #main-footer
+            | Crafted with&nbsp;
+            span.icon-heart-empty
+            |  by&nbsp;
+            a(href='http://relfor.co') Relfor
+        script(src='/src/popscript.js', defer='defer')
+        script(src='/static/js/prettify.js', defer='defer')
+        script(src='/static/js/index.js', defer='defer')
+        a(href='https://github.com/relfor/popscript')
+            img#github-ribbon(style='position: absolute; top: 0; right: 0; border: 0;', src='https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png', alt='Fork me on GitHub')

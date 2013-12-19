@@ -90,22 +90,26 @@ test('PS.convert.bool', function () {
 
 
 test('PS.convert.boxPosition', function () {
-    ok(_.isEqual(PS.convert.boxPosition("auto"), ["auto", false, false, false]), "Compiled position for auto");
-    ok(_.isEqual(PS.convert.boxPosition("auto+scrolled"), ["auto", true, false, false]), "Compiled position for auto with scroll");
-    ok(_.isEqual(PS.convert.boxPosition("left"), [0, false, true, false]), "Compiled position for left");
-    ok(_.isEqual(PS.convert.boxPosition("top"), [0, false, true, false]), "Compiled position for top");
-    ok(_.isEqual(PS.convert.boxPosition("bottom"), [0, false, false, false]), "Compiled position for bottom");
-    ok(_.isEqual(PS.convert.boxPosition("right"), [0, false, false, false]), "Compiled position for right");
+    var compiled, prop, scrolled_prop;
+    prop = 'position_x';
+    scrolled_prop = prop + '_scrolled';
+    compiled = {};
+    ok(_.isEqual(PS.convert.boxPosition.call([prop, compiled], "auto"), ["auto", false, false]), "Compiled position for auto");
+    ok(_.isEqual(PS.convert.boxPosition.call([prop, compiled], "auto+scrolled"), ["auto", false, false]) && compiled[scrolled_prop], "Compiled position for auto with scroll");
+    ok(_.isEqual(PS.convert.boxPosition.call([prop, compiled], "left"), [0, true, false]), "Compiled position for left");
+    ok(_.isEqual(PS.convert.boxPosition.call([prop, compiled], "top"), [0, true, false]) , "Compiled position for top");
+    ok(_.isEqual(PS.convert.boxPosition.call([prop, compiled], "bottom"), [0, false, false]) , "Compiled position for bottom");
+    ok(_.isEqual(PS.convert.boxPosition.call([prop, compiled], "right"), [0, false, false]) , "Compiled position for right");
 
-    ok(_.isEqual(PS.convert.boxPosition(15), [15, false, true, false]), "Compiled position for number");
 
-    ok(_.isEqual(PS.convert.boxPosition("15 +scrolled"), [15, true, true, false]), "Compiled position for string number + scrolled");
+    ok(_.isEqual(PS.convert.boxPosition.call([prop,compiled],15), [15, true, false]) , "Compiled position for number");
 
 
-    console.log(PS.convert.boxPosition("15%"));
-    ok(_.isEqual(PS.convert.boxPosition("15%"), [0.15, false, true, true]), "Compiled position for percentage");
+    ok(_.isEqual(PS.convert.boxPosition.call([prop, compiled], "15 +scrolled"), [15, true, false]) && compiled[scrolled_prop], "Compiled position for string number + scrolled");
 
-    ok(_.isEqual(PS.convert.boxPosition("-0% + scrolled"), [0, true, false, true]), "Compiled position for bottom/right");
+
+    ok(_.isEqual(PS.convert.boxPosition.call([prop, compiled], "15%"), [0.15, true, true]) , "Compiled position for percentage");
+    ok(_.isEqual(PS.convert.boxPosition.call([prop, compiled], "-0% + scrolled"), [0, false, true]) && compiled[scrolled_prop], "Compiled position for bottom/right");
 
 });
 
@@ -123,13 +127,23 @@ test('PS.convert.positionCheck', function () {
         [50]
     ]), 'Single timeout Single interval');
 
-    console.log(PS.convert.positionCheck('50,10*, 49, 3*, 145* '));
+    console.log(PS.convert.positionCheck(' 50,10*, 49, 3*, 145* '));
     ok(_.isEqual(PS.convert.positionCheck(' 50,10*, 49, 3*, 145* '), [
         [50, 49],
-        [10,3,145]
+        [10, 3, 145]
     ]), 'Multi timeout Multi interval');
 });
 
+
+test('PS.convert.z', function () {
+    var base_z = popscript_flags.Z;
+    ok(PS.convert.z(5)() === 5, "integer non operator input");
+    ok(PS.convert.z(" 5 ")() === 5, "string non operator input");
+    ok(PS.convert.z(" +2")() === base_z + 2, "string unary add");
+    ok(PS.convert.z("-1 ")() === base_z - 1, "string unary subtract");
+
+
+})
 test('PS.compile', function () {
 
     PS.compile({basic: {
@@ -162,7 +176,7 @@ test('PS.compile', function () {
             }
         },
         second: {
-            POSITION: {'horizontal': '10'}
+            POSITION: {'x': '10'}
         },
         third: {
             ANIMATIONS: {
@@ -173,16 +187,18 @@ test('PS.compile', function () {
         }
     });
 
+    console.log(PS.compiled_popscript);
     ok(_.isEqual(PS.compiled_popscript,
         {
             basic: {close_content: 'x', css_class_box: 'lol'},
-            second: {position_horizontal: [10, false, true, false]},
+            second: {position_x: [10, true, false], position_x_scrolled:false},
             third: {animation_out_duration: 500}
 
         }), "Intermediate test of multi-property-multi-class (scope-less) compilation");
 
 
 });
+
 
 
 

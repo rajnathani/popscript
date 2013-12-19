@@ -1,0 +1,54 @@
+@import 'variables';
+
+
+* {
+  margin-top:0;
+
+}
+
+
+body {
+  background-color: $background-color;
+  min-height: 800px;
+}
+
+#searchbox > form > input[type=submit],
+
+{
+  display: none;
+}
+
+div.document {
+  margin-top:$header-height;
+  a {
+    color:$that-red;
+  }
+  div.body {
+    background-color: #ffffff;
+  }
+}
+
+
+div.sphinxsidebar  {
+  margin-left:0;
+  float: left;
+}
+
+div.footer {
+  clear: both;
+  background-color: black;
+  padding: 10px 0;
+  text-align: center;
+  color:white;
+  a {
+    color:white;
+    text-decoration: underline;
+  }
+}
+
+.documentwrapper {
+  margin-left: 300px;
+}
+
+
+

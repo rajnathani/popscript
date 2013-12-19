@@ -1,71 +1,70 @@
-@import url(http://fonts.googleapis.com/css?family=Noto+Sans:400,700);
+//@import url(http://fonts.googleapis.com/css?family=Noto+Sans:400,700);
+@import 'variables';
 
-
-$left-pad: 45px;
-$header-height: 65px;
-$nice-border: 2px solid rgb(220,220,220);
-$display-font:'Skranji';
-$text-font:'Noto Sans';
-$header-zindex: 1000000;
-$display-font-medium-size:25px;
-$display-font-large-size:40px;
-
-
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, pre {
   margin: 0;
   font-family: $display-font;
 }
 
+.left-pad {
+  padding-left: $left-pad;
+}
+.right-pad {
+  padding-right: $left-pad;
+}
+
 body {
-  background-color: whitesmoke;
+  background-color: $background-color;
   font-family: $text-font, verdana;
   font-size: 18px;
   /*min-height: 5000px;
   min-width: 5000px;*/
 }
 
-
 #header {
-  position: fixed;
+
   z-index: $header-zindex;
   width: 100%;
   top: 0;
+  right: 0;
+  left: 0;
   background-color: black;
   background-image: repeating-linear-gradient(10deg, rgb(55, 55, 55), rgb(55, 55, 55) 13%, black 13%, black 26%);
   padding-left: $left-pad;
-  a {
-    display: block;
-    float: left;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
+  #nav {
+    a {
+      display: block;
+      float: left;
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
 
-    margin-left: 150px;
+      border-right-width: 0;
+      color: white;
+      text-align: center;
 
-    border-right-width: 0;
-    color: white;
-    font-size: 30px;
-    text-align: center;
+      font-family: $display-font;
+      line-height: $header-height;
 
-    font-family: $display-font;
-    line-height: $header-height;
+    }
 
+    a:hover {
+      color: yellow;
+      text-decoration: none;
+      //border-bottom:3px solid #ff5858;
+
+    }
   }
-
-  a:hover {
-    color: yellow;
-    //border-bottom:3px solid #ff5858;
-
-  }
-
   #logo {
     margin-left: 0;
     padding-left: 0;
+    float: left;
     width: auto;
     border-left-width: 0;
 
     font-family: 'Sigmar One';
     letter-spacing: 1px;
     border: none;
+    line-height: $header-height;
 
   }
 
@@ -75,16 +74,15 @@ body {
   }
   #logo span:first-child {
     border-radius: 100%;
-    background-color: #ff5858;
-    ackground-image: -webkit-linear-gradient(top, #ff5858, #bc2d35 100%);
+    background-color: $that-red;
     padding: 19px;
 
     color: white;
 
   }
   #logo span:last-child {
-    color: #7684ff;
-    color: #ff5858;
+
+    color: $that-red;
   }
 }
 
@@ -94,26 +92,26 @@ body {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
 
-
   #intro-line {
     padding: 30px 0 30px $left-pad;
     border-bottom: $nice-border;
-    font-size:25px;
+    font-size: 25px;
 
   }
-  #sample-popscript-code {
+  .sample-popscript-code {
     //width: 50%;
-    width: 45%;
+    width: $sample-popscript-width * 1%;
 
     box-sizing: border-box;
     -moz-box-sizing: border-box;
-    float: left;
+
 
     > h1 {
-      padding: 10px $left-pad;
+      padding: 10px $left-pad*(100/$sample-popscript-width);
+
       font-family: $display-font;
-      border-bottom: $nice-border;
       font-size: $display-font-large-size;
+
     }
 
     pre {
@@ -121,15 +119,34 @@ body {
     }
 
   }
-  #main-features {
+  #popscript-class-implementation {
+    float: left;
+  }
+  .right-area {
     float: left;
 
-
-    width: 55%;
+    width: (100 - $sample-popscript-width) * 1%;
 
     overflow: auto;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
+  }
+
+
+}
+
+.feats {
+  .sample-popscript-code {
+    > h1 {
+
+      border-bottom: $nice-border;
+
+    }
+
+  }
+
+  .right-area {
+
     border-left: $nice-border;
     > div {
       padding: 20px;
@@ -142,16 +159,115 @@ body {
         }
       }
       > div p {
-        color: rgb(80,80,80);
+        color: rgb(80, 80, 80);
 
       }
     }
   }
+}
 
+.demo {
+  .right-area {
+    width: (100 - $sample-popscript-width*2) * 1% !important;
+  }
+  .sample-popscript-code {
+    > h1 {
+      background-color: transparent;
+
+      //color:white;
+
+    }
+  }
+
+  .right-area {
+
+    > div {
+      margin:20px 0 0 0;
+
+      table {
+        margin: auto;
+        tr#demo-theader th:last-child {
+
+          padding-left: 0;
+          span {
+            display: none;
+            padding: 10px 25px;
+
+
+
+
+          }
+        }
+        td:nth-child(2){
+          display: none;
+        }
+        tr:not(#demo-theader) {
+          td:last-child {
+            padding-left: 20px;
+
+            color: $that-green;
+            font-weight: bold;
+            span:before, span:after {
+              content: '"';
+
+            }
+
+          }
+
+        }
+
+        td, th {
+          text-align: center;
+        }
+        th {
+          padding: 25px 0 5px 0;
+          font-family: $display-font;
+          font-size: $display-font-medium-size;
+        }
+      }
+
+      button {
+        margin: 4px 0;
+        padding: 10px 5px;
+        width: 200px;
+        text-align: left;
+      }
+
+      button:focus {
+        outline: none;
+
+      }
+
+    }
+  }
 }
 
 
-#github-ribbon{
+#popscript-calls {
+  float: left;
+  pre {
+    white-space: pre ;
+    overflow: scroll;
+  }
+}
+#github-ribbon {
   position: fixed !important;
   z-index: $header-zindex;
 }
+
+#main-footer {
+  padding: 15px 0;
+  background-color: #000000;
+  text-align: center;
+  color: white;
+
+  font-family: $display-font;
+
+  a {
+    color: white;
+    text-decoration: underline;
+  }
+}
+
+
+

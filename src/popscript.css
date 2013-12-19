@@ -22,15 +22,30 @@
 
 }
 
-.error-pop {
+.error {
     background-color: #ff475a;
+    padding: 10px;
+    width:200px;
+    color:white;
+    border-radius: 3px;
 }
 
+.success {
+    width:100%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    background-color: #37a35b;
+    padding: 10px;
+    color: #ffffff;
+    text-align: center;
+}
 
 .cross {
     color: grey;
+    color:rgba(0,0,0,0.5);
     background-color: transparent;
     width: 15px;
+    line-height: 15px;
     text-align: center;
     margin: 2px 2px 0 0;
     padding: 1px;
@@ -42,12 +57,11 @@
     color: #ffffff;
     background-color: #ff475a;
     border-radius: 100%;
-
 }
 
 .cross:active {
-    color: black;
-    box-shadow: 0 0 1px 1px #00008b
+    color: grey;
+    color:rgba(0,0,0,0.5);
 }
 
 /***end of popups**/
@@ -60,7 +74,8 @@
     cursor: default;
 
     background-color: rgb(20,20,20);
-    max-width: 250px;
+    width:200px;
+    max-width: 200px;
     border-radius: 4px;
 
     padding: 7px 10px;
@@ -68,7 +83,7 @@
 
 }
 
-.popscript-tooltip:after {
+.popscript-tooltip:after, .dropdown:before, .dropdown:after {
     position: absolute;
     content: "";
     width: 0;
@@ -78,7 +93,14 @@
     line-height: 0;
 }
 
-
+/* In this section below, we use css to draw triangles to mimic pointers on tooltips
+Alternatively, it can be done in 2 lesser lines of code by using background-image. Eg:
+.popscript-tooltip.left:after {
+    left:-10px;
+    top:8px;
+    background-image:url('static/imgs/pointer.png');
+}
+*/
 .popscript-tooltip.left:after {
     left:-10px;
     top:8px;
@@ -92,43 +114,109 @@
     top:8px;
     border-bottom: 8px solid transparent;  /* left arrow slant */
     border-top: 8px solid transparent; /* right arrow slant */
-    border-right: 10px solid rgb(20,20,20); /* bottom, add background color here */
-}
-
-.popscript-tooltip.up:after {
-    left:120px;
-    top:8px;
-    border-bottom: 8px solid transparent;  /* left arrow slant */
-    border-top: 8px solid transparent; /* right arrow slant */
-    border-right: 10px solid rgb(20,20,20); /* bottom, add background color here */
+    border-left: 10px solid rgb(20,20,20); /* bottom, add background color here */
 }
 
 .popscript-tooltip.down:after {
-    left:120px;
-    bottom:8px;
-    border-bottom: 8px solid transparent;  /* left arrow slant */
-    border-top: 8px solid transparent; /* right arrow slant */
-    border-right: 10px solid rgb(20,20,20); /* bottom, add background color here */
+    left:95px;
+    top:-10px;
+    border-left: 8px solid transparent;  /* left arrow slant */
+    border-right: 8px solid transparent; /* right arrow slant */
+    border-bottom: 10px solid rgb(20,20,20); /* bottom, add background color here */
 }
 
+.popscript-tooltip.up:after {
+    left:95px;
+    bottom:-10px;
+    border-left: 8px solid transparent;  /* left arrow slant */
+    border-right: 8px solid transparent; /* right arrow slant */
+    border-top: 10px solid rgb(20,20,20); /* bottom, add background color here */
+}
+
+
+.context-menu {
+    background-color: white;
+    border: 1px solid grey;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+}
+
+.context-menu ul {
+    margin: 0;
+    padding: 0;
+}
+.context-menu li {
+    cursor: default;
+    list-style-type: none;
+    padding: 10px;
+    width: 150px;
+    border-bottom: 1px solid gainsboro;
+}
+
+.context-menu li:hover{
+    background-color: whitesmoke;
+}
+
+.dropdown {
+    width: 200px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    background-color: white;
+    border: 1px solid rgba(0,0,0,0.3);
+    box-shadow: 0 0 4px 1px rgba(0,0,0,0.3);
+    border-radius: 3px;
+}
+
+.dropdown:before {
+    left:94px;
+    top:-11px;
+
+    border-left: 9px solid transparent;  /* left arrow slant */
+    border-right: 9px solid transparent; /* right arrow slant */
+    border-bottom: 11px solid rgba(0,0,0,0.5); /* bottom, add background color here */
+}
+
+.dropdown:after {
+    left:95px;
+    top:-10px;
+
+    border-left: 8px solid transparent;  /* left arrow slant */
+    border-right: 8px solid transparent; /* right arrow slant */
+    border-bottom: 10px solid white; /* bottom, add background color here */
+}
+
+
+.dropdown ul {
+    margin: 0;
+    padding: 0;
+}
+.dropdown li {
+    cursor: pointer;
+    list-style-type: none;
+    padding: 10px;
+    border-bottom: 1px solid gainsboro;
+}
+
+.dropdown li:hover{
+    color:blue;
+}
 
 /**animations**/
 
 @-webkit-keyframes fade-in {
     from {
-        background: rgba(0, 0, 0, 0)
+        opacity:0;
     }
     to {
-        background: rgba(0, 0, 0, .3)
+        opacity: 1;
     }
 }
 
 @keyframes fade-in {
     from {
-        background: rgba(0, 0, 0, 0)
+        opacity: 0;
     }
     to {
-        background: rgba(0, 0, 0, .3)
+        opacity: 1;
     }
 }
 
@@ -194,7 +282,39 @@
 }
 
 
+@keyframes drop {
+    from {
+        transform:translate(0,-100px);
+    }
+    to {
+        transform:translate(0, 0);
+    }
+}
+@-webkit-keyframes drop {
+    from {
+        -webkit-transform:translate(0,-100px);
+    }
+    to {
+        -webkit-transform:translate(0, 0);
+    }
+}
 
+@keyframes undrop {
+    from {
+        transform:translate(0, 0);
+    }
+    to {
+        transform:translate(0,-100px);
+    }
+}
+@-webkit-keyframes undrop {
+    from {
+        -webkit-transform:translate(0, 0);
+    }
+    to {
+        -webkit-transform:translate(0,-100px);
+    }
+}
 
 
 
@@ -222,6 +342,77 @@
         opacity: 1;
     }
 }
+
+
+@keyframes short-arrive-right-fade-in {
+    from {
+        transform: translate(-20px, 0);
+        opacity: 0.2;
+    }
+    to {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+}
+
+
+@-webkit-keyframes short-arrive-right-fade-in {
+    from {
+        -webkit-transform: translate(-20px, 0);
+        opacity: 0.2;
+    }
+    to {
+        -webkit-transform: translate(0, 0);
+        opacity: 1;
+    }
+}
+
+@keyframes short-arrive-up-fade-in {
+    from {
+        transform: translate(0, -20px);
+        opacity: 0.2;
+    }
+    to {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+}
+
+
+@-webkit-keyframes short-arrive-up-fade-in {
+    from {
+        -webkit-transform: translate(0,-20px);
+        opacity: 0.2;
+    }
+    to {
+        -webkit-transform: translate(0, 0);
+        opacity: 1;
+    }
+}
+
+@keyframes short-arrive-down-fade-in {
+    from {
+        transform: translate( 0, 20px);
+        opacity: 0.2;
+    }
+    to {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+}
+
+
+@-webkit-keyframes short-arrive-down-fade-in {
+    from {
+        -webkit-transform: translate(0,20px);
+        opacity: 0.2;
+    }
+    to {
+        -webkit-transform: translate(0, 0);
+        opacity: 1;
+    }
+}
+
 
 
 /* End of Advanced */

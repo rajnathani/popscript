@@ -1,0 +1,170 @@
+/* Tomorrow Theme */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+/* Pretty printing styles. Used with prettify.js. */
+/* SPAN elements with the classes below are added by prettyprint. */
+/* plain text */
+@import 'variables';
+
+.pln {
+  color: #7584ff;
+}
+
+@media screen {
+  /* string content */
+  .str {
+    color:  #f5871f ;
+      color:$that-red;
+      font-weight: normal;
+  }
+
+  /* a keyword */
+  .kwd {
+    color: #8959a8;
+  }
+
+  /* a comment */
+  .com {
+    color: #8e908c;
+  }
+
+  /* a type name */
+  .typ {
+    color: #4271ae;
+  }
+
+  /* a literal value */
+  .lit {
+    color: #f5871f;
+  }
+
+  /* punctuation */
+  .pun {
+    color: green;
+  }
+
+  /* lisp open bracket */
+  .opn {
+    color: #4d4d4c;
+  }
+
+  /* lisp close bracket */
+  .clo {
+    color: #4d4d4c;
+  }
+
+  /* a markup tag name */
+  .tag {
+    color: #c82829;
+  }
+
+  /* a markup attribute name */
+  .atn {
+    color: #f5871f;
+  }
+
+  /* a markup attribute value */
+  .atv {
+    color: #3e999f;
+  }
+
+  /* a declaration */
+  .dec {
+    color: #f5871f;
+  }
+
+  /* a variable name */
+  .var {
+    color: #c82829;
+  }
+
+  /* a function name */
+  .fun {
+    color: #4271ae;
+  }
+}
+/* Use higher contrast and text-weight for printable form. */
+@media print, projection {
+  .str {
+    color: #006600;
+  }
+
+  .kwd {
+    color: #006;
+    font-weight: bold;
+  }
+
+  .com {
+    color: #600;
+    font-style: italic;
+  }
+
+  .typ {
+    color: #404;
+    font-weight: bold;
+  }
+
+  .lit {
+    color: #004444;
+  }
+
+  .pun, .opn, .clo {
+    color: #444400;
+  }
+
+  .tag {
+    color: #006;
+    font-weight: bold;
+  }
+
+  .atn {
+    color: #440044;
+  }
+
+  .atv {
+    color: #006600;
+  }
+}
+/* Style */
+pre {
+  font-family: Menlo, "Bitstream Vera Sans Mono", "DejaVu Sans Mono", Monaco, Consolas, monospace;
+  font-size: 15px;
+  line-height: 1.5;
+  padding: 10px;
+    background-color:rgb(0,0,0) ;
+
+  background-image:repeating-linear-gradient(90deg, rgb(20,20,20) , rgb(20,20,20) 8px, black 8px, black 16px);
+  //background-color: rgb(55,55,55);
+}
+
+code {
+    font-family: Menlo, "Bitstream Vera Sans Mono", "DejaVu Sans Mono", Monaco, Consolas, monospace;
+}
+
+/* Specify class=linenums on a pre to get line numbering */
+ol.linenums {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* IE indents via margin-left */
+li.L0,
+li.L1,
+li.L2,
+li.L3,
+li.L4,
+li.L5,
+li.L6,
+li.L7,
+li.L8,
+li.L9 {
+  /* */
+}
+
+/* Alternate shading for lines */
+li.L1,
+li.L3,
+li.L5,
+li.L7,
+li.L9 {
+  /* */
+}

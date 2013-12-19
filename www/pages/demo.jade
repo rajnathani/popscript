@@ -1,0 +1,254 @@
+extend base
+
+block append google_prettify_theme
+    link(rel='stylesheet', type='text/css', href='/static/css/dark-prettify-theme.css')
+
+
+block content
+    #content.cf.demo
+        #popscript-class-implementation.sample-popscript-code
+            h1
+                | PopScript Classes
+            pre.
+                basic: {
+                    CSS_CLASSES: {
+                        box: 'simple-box',
+                        cover: 'curtain',
+                        close: 'cross'
+                    },
+                    ANIMATIONS: {
+                        IN: {
+                            box: 'zap-in cubic-bezier(.73,.75,.72,1.77)',
+                            cover: 'fade-in',
+                            duration: 300
+                        },
+                        OUT: {
+                            box: 'zap-out cubic-bezier(.73,.75,.72,1.77)',
+                            cover: 'fade-out',
+                            duration: 300
+                        }
+                    },
+                    POSITION: {
+                        y: 'auto',
+                        x: 'auto',
+                        check: '20, 1000*'
+                    },
+
+                    close_content: 'x',
+                    close_button: 'yes',
+                    cover_fixed: 'no',
+                    esc: 'ye',
+                    full_draggable: 'yes'
+                },
+
+                success: {
+                    CSS_CLASSES: {
+                        box: 'success'
+                    },
+                    ANIMATIONS: {
+                        IN: {
+                            box: 'drop'
+                        },
+                        OUT: {
+                            box: 'undrop'
+                        }
+                    },
+                    POSITION: {
+                        x: 0,
+                        y: 0
+                    },
+
+                    close_button: 'no',
+                    full_draggable: 'naaaaoh',
+                    click_to_close: 'yes, tis is convenient'
+                },
+
+                error: {
+                    CSS_CLASSES: {
+                        box: 'error'
+                    },
+                    ANIMATIONS: {
+                        IN: {
+                            box: 'short-arrive-left-fade-in'
+                        },
+                        OUT: {
+                            box: 'fade-out'
+                        }
+                    },
+                    POSITION: {
+                        y: '10',
+                        x: '-10'
+                    }
+                },
+
+                dropdown: {
+                    CSS_CLASSES: {
+                        box: 'dropdown'
+                    },
+                    ANIMATIONS: {
+                        IN: {
+                            duration: 0
+                        },
+                        OUT: {
+                            duration: 0
+                        }
+                    },
+                    POSITION: {
+                        z: '-1'
+                    },
+
+                    close_button:'no',
+                    cover: 'no',
+                    full_draggable: 'no'
+                },
+
+                tooltip: {
+                    CSS_CLASSES: {
+                        box: 'popscript-tooltip'
+                    },
+
+                    ANIMATIONS: {
+                        OUT: {
+                            box: 'fade-out'
+                        }
+                    },
+                    POSITION: {
+                        z: '-1'
+                    },
+
+                    click_to_close: 'yeh',
+                    close_button: 'no',
+                    cover: 'no',
+                    blur: 'no',
+                    esc: 'yes',
+                    full_draggable: 'no'
+                },
+
+                context_menu: {
+                    CSS_CLASSES: {
+                        box: 'context-menu'
+                    },
+                    ANIMATIONS: {
+                        IN: {
+                            duration: 0
+                        },
+                        OUT: {
+                            box: 'fade-out'
+                        }
+                    },
+                    POSITION: {
+                        fixed: 'no',
+                        z: '-1'
+                    },
+
+                    cover: 'no',
+                    close_button:'no',
+                    full_draggable: 'no'
+                },
+
+                tip_left: {
+                    ANIMATIONS: {
+                        IN: {
+                            box: 'short-arrive-left-fade-in'
+                        }
+                    },
+                    CSS_CLASSES: {
+                        box: 'popscript-tooltip left'
+                    }
+                },
+                tip_right: {
+                    ANIMATIONS: {
+                        IN: {
+                            box: 'short-arrive-right-fade-in'
+                        }
+                    },
+                    CSS_CLASSES: {
+                        box: 'popscript-tooltip right'
+                    }
+                },
+                tip_up: {
+                    ANIMATIONS: {
+                        IN: {
+                            box: 'short-arrive-up-fade-in'
+                        }
+                    },
+                    CSS_CLASSES: {
+                        box: 'popscript-tooltip up'
+                    }
+                },
+                tip_down: {
+                    ANIMATIONS: {
+                        IN: {
+                            box: 'short-arrive-down-fade-in'
+                        }
+                    },
+                    CSS_CLASSES: {
+                        box: 'popscript-tooltip down'
+                    }
+                }
+
+        .right-area
+            div
+                table
+                    tr#demo-theader
+                        th
+                        th
+                            span Pop Class
+                    tr
+                        th Pop Up
+                    tr
+                        td
+                            button#demo-general General
+                        td
+                            span
+                    tr
+                        td
+                            button#demo-success Success
+                        td
+                            span success
+                    tr
+                        td
+                            button#demo-error Error
+                        td
+                            span error
+                    tr
+                        th Dropdown
+                    tr
+                        td
+                            button#demo-dropdown Dropdown
+                        td
+                            span dropdown
+                    tr
+                        th Context Menu
+                    tr
+                        td
+                            button#demo-context-menu Context Menu (Right Click)
+                        td
+                            span
+                                | context_menu
+                    tr
+                        th Tooltip
+                    tr
+                        td
+                            button#demo-tooltip-up Up
+                        td
+                            span tooltip tip_top
+                    tr
+                        td
+                            button#demo-tooltip-right Right
+                        td
+                            span tooltip tip_right
+                    tr
+                        td
+                            button#demo-tooltip-down Down
+                        td
+                            span tooltip tip_down
+                    tr
+                        td
+                            button#demo-tooltip-left Left
+                        td
+                            span tooltip tip_left
+        #popscript-calls.sample-popscript-code
+            h1
+                | Implementation
+            pre.
