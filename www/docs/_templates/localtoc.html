@@ -9,6 +9,7 @@ Sphinx sidebar template: local table of contents.
 #}
 {%- if display_toc %}
     <!--h3><a href="{{ pathto(master_doc) }}">{{ _('Table Of Contents') }}</a></h3-->
-    <h3>{{ _('Table Of Contents') }}</h3>
+    <!--h3>{{ _('Table Of Contents') }}</h3-->
+    <h3>{{ _('Current topic') }}</h3>
     {{ toc }}
 {%- endif %}

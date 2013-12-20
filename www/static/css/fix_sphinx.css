@@ -5,11 +5,15 @@ body {
   background-color: whitesmoke;
   min-height: 800px; }
 
-#searchbox > form > input[type=submit] {
+.documentwrapper h1, .documentwrapper h2, .documentwrapper h3, .documentwrapper h4, .documentwrapper h5, .documentwrapper h6 {
+  margin: 14px 0 5px 0; }
+
+#searchbox > form > input[type=submit],
+.searchtip {
   display: none; }
 
 div.document {
-  margin-top: 65px; }
+  padding-top: 65px; }
   div.document a {
     color: #e6121c; }
   div.document div.body {

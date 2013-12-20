@@ -12,14 +12,20 @@ body {
   min-height: 800px;
 }
 
+.documentwrapper {
+  h1,h2,h3,h4,h5,h6{
+    margin: 14px 0 5px 0;
+  }
+}
 #searchbox > form > input[type=submit],
-
+.searchtip
 {
   display: none;
 }
 
+
 div.document {
-  margin-top:$header-height;
+  padding-top:$header-height;
   a {
     color:$that-red;
   }
