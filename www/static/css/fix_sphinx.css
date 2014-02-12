@@ -8,20 +8,106 @@ body {
 .documentwrapper h1, .documentwrapper h2, .documentwrapper h3, .documentwrapper h4, .documentwrapper h5, .documentwrapper h6 {
   margin: 14px 0 5px 0; }
 
-#searchbox > form > input[type=submit],
-.searchtip {
-  display: none; }
-
-div.document {
-  padding-top: 65px; }
-  div.document a {
+.document {
+  margin-top: 65px; }
+  .document a {
     color: #e6121c; }
-  div.document div.body {
-    background-color: #ffffff; }
+    .document a:hover {
+      text-decoration: underline;
+      color: #f36b71;
+      transition: 500ms all; }
+  .document .body {
+    overflow: auto; }
+    .document .body pre {
+      max-height: 310px;
+      overflow: auto; }
+    .document .body .section li {
+      margin-top: 10px;
+      margin-bottom: 10px; }
+    .document .body .section .toctree-wrapper ul {
+      margin: 1px 0 15px 0; }
+      .document .body .section .toctree-wrapper ul li {
+        margin: 5px 0; }
+    .document .body .section > div[class^="highlight"] {
+      margin-left: 0 !important; }
+    .document .body .section div[class^="highlight"] {
+      margin-top: 10px;
+      margin-bottom: 10px; }
+    .document .body .section .docs-ps-prop, .document .body .section .docs-ps-scope {
+      padding: 4px 8px;
+      color: white; }
+    .document .body .section .docs-ps-prop {
+      cursor: pointer;
+      font-size: 15px !important;
+      background-color: #e6121c;
+      border-radius: 0 10px 10px 0; }
+    .document .body .section .docs-ps-prop:hover {
+      background-color: #f2535a; }
+    .document .body .section .docs-ps-prop:active {
+      background-color: #9f0c13; }
+    .document .body .section .docs-ps-scope {
+      font-size: 20px !important;
+      background-color: black;
+      border-radius: 10px 10px 0 0; }
+    .document .body > .section > *:not(.section) {
+      margin-left: 25px; }
+    .document .body > .section > table.docutils {
+      width: 200px;
+      width: calc(100% - 25px);
+      width: -webkit-calc(100% - 25px); }
+    .document .body > .section > .section > *:not(.section) {
+      margin-left: 50px; }
+    .document .body > .section > .section > table.docutils {
+      width: 200px;
+      width: calc(100% - 50px);
+      width: -webkit-calc(100% - 50px); }
+    .document .body > .section > .section > .section > *:not(.section) {
+      margin-left: 75px; }
+    .document .body > .section > .section > .section > table.docutils {
+      width: 200px;
+      width: calc(100% - 75px);
+      width: -webkit-calc(100% - 75px); }
+    .document .body > .section > .section > .section > .section > *:not(.section) {
+      margin-left: 100px; }
+    .document .body > .section > .section > .section > .section > table.docutils {
+      width: 200px;
+      width: calc(100% - 100px);
+      width: -webkit-calc(100% - 100px); }
+    .document .body > .section > .section > .section > .section > .section > *:not(.section) {
+      margin-left: 125px; }
+    .document .body > .section > .section > .section > .section > .section > table.docutils {
+      width: 200px;
+      width: calc(100% - 125px);
+      width: -webkit-calc(100% - 125px); }
+    .document .body > .section > .section > .section > .section > .section > .section > *:not(.section) {
+      margin-left: 150px; }
+    .document .body > .section > .section > .section > .section > .section > .section > table.docutils {
+      width: 200px;
+      width: calc(100% - 150px);
+      width: -webkit-calc(100% - 150px); }
+
+.x-search-area {
+  margin-left: 25px !important; }
 
 div.sphinxsidebar {
   margin-left: 0;
-  float: left; }
+  float: left;
+  position: fixed;
+  height: 90%;
+  height: calc(100% - 65px);
+  height: -webkit-calc(100% - 65px);
+  width: 230px;
+  padding-right: 30px;
+  background-color: gainsboro;
+  overflow: auto; }
+  div.sphinxsidebar ul {
+    padding-left: 21px; }
+    div.sphinxsidebar ul ul {
+      font-style: italic; }
+  div.sphinxsidebar .sphinxsidebarwrapper > ul li {
+    list-style-type: none; }
+    div.sphinxsidebar .sphinxsidebarwrapper > ul li li {
+      list-style-type: disc; }
 
 div.footer {
   clear: both;
@@ -34,4 +120,44 @@ div.footer {
     text-decoration: underline; }
 
 .documentwrapper {
-  margin-left: 300px; }
+  margin-left: 260px; }
+  .mobile .documentwrapper {
+    margin-left: 0; }
+
+div.sphinxsidebar ul ul, div.sphinxsidebar ul.want-points {
+  margin-left: 0; }
+
+table.docutils {
+  width: 100%; }
+  table.docutils td, table.docutils table.docutils th {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    border: 2px solid gainsboro;
+    padding: 10px; }
+
+div.sphinxsidebar form.search {
+  width: 100%;
+  margin: 8px 0 13px 0; }
+div.sphinxsidebar #searchbox input[type="text"] {
+  background-color: whitesmoke;
+  border-radius: 10px;
+  padding: 5px 10px;
+  border: none; }
+
+h1 {
+  font-size: 2.5em; }
+
+h2 {
+  font-size: 2.2em; }
+
+h3 {
+  font-size: 1.9em; }
+
+h4 {
+  font-size: 1.6em; }
+
+h5 {
+  font-size: 1.3em; }
+
+h6 {
+  font-size: 1.1em; }

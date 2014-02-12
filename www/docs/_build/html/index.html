@@ -34,7 +34,7 @@
 <script type="text/javascript" src="_static/underscore.js"></script>
 <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="Popscript 1.0 documentation" href="#"/>
-    <link rel="next" title="Getting started" href="getting_started.html"/> 
+    <link rel="next" title="Chapter 0: Getting started" href="getting-started.html"/> 
     <link rel="stylesheet" type="text/css" href="/static/css/fix_sphinx.css"/>
 </head>
 <body>
@@ -54,23 +54,23 @@
     
 <div class="sphinxsidebar">
     <div class="sphinxsidebarwrapper">
-  <h4>Next topic</h4>
-  <p class="topless"><a href="getting_started.html"
-                        title="next chapter">Getting started</a></p>
-        
 <div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
+  <!-- h3>Quick search</h3 -->
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <input type="text" name="q" placeholder="Quick search" />
+      <!-- input type="submit" value="Go" / -->
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
+    <!-- p class="searchtip" style="font-size: 90%">
     Enter search terms or a module, class or function name.
-    </p>
+    </p -->
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="getting-started.html"
+                        title="next chapter">Chapter 0: Getting started</a></p>
+        
     </div>
 </div>
     <div class="documentwrapper">
@@ -82,19 +82,41 @@
 <p>Contents:</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="getting_started.html#the-two-files-you-will-need">The two files you will need</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getting_started.html#how-am-i-going-to-use-popscript">How am I going to use popscript?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Chapter 0: Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#the-two-files-you-will-need">The two files you will need</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#how-am-i-going-to-use-popscript">How am I going to use popscript?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#pop-id">pop ID</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="almanac.html">Almanac</a></li>
-<li class="toctree-l1"><a class="reference internal" href="advanced.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="core.html">Chapter 1: Core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="core.html#before-we-begin-namespace">Before we begin: Namespace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core.html#components-of-a-pop">Components of a Pop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core.html#pop-class">Pop Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core.html#pop-properties">Pop Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core.html#popscript-boolean-poolean">PopScript Boolean (poolean)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core.html#properties">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core.html#few-functions">Few Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core.html#popscript-flags">PopScript Flags</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="guru.html">Chapter 2: Guru</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guru.html#reality-there-is-no-scope">Reality: There is no Scope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guru.html#creating-a-custom-close-hide-button">Creating a custom close/hide button</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guru.html#creating-an-element-to-drag-a-pop">Creating an element to drag a pop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guru.html#the-secret-api">The secret API</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
 
 
             </div>
+            <div class="footer">
+                &copy; Copyright 2013, Relfor.
+                Documentation created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+            </div>
+
         </div>
     </div>
 
@@ -102,11 +124,14 @@
 </div>
 
 
-<div class="footer">
-    &copy; Copyright 2013, Relfor.
-    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
-</div>
+
+
 </body>
 <script type="text/javascript" src="/static/js/prettify.js"></script>
+<script type="text/javascript" src="/src/popscript.js"></script>
 <script type="text/javascript" src="/static/js/index.js"></script>
+<script type="text/javascript" src="/static/js/docs.js"></script>
+
+
+
 </html>

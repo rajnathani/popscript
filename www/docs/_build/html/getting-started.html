@@ -1,0 +1,314 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    
+    <title>Chapter 0: Getting started &mdash; Popscript 1.0 documentation</title>
+
+    <link rel="stylesheet" type="text/css" href="/static/css/google-web-fonts.css"/>
+    <link rel="stylesheet" href="/static/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/src/popscript.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/normalize.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/responsive.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/dark-prettify-theme.css"/>
+
+    
+<link rel="stylesheet" href="_static/basic.css" type="text/css"/>
+<link rel="stylesheet" href="_static/pygments.css" type="text/css"/>
+    
+<script type="text/javascript">
+    var DOCUMENTATION_OPTIONS = {
+        URL_ROOT: '',
+        VERSION: '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE: true
+    };
+</script>
+<script type="text/javascript" src="_static/jquery.js"></script>
+<script type="text/javascript" src="_static/underscore.js"></script>
+<script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Popscript 1.0 documentation" href="index.html"/>
+    <link rel="next" title="Chapter 1: Core" href="core.html"/>
+    <link rel="prev" title="Welcome to Popscript’s documentation!" href="index.html"/> 
+    <link rel="stylesheet" type="text/css" href="/static/css/fix_sphinx.css"/>
+</head>
+<body>
+
+<div id="header" class="cf">
+    <a id="logo" href="/"><span>POP</span><span>SCRIPT</span></a>
+    <div id="nav" class="cf">
+        <a href="/docs/index.html"><span class="icon-book"></span> DOCS</a>
+        <a href="/demo.html"><span class="icon-hand-up"></span> DEMO</a>
+        <a href="/download.html"><span class="icon-download"></span> DOWNLOAD</a>
+    </div>
+</div>
+
+  
+
+<div class="document">
+    
+<div class="sphinxsidebar">
+    <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <!-- h3>Quick search</h3 -->
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" placeholder="Quick search" />
+      <!-- input type="submit" value="Go" / -->
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <!-- p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p -->
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+    <!--h3><a href="index.html">Table Of Contents</a></h3-->
+    <!--h3>Table Of Contents</h3-->
+    <h3>Current topic</h3>
+    <ul>
+<li><a class="reference internal" href="#">Chapter 0: Getting started</a><ul>
+<li><a class="reference internal" href="#the-two-files-you-will-need">The two files you will need</a></li>
+<li><a class="reference internal" href="#how-am-i-going-to-use-popscript">How am I going to use popscript?</a><ul>
+<li><a class="reference internal" href="#first-point-functions">(First point) Functions</a></li>
+<li><a class="reference internal" href="#second-point-pop-class">(Second point) Pop Class</a></li>
+<li><a class="reference internal" href="#third-last-point-the-process-of-popping">(Third &amp; Last point) The process of popping</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pop-id">pop ID</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Welcome to Popscript&#8217;s documentation!</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="core.html"
+                        title="next chapter">Chapter 1: Core</a></p>
+        
+    </div>
+</div>
+    <div class="documentwrapper">
+        <div class="bodywrapper">
+            <div class="body">
+                
+  <div class="section" id="chapter-0-getting-started">
+<h1>Chapter 0: Getting started<a class="headerlink" href="#chapter-0-getting-started" title="Permalink to this headline">¶</a></h1>
+<p>Welcome to the world of PopScript. The entire documentation is divided into 3 parts: (1) <a class="reference internal" href=""><em>Chapter 0: Getting started</em></a> [the current section] (2) <a class="reference internal" href="core.html"><em>Chapter 1: Core</em></a> [where you will learn the most used parts of popscript] (3) <a class="reference internal" href="guru.html"><em>Chapter 2: Guru</em></a> [discover the unknown territory]. Before beginning to use PopScript, there are few very basic set up instructions and fundamentals which you should know of, that is what this section is about to teach you.</p>
+<div class="section" id="the-two-files-you-will-need">
+<h2>The two files you will need<a class="headerlink" href="#the-two-files-you-will-need" title="Permalink to this headline">¶</a></h2>
+<p>Let us begin with what comes out of the box, you will need these to start poppin&#8217;:</p>
+<ul>
+<li><dl class="first docutils">
+<dt><cite>popscript.js</cite> or <cite>popscript.min.js</cite></dt>
+<dd><p class="first last">This contains the code responsible for implementing PopScript, and it contains the entire javascript API.
+It also comes with default popscript already coded at the top of the file.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><cite>popscript.css</cite></dt>
+<dd><p class="first last">popscript.css is the boilerplate CSS file for generating the pops. The default popscript provided in popscript.js references
+CSS classes and animations defined in popscript.css.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>How to put in these two files?</p>
+<p>Your webpage would look like this:</p>
+<div class="highlight-python"><pre>&lt;html&gt;
+    &lt;head&gt;
+    ......................
+    &lt;link rel="stylesheet" type="text/css" href="popscript.css" /&gt;
+    &lt;script type="text/javascript" src="popscript.js"&gt;&lt;/script&gt;
+    ......................
+    &lt;/head&gt;
+    &lt;body&gt;
+    ......................
+    &lt;button onclick="pop('hello world')"&gt;Click Me!&lt;/button&gt;
+    ......................
+  &lt;/body&gt;
+&lt;/html&gt;</pre>
+</div>
+<p><strong>OR</strong>:</p>
+<div class="highlight-python"><pre>&lt;html&gt;
+    &lt;head&gt;
+        ......................
+        &lt;link rel="stylesheet" type="text/css" href="popscript.css" /&gt;
+        ......................
+    &lt;/head&gt;
+    &lt;body&gt;
+        ......................
+        &lt;button id="more-info"&gt;Click Me!&lt;/button&gt;
+        ......................
+    &lt;/body&gt;
+    &lt;script type="text/javascript" src="popscript.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript"&gt;
+        document.getElementById("more-info").onclick =
+        function(){ pop('hello world') }
+    &lt;/script&gt;
+&lt;/html&gt;</pre>
+</div>
+<p>The way you go about it is entirely upto you, just as long as both the resources (popscript.css &amp; popscript.js) will
+be loaded before uou call <cite>pop()</cite> or any other available API.</p>
+</div>
+<div class="section" id="how-am-i-going-to-use-popscript">
+<h2>How am I going to use popscript?<a class="headerlink" href="#how-am-i-going-to-use-popscript" title="Permalink to this headline">¶</a></h2>
+<p>If you&#8217;re lost, knowing the answer to this simple question will get you more than halfway there.
+Let us split this into 3 segments (more like 2 and a half): (1) functions which constitute the API (2) scripting pop classes and (3) scripting pops already created</p>
+<div class="section" id="first-point-functions">
+<h3>(First point) Functions<a class="headerlink" href="#first-point-functions" title="Permalink to this headline">¶</a></h3>
+<p>popscript.js has only a few functions for direct API use. Here&#8217;s a quick run-through of them, note that their detailed description
+will be left for later topics.</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="core.html#pop"><em>pop()</em></a> (do not click as yet) This is the MAIN one. This is the pop machine.</li>
+<li>Every other function you use will be secondary.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="second-point-pop-class">
+<h3>(Second point) Pop Class<a class="headerlink" href="#second-point-pop-class" title="Permalink to this headline">¶</a></h3>
+<p>Let&#8217;s not waste time, pop classes are very much like CSS classes. This design decision was intentional.
+At the top of the <cite>popscript.js</cite> file we have something like this:</p>
+<div class="highlight-python"><pre>var popscript = {
+    basic: {
+        STYLE: {
+            CLASS: {
+                box: 'simple-box',
+                cover: 'curtain',
+                cross: 'cross'
+            }
+        },
+        ANIMATION: {
+            IN: {
+                box: 'zap-in cubic-bezier(.73,.75,.72,1.77)',
+                cover: 'fade-in',
+                duration: 300
+            },
+            OUT: {
+                box: 'zap-out cubic-bezier(.73,.75,.72,1.77)',
+                cover: 'fade-out',
+                duration: 200
+            }
+        },
+        POSITION: {
+            x: 'auto',
+            y: 'auto',
+            check: '20, 1000*'
+        },
+
+        cover: 'yes',
+        cross: 'yes',
+        cross_content: 'x',
+        esc: 'ye',
+        full_draggable: 'yes'
+    },
+
+    success: {
+        STYLE: {
+            CLASS: {
+                box: 'success'
+            }
+        },
+        ANIMATION: {
+            IN: {
+                box: 'drop'
+            },
+            OUT: {
+                box: 'undrop'
+            }
+        },
+        POSITION: {
+            y: 'top'
+        },
+
+        cross: 'no',
+        full_draggable: 'naaaaoh',
+        click_me_out: 'yes, tis is convenient'
+    },
+    ......
+    ......
+    ......
+}</pre>
+</div>
+<div class="line-block">
+<div class="line">The above is just a small cut of the popscript given on top of the file.</div>
+<div class="line"><br /></div>
+<div class="line">Look at the 2 (parent) keys visible: &#8216;basic&#8217; and &#8216;success&#8217;.</div>
+<div class="line">These are <em>pop classes</em>.</div>
+<div class="line"><br /></div>
+<div class="line">Look at the few (leaf) keys visible: &#8216;box&#8217;, &#8216;x&#8217;, &#8216;y&#8217;, &#8216;esc&#8217;, etc.</div>
+<div class="line">These are <em>pop properties</em>.</div>
+<div class="line"><br /></div>
+<div class="line">Look at the few (in-between) keys visible: &#8216;STYLE&#8217;, &#8216;INLINE&#8217;, &#8216;OUT&#8217;, etc.</div>
+<div class="line">These are <em>pop scopes</em>.</div>
+<div class="line"><br /></div>
+<div class="line">The 2 main similarities it bears with CSS classes are:</div>
+</div>
+<blockquote>
+<div><ol class="arabic simple">
+<li><strong>Structure</strong>: Both PopScript and CSS have a property-value system.</li>
+<li><strong>Inheritance:</strong> 2 or more <em>CSS classes</em> can be separated by spaces to form a chain of <em>CSS classes</em> which inherit from each other from the left to the right. This is the case for <em>pop classes</em> too.</li>
+</ol>
+</div></blockquote>
+<div class="line-block">
+<div class="line">The 2 main dissimilarities it bears with CSS classes are:</div>
+</div>
+<blockquote>
+<div><ol class="arabic simple">
+<li><strong>Case Sensitivity</strong>: Both <em>pop properties</em> and <em>pop scopes</em> are case insensitive. Which implies that &#8216;box&#8217; == &#8216;BoX&#8217;, and &#8216;ANIMATION&#8217; == &#8216;animation&#8217;. Note however that the values which <em>pop properties</em> refer to, and pop classes are case sensitive.</li>
+<li><strong>Scopes:</strong> In PopScript there exists <em>pop scopes</em>, however this feature is not present in CSS.</li>
+</ol>
+</div></blockquote>
+<p>Details about the usage of pop classes are mentioned in <a class="reference internal" href="core.html"><em>Chapter 1: Core</em></a></p>
+</div>
+<div class="section" id="third-last-point-the-process-of-popping">
+<h3>(Third &amp; Last point) The process of popping<a class="headerlink" href="#third-last-point-the-process-of-popping" title="Permalink to this headline">¶</a></h3>
+<p>Well, you have read through the big chunks already. The information behind this point, is that there are various functions and tools to help you pop your pops the right way. Let us look at a few examples here, remember we cover the nitty gritty details later on.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Hey what if you want a pop to be positioned not at a predetermined location (for example on the top right), but instead near a specific element, and this element you probably would know of only during runtime of your application. PopScript solves this problem by offering you <tt class="docutils literal"><span class="pre">nearElement</span></tt> callback.</li>
+<li>Maybe you would like to know more about how your user is interacting with your application. PopScript has the option of letting you know when the user proceeds to close a pop. You can determine this at both before closing (in this situation you could even stop the user from closing it) and after it has been closed with the <cite>beforePopOut</cite> and <cite>afterPopOut</cite> callback functions, respectively.</li>
+<li>Finally, you may want to make changes to an existing pop. For instance change its pop property(s) or entirely its pop class itself. For accomplishing these tasks there exist functions available to you, which we&#8217;ll cover in <a class="reference internal" href="core.html"><em>Chapter 1: Core</em></a>.</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="pop-id">
+<span id="id1"></span><h2>pop ID<a class="headerlink" href="#pop-id" title="Permalink to this headline">¶</a></h2>
+<p>The final (third) point of the previous section mentioned the ability of dynamically changing the properties/class of an existing pop. However, to do so, we would need a reference point for a pop, some piece of identification which is unique to each pop. This where the pop ID comes in. In essence: its a unique number generated by PopScript everytime you pop. Everytime you pop? What does that mean? Well everytime you (successfully / without errors) call the <a class="reference internal" href="core.html#pop"><em>pop()</em></a> function, you will receive the pop ID as the return value. In most cases you might not need to store the returned pop ID, however if you do wish to further modify a given pop later on in your code, then you would store the pop ID an use it. The best analogy here would the <cite>setTimeout</cite> and <cite>setInterval</cite> functions which we have in JavaScript, these functions return a timeout ID and an interval ID respectively, which you can then later be used to clear using <cite>clearTimeout</cite> and <cite>clearInterval</cite> respectively. In the case of popscript, your possibilities is way beyong just clearing (popping out), as mentioned earlier changing pop classes and individual pop properties are available options. Pop IDs are in essence a number ID which increase in value with each subsequent call. Which implies that if you have 2 pop IDs, you can find out which was the more recent pop by checking between the 2 of which has a numerically higher pop ID. Proper documentation with details of pop ID&#8217;s usage shall be provided in the next section: <a class="reference internal" href="core.html"><em>Chapter 1: Core</em></a>.</p>
+</div>
+</div>
+
+
+            </div>
+            <div class="footer">
+                &copy; Copyright 2013, Relfor.
+                Documentation created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+            </div>
+
+        </div>
+    </div>
+
+    <div class="clearer"></div>
+</div>
+
+
+
+
+</body>
+<script type="text/javascript" src="/static/js/prettify.js"></script>
+<script type="text/javascript" src="/src/popscript.js"></script>
+<script type="text/javascript" src="/static/js/index.js"></script>
+<script type="text/javascript" src="/static/js/docs.js"></script>
+
+
+
+</html>

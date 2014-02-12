@@ -19,9 +19,9 @@ body {
   font-size: 18px;
   /*min-height: 5000px;
   min-width: 5000px;*/
-}
 
-#header {
+
+> #header {
 
   z-index: $header-zindex;
   width: 100%;
@@ -86,7 +86,7 @@ body {
   }
 }
 
-#content {
+> #content {
   margin-top: $header-height;
   width: 100%;
   box-sizing: border-box;
@@ -99,6 +99,8 @@ body {
 
   }
   .sample-popscript-code {
+
+
     //width: 50%;
     width: $sample-popscript-width * 1%;
 
@@ -121,6 +123,10 @@ body {
   }
   #popscript-class-implementation {
     float: left;
+    .mobile & {
+      width: 100% !important;
+      float:none;
+    }
   }
   .right-area {
     float: left;
@@ -130,10 +136,18 @@ body {
     overflow: auto;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
+
+
+    .mobile & {
+      width: 100% !important;
+      float:none;
+    }
   }
 
 
 }
+
+  }
 
 .feats {
   .sample-popscript-code {
@@ -240,14 +254,18 @@ body {
 
     }
   }
-}
 
+  pre {
+    max-height: 550px;
+    overflow: auto;
+  }
+}
 
 #popscript-calls {
   float: left;
   pre {
     white-space: pre ;
-    overflow: scroll;
+    overflow: auto;
   }
 }
 #github-ribbon {
@@ -270,4 +288,34 @@ body {
 }
 
 
+#download-table-wrapper {
+  margin: 40px 0;
+}
+#download-table {
+  margin: auto;
+  td {
+    padding: 15px;
+    background-color: $that-grey;
+    border:2px solid $background-color;
+    text-align: auto;
+    &:first-child {
 
+      text-align: right;
+    }
+    a {
+      color:$that-red;
+
+    }
+  }
+}
+
+
+.cross-hover {
+  background-color: #ff475a;
+  border-radius: 100%;
+  color:rgba(255,255,255,0.6);
+  &:hover {
+    transform:scale(1.2,1.2);
+    -webkit-transform:scale(1.2,1.2);
+  }
+}

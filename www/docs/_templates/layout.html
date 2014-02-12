@@ -66,6 +66,9 @@ Master layout template for Sphinx themes.
         {%- include sidebartemplate %}
         {%- endfor %}
         {%- else %}
+        {%- block sidebarsearch %}
+        {%- include "searchbox.html" %}
+        {%- endblock %}
         {#- old style sidebars: using blocks -- should be deprecated #}
         {%- block sidebartoc %}
         {%- include "localtoc.html" %}
@@ -79,9 +82,7 @@ Master layout template for Sphinx themes.
         {%- if customsidebar %}
         {%- include customsidebar %}
         {%- endif %}
-        {%- block sidebarsearch %}
-        {%- include "searchbox.html" %}
-        {%- endblock %}
+
         {%- endif %}
     </div>
 </div>
@@ -195,7 +196,27 @@ Master layout template for Sphinx themes.
             <div class="body">
                 {% block body %} {% endblock %}
             </div>
+            {%- block footer %}
+            <div class="footer">
+                {%- if show_copyright %}
+                {%- if hasdoc('copyright') %}
+                {% trans path=pathto('copyright'), copyright=copyright|e %}&copy; <a href="{{ path }}">Copyright</a> {{ copyright
+                }}.{% endtrans %}
+                {%- else %}
+                {% trans copyright=copyright|e %}&copy; Copyright {{ copyright }}.{% endtrans %}
+                {%- endif %}
+                {%- endif %}
+                {%- if last_updated %}
+                {% trans last_updated=last_updated|e %}Last updated on {{ last_updated }}.{% endtrans %}
+                {%- endif %}
+                {%- if show_sphinx %}
+                {% trans sphinx_version=sphinx_version|e %}Documentation created using <a href="http://sphinx.pocoo.org/">Sphinx</a> {{
+                sphinx_version }}.{% endtrans %}
+                {%- endif %}
+            </div>
+            {%- endblock %}
             {%- if render_sidebar %}
+
         </div>
         {%- endif %}
     </div>
@@ -207,26 +228,13 @@ Master layout template for Sphinx themes.
 
 {# {%- block relbar2 %}{{ relbar() }}{% endblock %} #}
 
-{%- block footer %}
-<div class="footer">
-    {%- if show_copyright %}
-    {%- if hasdoc('copyright') %}
-    {% trans path=pathto('copyright'), copyright=copyright|e %}&copy; <a href="{{ path }}">Copyright</a> {{ copyright
-    }}.{% endtrans %}
-    {%- else %}
-    {% trans copyright=copyright|e %}&copy; Copyright {{ copyright }}.{% endtrans %}
-    {%- endif %}
-    {%- endif %}
-    {%- if last_updated %}
-    {% trans last_updated=last_updated|e %}Last updated on {{ last_updated }}.{% endtrans %}
-    {%- endif %}
-    {%- if show_sphinx %}
-    {% trans sphinx_version=sphinx_version|e %}Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> {{
-    sphinx_version }}.{% endtrans %}
-    {%- endif %}
-</div>
-{%- endblock %}
+
 </body>
 <script type="text/javascript" src="/static/js/prettify.js"></script>
+<script type="text/javascript" src="/src/popscript.js"></script>
 <script type="text/javascript" src="/static/js/index.js"></script>
+<script type="text/javascript" src="/static/js/docs.js"></script>
+
+
+
 </html>

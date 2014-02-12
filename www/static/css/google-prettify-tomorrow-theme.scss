@@ -81,49 +81,7 @@
     color: #4271ae;
   }
 }
-/* Use higher contrast and text-weight for printable form. */
-@media print, projection {
-  .str {
-    color: #006600;
-  }
 
-  .kwd {
-    color: #006;
-    font-weight: bold;
-  }
-
-  .com {
-    color: #600;
-    font-style: italic;
-  }
-
-  .typ {
-    color: #404;
-    font-weight: bold;
-  }
-
-  .lit {
-    color: #004444;
-  }
-
-  .pun, .opn, .clo {
-    color: #444400;
-  }
-
-  .tag {
-    color: #006;
-    font-weight: bold;
-  }
-
-  .atn {
-    color: #440044;
-  }
-
-  .atv {
-    color: #006600;
-  }
-}
-/* Style */
 pre {
   font-family: Menlo, "Bitstream Vera Sans Mono", "DejaVu Sans Mono", Monaco, Consolas, monospace;
   font-size: 15px;

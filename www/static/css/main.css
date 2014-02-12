@@ -14,76 +14,80 @@ body {
   font-size: 18px;
   /*min-height: 5000px;
   min-width: 5000px;*/ }
-
-#header {
-  z-index: 1000;
-  width: 100%;
-  top: 0;
-  right: 0;
-  left: 0;
-  background-color: black;
-  background-image: repeating-linear-gradient(10deg, #373737, #373737 13%, black 13%, black 26%);
-  padding-left: 5%; }
-  #header #nav a {
-    display: block;
-    float: left;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    border-right-width: 0;
-    color: white;
-    text-align: center;
-    font-family: "Skranji";
-    line-height: 65px; }
-  #header #nav a:hover {
-    color: yellow;
-    text-decoration: none; }
-  #header #logo {
-    margin-left: 0;
-    padding-left: 0;
-    float: left;
-    width: auto;
-    border-left-width: 0;
-    font-family: 'Sigmar One';
-    letter-spacing: 1px;
-    border: none;
-    line-height: 65px; }
-  #header #logo span {
-    font-family: inherit; }
-  #header #logo span:first-child {
-    border-radius: 100%;
-    background-color: #e6121c;
-    padding: 19px;
-    color: white; }
-  #header #logo span:last-child {
-    color: #e6121c; }
-
-#content {
-  margin-top: 65px;
-  width: 100%;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box; }
-  #content #intro-line {
-    padding: 30px 0 30px 5%;
-    border-bottom: 2px solid gainsboro;
-    font-size: 25px; }
-  #content .sample-popscript-code {
-    width: 40%;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box; }
-    #content .sample-popscript-code > h1 {
-      padding: 10px 12.5%;
+  body > #header {
+    z-index: 1000;
+    width: 100%;
+    top: 0;
+    right: 0;
+    left: 0;
+    background-color: black;
+    background-image: repeating-linear-gradient(10deg, #373737, #373737 13%, black 13%, black 26%);
+    padding-left: 5%; }
+    body > #header #nav a {
+      display: block;
+      float: left;
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      border-right-width: 0;
+      color: white;
+      text-align: center;
       font-family: "Skranji";
-      font-size: 40px; }
-    #content .sample-popscript-code pre {
-      font-weight: bold; }
-  #content #popscript-class-implementation {
-    float: left; }
-  #content .right-area {
-    float: left;
-    width: 60%;
-    overflow: auto;
+      line-height: 65px; }
+    body > #header #nav a:hover {
+      color: yellow;
+      text-decoration: none; }
+    body > #header #logo {
+      margin-left: 0;
+      padding-left: 0;
+      float: left;
+      width: auto;
+      border-left-width: 0;
+      font-family: 'Sigmar One';
+      letter-spacing: 1px;
+      border: none;
+      line-height: 65px; }
+    body > #header #logo span {
+      font-family: inherit; }
+    body > #header #logo span:first-child {
+      border-radius: 100%;
+      background-color: #e6121c;
+      padding: 19px;
+      color: white; }
+    body > #header #logo span:last-child {
+      color: #e6121c; }
+  body > #content {
+    margin-top: 65px;
+    width: 100%;
     box-sizing: border-box;
     -moz-box-sizing: border-box; }
+    body > #content #intro-line {
+      padding: 30px 0 30px 5%;
+      border-bottom: 2px solid gainsboro;
+      font-size: 25px; }
+    body > #content .sample-popscript-code {
+      width: 40%;
+      box-sizing: border-box;
+      -moz-box-sizing: border-box; }
+      body > #content .sample-popscript-code > h1 {
+        padding: 10px 12.5%;
+        font-family: "Skranji";
+        font-size: 40px; }
+      body > #content .sample-popscript-code pre {
+        font-weight: bold; }
+    body > #content #popscript-class-implementation {
+      float: left; }
+      .mobile body > #content #popscript-class-implementation {
+        width: 100% !important;
+        float: none; }
+    body > #content .right-area {
+      float: left;
+      width: 60%;
+      overflow: auto;
+      box-sizing: border-box;
+      -moz-box-sizing: border-box; }
+      .mobile body > #content .right-area {
+        width: 100% !important;
+        float: none; }
 
 .feats .sample-popscript-code > h1 {
   border-bottom: 2px solid gainsboro; }
@@ -134,12 +138,15 @@ body {
     text-align: left; }
   .demo .right-area > div button:focus {
     outline: none; }
+.demo pre {
+  max-height: 550px;
+  overflow: auto; }
 
 #popscript-calls {
   float: left; }
   #popscript-calls pre {
     white-space: pre;
-    overflow: scroll; }
+    overflow: auto; }
 
 #github-ribbon {
   position: fixed !important;
@@ -154,3 +161,26 @@ body {
   #main-footer a {
     color: white;
     text-decoration: underline; }
+
+#download-table-wrapper {
+  margin: 40px 0; }
+
+#download-table {
+  margin: auto; }
+  #download-table td {
+    padding: 15px;
+    background-color: gainsboro;
+    border: 2px solid whitesmoke;
+    text-align: auto; }
+    #download-table td:first-child {
+      text-align: right; }
+    #download-table td a {
+      color: #e6121c; }
+
+.cross-hover {
+  background-color: #ff475a;
+  border-radius: 100%;
+  color: rgba(255, 255, 255, 0.6); }
+  .cross-hover:hover {
+    transform: scale(1.2, 1.2);
+    -webkit-transform: scale(1.2, 1.2); }

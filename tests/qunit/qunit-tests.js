@@ -9,29 +9,13 @@ test('PS.increasePop', function () {
     ok(PS.increasePop() === 1, 'Increase from 0 to 1');
     ok(PS.increasePop() === 2, 'Increase from 1 to 2');
     ok(PS.num_pops_created === 2, 'PS.num_pops_created');
-    ok(PS.net_pops_atm === 2, 'PS.net_pops_atm');
 
 });
 
-test('PS.decreasePop', function () {
-    // Reset values from the previous test
-    // TODO: create setup and tear down for reset instead.
-    PS.num_pops_created = 0;
-    PS.net_pops_atm = 0;
 
-    PS.increasePop();
-    PS.decreasePop();
-    ok(PS.net_pops_atm === 0, 'Increase from 0 to 1 then 1 to 0');
-    PS.increasePop();
-    PS.increasePop();
-    PS.decreasePop();
-    ok(PS.net_pops_atm === 1, 'Increase from 0 to 2 then 2 to 1');
-    PS.increasePop();
-    ok(PS.num_pops_created === 4, 'Total pops created');
-});
 
-test('PS.highestConditionPopNum', function () {
-    ok(PS.highestConditionPopNum() === -1, 'Check if the highest pop number without any pops returns -1');
+test('PS.highestConditionPopId', function () {
+    ok(PS.highestConditionPopId() === -1, 'Check if the highest pop number without any pops returns -1');
 });
 
 
@@ -43,21 +27,23 @@ test('PS.compileScope', function () {
     var classes_scope = {box: 'abc'};
     var multi_animations_scope = {cover: 'asd', box: 'pqr'};
 
-    pop_class_script = {mybox: {ANIMATIONS: {IN: animations_scope,
+    pop_class_script = {mybox: {ANIMATION: {IN: animations_scope,
         OUT: multi_animations_scope},
-        CSS_CLASSES: {box: classes_scope}}};
-    compiled_pop_classes_script = {click_to_close: false}; // The compiled popscript has some preregistered properties.
-    PS.compileScope(['ANIMATIONS', 'IN'], animations_scope, compiled_pop_classes_script, pop_class_script);
+        STYLE_CLASS: {box: classes_scope}}};
+    compiled_pop_classes_script = {click_me_out: false}; // The compiled popscript has some preregistered properties.
 
-    ok(_.isEqual(compiled_pop_classes_script, {click_to_close: false, animation_in_box: animations_scope.box}), "Basic scope property registration");
 
-    PS.compileScope(['CSS_CLASSES'], classes_scope, compiled_pop_classes_script, pop_class_script);
-    ok(_.isEqual(compiled_pop_classes_script, {click_to_close: false, animation_in_box: animations_scope.box, css_class_box: classes_scope.box}),
+    PS.compileScope(['ANIMATION', 'IN'], animations_scope, compiled_pop_classes_script, pop_class_script);
+    ok(_.isEqual(compiled_pop_classes_script, {click_me_out: false, animation_in_box: PS.convert.ani.call(['animation_in_box', {}], animations_scope.box), animation_in_true_duration: {global: true, len: 0}}), "Basic scope property registration");
+
+
+    PS.compileScope(['STYLE_CLASS'], classes_scope, compiled_pop_classes_script, pop_class_script);
+    ok(_.isEqual(compiled_pop_classes_script, {click_me_out: false, animation_in_box: PS.convert.ani.call(['animation_in_box', {}], animations_scope.box), animation_in_true_duration: {global: true, len: 0}, style_class_box: classes_scope.box}),
         "Scope registration after existing scope registration");
 
-    PS.compileScope(['ANIMATIONS', 'OUT'], multi_animations_scope, compiled_pop_classes_script, pop_class_script);
+    PS.compileScope(['ANIMATION', 'OUT'], multi_animations_scope, compiled_pop_classes_script, pop_class_script);
 
-    ok(_.isEqual(compiled_pop_classes_script, {click_to_close: false, animation_in_box: animations_scope.box, animation_out_cover: multi_animations_scope.cover, animation_out_box: multi_animations_scope.box, css_class_box: classes_scope.box}),
+    ok(_.isEqual(compiled_pop_classes_script, {click_me_out: false, animation_in_box: PS.convert.ani.call(['animation_in_box', {}], animations_scope.box), animation_in_true_duration: {global: true, len: 0}, animation_out_true_duration: {global: true, len: 0}, animation_out_cover: PS.convert.ani.call(['animation_out_cover', {}], multi_animations_scope.cover), animation_out_box: PS.convert.ani.call(['animation_out_box', {}], multi_animations_scope.box), style_class_box: classes_scope.box}),
         "Multi-property scope update");
 
 
@@ -95,21 +81,22 @@ test('PS.convert.boxPosition', function () {
     scrolled_prop = prop + '_scrolled';
     compiled = {};
     ok(_.isEqual(PS.convert.boxPosition.call([prop, compiled], "auto"), ["auto", false, false]), "Compiled position for auto");
+
     ok(_.isEqual(PS.convert.boxPosition.call([prop, compiled], "auto+scrolled"), ["auto", false, false]) && compiled[scrolled_prop], "Compiled position for auto with scroll");
     ok(_.isEqual(PS.convert.boxPosition.call([prop, compiled], "left"), [0, true, false]), "Compiled position for left");
-    ok(_.isEqual(PS.convert.boxPosition.call([prop, compiled], "top"), [0, true, false]) , "Compiled position for top");
-    ok(_.isEqual(PS.convert.boxPosition.call([prop, compiled], "bottom"), [0, false, false]) , "Compiled position for bottom");
-    ok(_.isEqual(PS.convert.boxPosition.call([prop, compiled], "right"), [0, false, false]) , "Compiled position for right");
+    ok(_.isEqual(PS.convert.boxPosition.call([prop, compiled], "top"), [0, true, false]), "Compiled position for top");
+    ok(_.isEqual(PS.convert.boxPosition.call([prop, compiled], "bottom"), [0, false, false]), "Compiled position for bottom");
+    ok(_.isEqual(PS.convert.boxPosition.call([prop, compiled], "right"), [0, false, false]), "Compiled position for right");
 
 
-    ok(_.isEqual(PS.convert.boxPosition.call([prop,compiled],15), [15, true, false]) , "Compiled position for number");
+    ok(_.isEqual(PS.convert.boxPosition.call([prop, compiled], 15), [15, true, false]), "Compiled position for number");
 
 
     ok(_.isEqual(PS.convert.boxPosition.call([prop, compiled], "15 +scrolled"), [15, true, false]) && compiled[scrolled_prop], "Compiled position for string number + scrolled");
 
 
-    ok(_.isEqual(PS.convert.boxPosition.call([prop, compiled], "15%"), [0.15, true, true]) , "Compiled position for percentage");
-    ok(_.isEqual(PS.convert.boxPosition.call([prop, compiled], "-0% + scrolled"), [0, false, true]) && compiled[scrolled_prop], "Compiled position for bottom/right");
+    ok(_.isEqual(PS.convert.boxPosition.call([prop, compiled], "15%"), [0.15, true, true]), "Compiled position for percentage");
+    ok(_.isEqual(PS.convert.boxPosition.call([prop, compiled], "!0% + scrolled"), [0, false, true]) && compiled[scrolled_prop], "Compiled position for bottom/right");
 
 });
 
@@ -127,7 +114,6 @@ test('PS.convert.positionCheck', function () {
         [50]
     ]), 'Single timeout Single interval');
 
-    console.log(PS.convert.positionCheck(' 50,10*, 49, 3*, 145* '));
     ok(_.isEqual(PS.convert.positionCheck(' 50,10*, 49, 3*, 145* '), [
         [50, 49],
         [10, 3, 145]
@@ -141,17 +127,58 @@ test('PS.convert.z', function () {
     ok(PS.convert.z(" 5 ")() === 5, "string non operator input");
     ok(PS.convert.z(" +2")() === base_z + 2, "string unary add");
     ok(PS.convert.z("-1 ")() === base_z - 1, "string unary subtract");
+});
+
+test('PS.convert.ani', function () {
+    var compiled = {};
+    ok(_.isEqual(PS.convert.ani.call(['animation_in_box', compiled], "fade-in"), ["fade-in", "$g", undefined]) &&
+        _.isEqual(compiled, {animation_in_true_duration: {global: true, len: 0}}),
+        "single non duration animation");
+
+    ok(_.isEqual(PS.convert.ani.call(['animation_in_cover', compiled], "fade-in, fade-out,slide-in"),
+        ["fade-in, fade-out,slide-in", "$g,$g,$g", undefined]) &&
+        _.isEqual(compiled, {animation_in_true_duration: {global: true, len: 0}}),
+        "multiple non duration animation");
+
+    ok(_.isEqual(PS.convert.ani.call(['animation_out_box', compiled], "fade-in 2s"), ["fade-in 2s", "2000ms", 2000]) &&
+        _.isEqual(compiled, {animation_in_true_duration: {global: true, len: 0}, animation_out_true_duration: {global: undefined, len: 2000}}),
+        "single duration animation");
+
+    ok(_.isEqual(PS.convert.ani.call(['animation_out_cover', compiled], "fade-in 2s, fade-out,slide-in 10000ms"),
+        ["fade-in 2s, fade-out,slide-in 10000ms", "2000ms,$g,10000ms", 10000])
+        &&
+        _.isEqual(compiled, {animation_in_true_duration: {global: true, len: 0}, animation_out_true_duration: {global: true, len: 10000}}),
+        "multiple duration animation");
+});
+
+test('PS.convert.hideOrClose', function () {
+    ok(PS.convert.hideOrClose('hide') === 'hide', 'check for hide');
+    ok(PS.convert.hideOrClose('close') === 'close', 'check for close');
+    var error_occurred;
+    try {
+        PS.convert.hideOrClose('shut');
+    }
+    catch (error) {
+        error_occurred = true;
+    } finally {
+        ok(error_occurred, 'check value not hide or close');
+    }
+
+});
 
 
-})
 test('PS.compile', function () {
 
+    PS.compiled_popscript = {};
+
     PS.compile({basic: {
-        close_button: 'yes'
+        cross: 'yes'
     }});
 
-    ok(_.isEqual(PS.compiled_popscript, {basic: {close_button: true}}), "Basic test of single property (scope-less) compilation");
+    ok(_.isEqual(PS.compiled_popscript, {basic: {cross: true}}), "Basic test of single property (scope-less) compilation");
 
+
+    PS.compiled_popscript = {};
 
     PS.compile({basic: {
         cover: 'no',
@@ -168,10 +195,13 @@ test('PS.compile', function () {
 
         }), "Intermediate test of multi-property-multi-class (scope-less) compilation");
 
+
+    PS.compiled_popscript = {};
+
     PS.compile({
         basic: {
-            close_content: 'x',
-            CSS_CLASSES: {
+            cross_content: 'x',
+            STYLE_CLASS: {
                 box: 'lol'
             }
         },
@@ -179,7 +209,7 @@ test('PS.compile', function () {
             POSITION: {'x': '10'}
         },
         third: {
-            ANIMATIONS: {
+            ANIMATION: {
                 OUT: {
                     duration: 500
                 }
@@ -187,14 +217,33 @@ test('PS.compile', function () {
         }
     });
 
-    console.log(PS.compiled_popscript);
     ok(_.isEqual(PS.compiled_popscript,
         {
-            basic: {close_content: 'x', css_class_box: 'lol'},
-            second: {position_x: [10, true, false], position_x_scrolled:false},
+            basic: {cross_content: 'x', style_class_box: 'lol'},
+            second: {position_x: PS.convert.boxPosition.call(['position_x', {}], '10'), position_x_scrolled: false, position_x_scroll: false},
             third: {animation_out_duration: 500}
 
         }), "Intermediate test of multi-property-multi-class (scope-less) compilation");
+
+
+    PS.compile({
+        basic: {
+            style_class_box:'lmao', // modified property
+            style_class_cover:'rofl' // added property
+        },
+        newest: {               // new class
+            out:'hide'
+        }
+    });
+
+    ok(_.isEqual(PS.compiled_popscript,
+        {
+            basic: {cross_content: 'x', style_class_box: 'lmao', style_class_cover:'rofl'},
+            second: {position_x: PS.convert.boxPosition.call(['position_x', {}], '10'), position_x_scrolled: false, position_x_scroll: false},
+            third: {animation_out_duration: 500},
+            newest:{out:'hide'}
+
+        }), "Compilation over existing compilation: addition of a new class, modification of an existing property, addition of a new property.");
 
 
 });

@@ -12,13 +12,15 @@ block content
             h1
                 | This page's popscript
             pre.
-                basic: {    <span class="nocode sample-popscript-tooltip" data-tooltip="This is a pop class."></span>
-                    CSS_CLASSES: {
-                        box: 'simple-box',
-                        cover: 'curtain',
-                        close: 'cross'
+                basic: {   <span class="nocode sample-popscript-tooltip" data-tooltip="This is a pop class."></span>
+                    STYLE: {
+                        CLASS: {
+                            box: 'simple-box',
+                            cover: 'curtain',
+                            cross: 'cross'
+                        }
                     },
-                    ANIMATIONS: {    <span class="nocode sample-popscript-tooltip" data-tooltip="Animate your pops"></span>
+                    ANIMATION: {   <span class="nocode sample-popscript-tooltip" data-tooltip="Animate your pops"></span>
                         IN: {
                             box: 'zap-in cubic-bezier(.73,.75,.72,1.77)',
                             cover: 'fade-in',
@@ -27,27 +29,28 @@ block content
                         OUT: {
                             box: 'zap-out cubic-bezier(.73,.75,.72,1.77)',
                             cover: 'fade-out',
-                            duration: 300   <span class="nocode sample-popscript-tooltip" data-tooltip="Enter a number for the duration of the animation period"></span>
+                            duration: 200   <span class="nocode sample-popscript-tooltip" data-tooltip="Enter a number for the duration of the animation period"></span>
                         }
                     },
                     POSITION: {
-                        y: 'auto',
-                        x: 'auto',   <span class="nocode sample-popscript-tooltip" data-tooltip="Align your pop the position where you think it belongs."></span>
-                        check: '20, 1000*'
+                        x: 'auto',
+                        y: 'auto'   <span class="nocode sample-popscript-tooltip" data-tooltip="Align your pop the position where you think it belongs."></span>
                     },
-
-                    close_content: 'x',
-                    close_button: 'yes',
-                    cover_fixed: 'no',  <span class="nocode sample-popscript-tooltip" data-tooltip="Mention your booleans through 'yes', 'yeah', or anything which starts with a 'y', or anything beginning with an 'n' for false"></span>
-                    esc: 'ye',
+            
+                    cover: 'yes',
+                    cross: 'yes',
+                    cross_content: 'x',
+                    esc: 'ye',   <span class="nocode sample-popscript-tooltip" data-tooltip="Mention your booleans through 'yes', 'yeah', 'naah', ..."></span>
                     full_draggable: 'yes'
                 },
-
+            
                 success: {
-                    CSS_CLASSES: {
-                        box: 'success'
+                    STYLE: {
+                        CLASS: {
+                            box: 'success'
+                        }
                     },
-                    ANIMATIONS: {
+                    ANIMATION: {
                         IN: {
                             box: 'drop'
                         },
@@ -56,138 +59,173 @@ block content
                         }
                     },
                     POSITION: {
-                        x: 0,
-                        y: 0
+                        y: 'top'
                     },
-
-                    close_button: 'no',
+            
+                    cross: 'no',
                     full_draggable: 'naaaaoh',
-                    click_to_close: 'yes, tis is convenient'
+                    click_me_out: 'yes, tis is convenient'
                 },
-
+            
                 error: {
-                    CSS_CLASSES: {
-                        box: 'error'
+                    STYLE: {
+                        CLASS: {
+                            box: 'error'
+                        }
                     },
-                    ANIMATIONS: {
+                    ANIMATION: {
                         IN: {
-                            box: 'short-arrive-left-fade-in'
+                            box: 'short-arrive-left, fade-in'
                         },
                         OUT: {
                             box: 'fade-out'
                         }
                     },
                     POSITION: {
-                        y: '10',
-                        x: '-10'
+                        x: '!10',
+                        y: '10'
                     }
                 },
-
+            
                 dropdown: {
-                    CSS_CLASSES: {
-                        box: 'dropdown'
+                    STYLE: {
+                        CLASS: {
+                            box: 'dropdown'
+                        }
                     },
-                    ANIMATIONS: {
+                    ANIMATION: {
                         IN: {
-                            duration: 0
+                            duration: 90
                         },
                         OUT: {
-                            duration: 0
+                            box: ''
                         }
                     },
                     POSITION: {
                         z: '-1'
                     },
-
-                    close_button:'no',
+            
+                    cross: 'no',
                     cover: 'no',
                     full_draggable: 'no'
                 },
-
-                tooltip: {    <span class="nocode sample-popscript-tooltip" data-tooltip="The current pop class being used for the pop you are viewing"></span>
-                    CSS_CLASSES: {
-                        box: 'popscript-tooltip'
-                    },
-
-                    ANIMATIONS: {
-                        OUT: {
-                            box: 'fade-out'
-                        }
-                    },
-                    POSITION: {
-                        z: '-1'
-                    },
-
-                    click_to_close: 'yeh',<span class="nocode sample-popscript-tooltip" data-tooltip="Click this pop to close it. Try it out right now?"></span>
-                    close_button: 'no',
-                    cover: 'no',
-                    blur: 'no',
-                    esc: 'yes',
-                    full_draggable: 'no'
-                },
-
+            
                 context_menu: {
-                    CSS_CLASSES: {
-                        box: 'context-menu'
+                    STYLE: {
+                        CLASS: {
+                            box: 'context-menu'
+                        }
                     },
-                    ANIMATIONS: {
+                    ANIMATION: {
                         IN: {
-                            duration: 0
+                            box: ''
                         },
                         OUT: {
-                            box: 'fade-out'
+                            box: 'fade-out',
+                            duration: 120
                         }
                     },
                     POSITION: {
                         fixed: 'no',
                         z: '-1'
                     },
-
+            
                     cover: 'no',
-                    close_button:'no',
+                    cross: 'no',
                     full_draggable: 'no'
                 },
-
-                tip_left: {
-                    ANIMATIONS: {
-                        IN: {
-                            box: 'short-arrive-left-fade-in'
+            
+                tooltip: {   <span class="nocode sample-popscript-tooltip" data-tooltip="The pop you are currently viewing"></span>
+                    STYLE: {
+                        CLASS: {
+                            box: 'popscript-tooltip'
                         }
                     },
-                    CSS_CLASSES: {
-                        box: 'popscript-tooltip left'
+                    ANIMATION: {
+                        OUT: {
+                            box: 'fade-out'
+                        }
+                    },
+                    POSITION: {
+                        z: '-1'
+                    },
+            
+                    click_me_out: 'yeh',   <span class="nocode sample-popscript-tooltip" data-tooltip="Click this pop to close it. Try it out right now?"></span>
+                    cross: 'no',
+                    cover: 'no',
+                    blur: 'no',
+                    esc: 'yes',
+                    full_draggable: 'no'
+                },
+            
+                tip_left: {
+                    STYLE: {
+                        CLASS: {
+                            box: 'popscript-tooltip left'
+                        }
+                    },
+                    ANIMATION: {
+                        IN: {
+                            box: 'short-arrive-left, fade-in'
+                        }
                     }
                 },
                 tip_right: {
-                    ANIMATIONS: {
-                        IN: {
-                            box: 'short-arrive-right-fade-in'
+                    STYLE: {
+                        CLASS: {
+                            box: 'popscript-tooltip right'
                         }
                     },
-                    CSS_CLASSES: {
-                        box: 'popscript-tooltip right'
+                    ANIMATION: {
+                        IN: {
+                            box: 'short-arrive-right, fade-in'
+                        }
                     }
                 },
                 tip_up: {
-                    ANIMATIONS: {
-                        IN: {
-                            box: 'short-arrive-up-fade-in'
+                    STYLE: {
+                        CLASS: {
+                            box: 'popscript-tooltip up'
                         }
                     },
-                    CSS_CLASSES: {
-                        box: 'popscript-tooltip up'
+                    ANIMATION: {
+                        IN: {
+                            box: 'short-arrive-up, fade-in'
+                        }
                     }
                 },
                 tip_down: {
-                    ANIMATIONS: {
-                        IN: {
-                            box: 'short-arrive-down-fade-in'
+                    STYLE: {
+                        CLASS: {
+                            box: 'popscript-tooltip down'
                         }
                     },
-                    CSS_CLASSES: {
-                        box: 'popscript-tooltip down'
+                    ANIMATION: {
+                        IN: {
+                            box: 'short-arrive-down, fade-in'
+                        }
+                    }
+                },
+            
+                roller: {
+                    STYLE: {
+                        CLASS: {
+                            box: 'roller'
+                        }
+                    },
+                    ANIMATION: {
+                        IN: {
+                            box: 'newspaper',
+                            duration: 800
+                        }
+                    },
+                    POSITION: {
+                        x: 'auto',
+                        y: '8%',
+                        roller: 'yes'
                     }
                 }
+            
 
         .right-area
             div
@@ -198,7 +236,8 @@ block content
                     p
                         | Throw in pop (up) with a translucent cover if you like, enable/disable
                         | dispatching your pop with the 'esc' key, control which element in the pop
-                        | will allow the user to drag it around, and many more for you to discover.
+                        | will allow the user to drag it around. As of now there are 24 properties
+                        | which can be set, and more counting.
                         br
             div
                 h2
@@ -239,11 +278,20 @@ block content
                         | issuing align checks on the pops visible and all very well tested.
             div
                 h2
+                    i.icon-fullscreen
+                    | Scalable
+                div
+                    p
+                        | PopScript takes into account the scalability of your entire application:
+                        | Your application may need 1, 2, 3, 4....., n number of pop ups, tooltips, dropdowns and other pops; PopScript will not only let you create as many pops as you want,
+                        | it will even let you have all of them occur at the same time concurrently.
+            div
+                h2
                     i.icon-magic
                     | Dependency Free
                 div
                     p
-                        | The only js file you need is 'popscript.js'.
+                        | The only js file you need is 'popscript.js', and the only css file 'popscript.css'
                         br
                         | This is because PopScript has been built to be free from any dependency, be it
                         | jquery.js or underscore.js, there is complete independence of any library.
@@ -253,7 +301,7 @@ block content
                     | Open Source & Free
                 div
                     p
-                        | Licensed under the great MIT License this is an
-                        b open source
+                        | Licensed under the great GPLv2 License, this is an
+                        b  open source
                         | initiative, with no monetary cost
-                        | to the developers using it.
+                        | to the developers using it, both for personal and/or commerical usage.

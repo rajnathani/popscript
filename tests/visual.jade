@@ -1,0 +1,164 @@
+extend ../www/pages/base
+
+block append pre_doc
+    link(href='visual.css', rel='stylesheet', type='text/css')
+block content
+    #content.cf.demo
+    ul.visual-tests
+
+        li
+            p Non binder pop
+            i pop()
+            button#vt-non-binder
+
+        li
+            p binder pop (single in event)
+            i pop() (with binder)
+            button#vt-binder-1
+
+        li
+            p binder pop (multiple in event: 'click', 'contextmenu')
+            i pop() (with binder)
+            button#vt-binder-2
+
+
+        li
+            p This should display hello world in bold;
+            i pop() (parameter:content), no pop class ("")
+            button#vt-basic-1
+        li
+            p This should display hello world in bold;
+            i pop() (parameter:content), no pop class ("")
+            button#vt-basic-2
+
+        li
+            p This should display hello world in bold;
+            i pop() (parameter:content), no pop class ("")
+            button#vt-basic-3
+
+        li
+            p This should display hello world in bold;
+            i pop() (parameter:content), no pop class ("")
+            button#vt-basic-4
+
+
+        li
+            p This pop will check for `beforePopOut` where the developer's decision is to not let the pop be outed (therefore the pop will NOT close).
+            i beforePopOut
+            button#vt-beforepopout-1
+
+        li
+            p This pop will check for `beforePopOut` where the developer's decision is to let the pop be outed.
+            i beforePopOut in extra_dict
+            button#vt-beforepopout-2
+
+        li
+            p This pop will check for `afterPopOut` and that its invoked at the correct moment, and with the correct paramters (pop_num and out_type). This also tests the successive manipulation of (animation and animation duration) through inline popscript. There will be dispatch of a pop as soon as the pop is closed/hidden.
+            i afterPopOut, inline popscript
+            button#vt-afterpopout-1
+
+        li
+            p This invoke multiple callbacks for `afterPopOut` with the help of an array of function callbacks as opposed to a single function.
+            i afterPopOut
+            button#vt-afterpopout-2
+
+        li
+            p This pop will check if a pop can be hidden and shown.
+            i popHide, popShow
+            button#vt-hide-and-show
+
+        li
+            p This pop will check if a pop can be toggled.
+            i popToggle
+            button#vt-toggle
+
+        li
+            p This pop will change to a success pop in 1 second, then to an error pop in 2 seconds, then finally back to this original no class (basic) pop in 3 seconds. The transition will be: undefined (which means that the in animation default 'zap-in' should play) for the first, 0ms for the second, and 500ms for the third.
+            i PopScript.changeClass
+            button#vt-change-class
+
+        li
+            p This pop will move: top left -> top right -> bottom right -> bottom left -> auto auto, of the screen. The transitions will be of 400ms each.
+            i PopScript.inline
+            button#vt-inline-and-macros
+
+
+        li
+            p This will change its position to: right -> left -> right, with no transition
+            i PopScript.setProperty
+            button#vt-change-pop-prop
+        li
+            p Timeline: after 1 second the cancel button disappears, after 2 seconds the cover disappears, finally after 3 seconds both reappear.
+            i PopScript.setProperty, PS.inline
+            button#vt-change-pop-prop-n-inline
+
+
+
+
+        li
+            p This is fully draggable
+            i full_draggable
+            button#vt-drag-1
+
+        li
+            p Drag particular sub element of pop. This pop should be draggable by its header.
+            i popscript-drag
+            button#vt-drag-2
+
+        li
+            p Drag particular sub element of pop. This pop should be draggable by its footer.
+            i popscript-drag
+            button#vt-drag-3
+
+        li
+            p Out a pop using a sub element using the popscript-out class.
+            i popscript-out (class)
+            button#vt-sub-out-1
+        li
+            p Out a pop using a sub element using the popOut event handler.
+            i popOut
+            button#vt-sub-out-2
+
+        //li
+            p
+                | Out a pop using a sub element using the popOut event handler supplying the out_type.
+                | An out_type of 'hide' will be used with the pop property initially requesting 'close'.
+                | Therefore the pop should hide, check this by reopening the pop.
+            i popOut, popShow
+            button#vt-sub-out-3
+
+        li
+            p Close a pop using a sub element using the popscript-close class.
+            i popscript-close (class)
+            button#vt-sub-close-1
+        li
+            p Close a pop using a sub element using the popClose event handler.
+            i popClose
+            button#vt-sub-close-2
+
+        li
+            p Hide a pop using a sub element using the popscript-hide class.
+            i popscript-hide (class)
+            button#vt-sub-hide-1
+        li
+            p Hide a pop using a sub element using the popHide event handler.
+            i popHide
+            button#vt-sub-hide-2
+
+        li
+            p Performs "+scroll"
+            i +scroll
+            button#vt-scroll
+
+        li
+            p Performs "+scrolled"
+            i +scrolled
+            button#vt-scrolled
+
+
+
+
+
+block append post_doc 
+    script(src='visual.js', defer)
+

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><title>PopScript</title><!--<link>--><link rel="stylesheet" type="text/css" href="/static/css/google-web-fonts.css"><link rel="stylesheet" href="/static/css/font-awesome.min.css"><link rel="stylesheet" type="text/css" href="/src/popscript.css"><link rel="stylesheet" type="text/css" href="/static/css/normalize.css"><link rel="stylesheet" type="text/css" href="/static/css/main.css"><link rel="stylesheet" type="text/css" href="/static/css/responsive.css"><link rel="stylesheet" type="text/css" href="/static/css/dark-prettify-theme.css"><!--start Mixpanel--><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f);b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>PopScript</title><!--<link>--><link rel="shortcut icon" href="/static/imgs/favicon.png"><link rel="stylesheet" type="text/css" href="/static/css/google-web-fonts.css"><link rel="stylesheet" href="/static/css/font-awesome.min.css"><link rel="stylesheet" type="text/css" href="/src/popscript.css"><link rel="stylesheet" type="text/css" href="/static/css/normalize.css"><link rel="stylesheet" type="text/css" href="/static/css/main.css"><link rel="stylesheet" type="text/css" href="/static/css/responsive.css"><link rel="stylesheet" type="text/css" href="/static/css/dark-prettify-theme.css"><!--start Mixpanel--><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f);b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==
 typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");for(g=0;g<i.length;g++)f(c,i[g]);
 b._i.push([a,e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
 mixpanel.init("77b6d36b094632df57fa694f09808a5a");</script><!--end Mixpanel--><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -6,15 +6,15 @@ mixpanel.init("77b6d36b094632df57fa694f09808a5a");</script><!--end Mixpanel--><s
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 ga('create', 'UA-46630680-1', 'relfor.co');
-ga('send', 'pageview');
-
-</script></head><body><div id="header" class="cf"><a id="logo" href="/"><span>POP</span><span>SCRIPT</span></a><div id="nav" class="cf"><a id="pending-docs" href="/pending-docs.html"><span class="icon-book"></span> DOCS</a><a href="/demo.html"><span class="icon-hand-up"></span> DEMO</a><a href="http://github.com/relfor/popscript"><span class="icon-download"></span> DOWNLOAD</a></div></div><div id="content" class="cf demo"><div id="popscript-class-implementation" class="sample-popscript-code"><h1>PopScript Classes</h1><pre>basic: {
-    CSS_CLASSES: {
-        box: 'simple-box',
-        cover: 'curtain',
-        close: 'cross'
+ga('send', 'pageview');</script></head><body><div id="header" class="cf"><a id="logo" href="/"><span>POP</span><span>SCRIPT</span></a><div id="nav" class="cf"><a href="/docs/index.html"><span class="icon-book"></span> DOCS</a><a href="/demo.html"><span class="icon-hand-up"></span> DEMO</a><a id="download" href="/download.html"><span class="icon-download"></span> DOWNLOAD</a></div></div><div id="content" class="cf demo"><div id="popscript-class-implementation" class="sample-popscript-code"><h1>PopScript</h1><pre>basic: {   <span class="nocode sample-popscript-tooltip" data-tooltip="This is a pop class."></span>
+    STYLE: {
+        CLASS: {
+            box: 'simple-box',
+            cover: 'curtain',
+            cross: 'cross'
+        }
     },
-    ANIMATIONS: {
+    ANIMATION: {   <span class="nocode sample-popscript-tooltip" data-tooltip="Animate your pops"></span>
         IN: {
             box: 'zap-in cubic-bezier(.73,.75,.72,1.77)',
             cover: 'fade-in',
@@ -23,27 +23,28 @@ ga('send', 'pageview');
         OUT: {
             box: 'zap-out cubic-bezier(.73,.75,.72,1.77)',
             cover: 'fade-out',
-            duration: 300
+            duration: 200   <span class="nocode sample-popscript-tooltip" data-tooltip="Enter a number for the duration of the animation period"></span>
         }
     },
     POSITION: {
-        y: 'auto',
         x: 'auto',
-        check: '20, 1000*'
+        y: 'auto'   <span class="nocode sample-popscript-tooltip" data-tooltip="Align your pop the position where you think it belongs."></span>
     },
     
-    close_content: 'x',
-    close_button: 'yes',
-    cover_fixed: 'no',
-    esc: 'ye',
+    cover: 'yes',
+    cross: 'yes',
+    cross_content: 'x',
+    esc: 'ye',   <span class="nocode sample-popscript-tooltip" data-tooltip="Mention your booleans through 'yes', 'yeah', 'naah', ..."></span>
     full_draggable: 'yes'
 },
 
 success: {
-    CSS_CLASSES: {
-        box: 'success'
+    STYLE: {
+        CLASS: {
+            box: 'success'
+        }
     },
-    ANIMATIONS: {
+    ANIMATION: {
         IN: {
             box: 'drop'
         },
@@ -52,86 +53,70 @@ success: {
         }
     },
     POSITION: {
-        x: 0,
-        y: 0
+        y: 'top'
     },
     
-    close_button: 'no',
+    cross: 'no',
     full_draggable: 'naaaaoh',
-    click_to_close: 'yes, tis is convenient'
+    click_me_out: 'yes, tis is convenient'
 },
 
 error: {
-    CSS_CLASSES: {
-        box: 'error'
+    STYLE: {
+        CLASS: {
+            box: 'error'
+        }
     },
-    ANIMATIONS: {
+    ANIMATION: {
         IN: {
-            box: 'short-arrive-left-fade-in'
+            box: 'short-arrive-left, fade-in'
         },
         OUT: {
             box: 'fade-out'
         }
     },
     POSITION: {
-        y: '10',
-        x: '-10'
+        x: '!10',
+        y: '10'
     }
 },
 
 dropdown: {
-    CSS_CLASSES: {
-        box: 'dropdown'
+    STYLE: {
+        CLASS: {
+            box: 'dropdown'
+        }
     },
-    ANIMATIONS: {
+    ANIMATION: {
         IN: {
-            duration: 0
+            duration: 90
         },
         OUT: {
-            duration: 0
+            box: ''
         }
     },
     POSITION: {
         z: '-1'
     },
     
-    close_button:'no',
+    cross: 'no',
     cover: 'no',
-    full_draggable: 'no'
-},
-
-tooltip: {
-    CSS_CLASSES: {
-        box: 'popscript-tooltip'
-    },
-    
-    ANIMATIONS: {
-        OUT: {
-            box: 'fade-out'
-        }
-    },
-    POSITION: {
-        z: '-1'
-    },
-    
-    click_to_close: 'yeh',
-    close_button: 'no',
-    cover: 'no',
-    blur: 'no',
-    esc: 'yes',
     full_draggable: 'no'
 },
 
 context_menu: {
-    CSS_CLASSES: {
-        box: 'context-menu'
+    STYLE: {
+        CLASS: {
+            box: 'context-menu'
+        }
     },
-    ANIMATIONS: {
+    ANIMATION: {
         IN: {
-            duration: 0
+            box: ''
         },
         OUT: {
-            box: 'fade-out'
+            box: 'fade-out',
+            duration: 120
         }
     },
     POSITION: {
@@ -140,137 +125,194 @@ context_menu: {
     },
     
     cover: 'no',
-    close_button:'no',
+    cross: 'no',
+    full_draggable: 'no'
+},
+
+tooltip: {   <span class="nocode sample-popscript-tooltip" data-tooltip="The pop you are currently viewing"></span>
+    STYLE: {
+        CLASS: {
+            box: 'popscript-tooltip'
+        }
+    },
+    ANIMATION: {
+        OUT: {
+            box: 'fade-out'
+        }
+    },
+    POSITION: {
+        z: '-1'
+    },
+    
+    click_me_out: 'yeh',   <span class="nocode sample-popscript-tooltip" data-tooltip="Click this pop to close it. Try it out right now?"></span>
+    cross: 'no',
+    cover: 'no',
+    blur: 'no',
+    esc: 'yes',
     full_draggable: 'no'
 },
 
 tip_left: {
-    ANIMATIONS: {
-        IN: {
-            box: 'short-arrive-left-fade-in'
+    STYLE: {
+        CLASS: {
+            box: 'popscript-tooltip left'
         }
     },
-    CSS_CLASSES: {
-        box: 'popscript-tooltip left'
+    ANIMATION: {
+        IN: {
+            box: 'short-arrive-left, fade-in'
+        }
     }
 },
 tip_right: {
-    ANIMATIONS: {
-        IN: {
-            box: 'short-arrive-right-fade-in'
+    STYLE: {
+        CLASS: {
+            box: 'popscript-tooltip right'
         }
     },
-    CSS_CLASSES: {
-        box: 'popscript-tooltip right'
+    ANIMATION: {
+        IN: {
+            box: 'short-arrive-right, fade-in'
+        }
     }
 },
 tip_up: {
-    ANIMATIONS: {
-        IN: {
-            box: 'short-arrive-up-fade-in'
+    STYLE: {
+        CLASS: {
+            box: 'popscript-tooltip up'
         }
     },
-    CSS_CLASSES: {
-        box: 'popscript-tooltip up'
+    ANIMATION: {
+        IN: {
+            box: 'short-arrive-up, fade-in'
+        }
     }
 },
 tip_down: {
-    ANIMATIONS: {
-        IN: {
-            box: 'short-arrive-down-fade-in'
+    STYLE: {
+        CLASS: {
+            box: 'popscript-tooltip down'
         }
     },
-    CSS_CLASSES: {
-        box: 'popscript-tooltip down'
+    ANIMATION: {
+        IN: {
+            box: 'short-arrive-down, fade-in'
+        }
+    }
+},
+
+roller: {
+    STYLE: {
+        CLASS: {
+            box: 'roller'
+        }
+    },
+    ANIMATION: {
+        IN: {
+            box: 'newspaper',
+            duration: 800
+        }
+    },
+    POSITION: {
+        x: 'auto',
+        y: '8%',
+        roller: 'yes'
     }
 }
-</pre></div><div class="right-area"><div><table><tr id="demo-theader"><th></th><th><span>Pop Class</span></th></tr><tr><th>Pop Up</th></tr><tr><td><button id="demo-general">General</button></td><td><span></span></td></tr><tr><td><button id="demo-success">Success</button></td><td><span>success</span></td></tr><tr><td><button id="demo-error">Error</button></td><td><span>error</span></td></tr><tr><th>Dropdown</th></tr><tr><td><button id="demo-dropdown">Dropdown</button></td><td><span>dropdown</span></td></tr><tr><th>Context Menu</th></tr><tr><td><button id="demo-context-menu">Context Menu (Right Click)</button></td><td><span>context_menu</span></td></tr><tr><th>Tooltip</th></tr><tr><td><button id="demo-tooltip-up">Up</button></td><td><span>tooltip tip_top</span></td></tr><tr><td><button id="demo-tooltip-right">Right</button></td><td><span>tooltip tip_right</span></td></tr><tr><td><button id="demo-tooltip-down">Down</button></td><td><span>tooltip tip_down</span></td></tr><tr><td><button id="demo-tooltip-left">Left</button></td><td><span>tooltip tip_left</span></td></tr></table></div></div><div id="popscript-calls" class="sample-popscript-code"><h1>Implementation</h1><pre>/* General*/
+
+</pre></div><div class="right-area"><div><table><tr id="demo-theader"><th></th><th><span>Pop Class</span></th></tr><tr><th>Pop Up</th></tr><tr><td><button id="demo-general">General</button></td></tr><tr><td><button id="demo-success">Success</button></td></tr><tr><td><button id="demo-error">Error</button></td></tr><tr><th>Dropdown</th></tr><tr><td><button id="demo-dropdown">Dropdown</button></td></tr><tr><th>Context Menu</th></tr><tr><td><button id="demo-context-menu">Context Menu (Right Click)</button></td></tr><tr><th>Tooltip</th></tr><tr><td><button id="demo-tooltip-up">Up</button></td></tr><tr><td><button id="demo-tooltip-right">Right</button></td></tr><tr><td><button id="demo-tooltip-down">Down</button></td></tr><tr><td><button id="demo-tooltip-left">Left</button></td></tr><tr><th> Roller</th></tr><tr><td><button id="demo-roller">Roller (only the pop will scroll)</button></td></tr></table></div></div><div id="popscript-calls" class="sample-popscript-code"><h1>Implementation</h1><pre>/* General*/
 document.getElementById('demo-general').onclick = function () {
-    pop("This is a general box");
+    pop('This is a general box');
 };
 
 /* Success*/
 document.getElementById('demo-success').onclick = function () {
-    pop("Your comment was successfully posted! (click to close)", "success");
+    pop('Your comment was successfully posted! (click to close)',
+        'success');
 };
 
 /* Error*/
 document.getElementById('demo-error').onclick = function () {
-    pop("Error 418: You are a teapot", "error");
+    pop('Error 418: You are a teapot',
+        'error');
 };
 
 /* Dropdown*/
-var dropdown_pop_id;
-document.getElementById('demo-dropdown').onclick = function () {
-    if (!(dropdown_pop_id && popExists(dropdown_pop_id))) {
-        dropdown_pop_id = pop("&lt;ul&gt;&lt;li&gt;About&lt;/li&gt;&lt;li&gt;Help&lt;/li&gt;&lt;li&gt;Log Out&lt;/li&gt;&lt;/ul&gt;", "dropdown",
-            {near_element: this, nearElement: function (x, y, w, h) {
-                return [x, y + h + 4]
-            }}
-        )
-    } else {
-        popOut(dropdown_pop_id);
-    }
-};
+var dropdown_button = document.getElementById('demo-dropdown');
+pop([dropdown_button, 'click', 'click'],
+    '&lt;ul&gt;' +
+        '&lt;li&gt;About&lt;/li&gt;' +
+        '&lt;li&gt;Help&lt;/li&gt;' +
+        '&lt;li&gt;Log Out&lt;/li&gt;' +
+    '&lt;/ul&gt;',
+    'dropdown',
+    { nearElement: [dropdown_button, function (x, y, w, h) {
+        return [x, y + h + 4]
+    }]}
+);
+
 
 /* Context Menu*/
 document.getElementById('demo-context-menu').oncontextmenu = function (event) {
     event = event || window.event;
-    pop("&lt;ul&gt;&lt;li&gt;Cut&lt;/li&gt;&lt;li&gt;Copy&lt;/li&gt;&lt;li&gt;Paste&lt;/li&gt;&lt;li&gt;Share&lt;/li&gt;&lt;/ul&gt;", "context_menu",
-        {popscript: {POSITION: {
-            y: event.clientY + "+scrolled",
-            x: event.clientX + "+scrolled" }
-        }}
+    pop('&lt;ul&gt;' +
+            '&lt;li&gt;Cut&lt;/li&gt;' +
+            '&lt;li&gt;Copy&lt;/li&gt;' +
+            '&lt;li&gt;Paste&lt;/li&gt;' +
+            '&lt;li&gt;Share&lt;/li&gt;' +
+    '&lt;/ul&gt;',
+        'context_menu',
+        {POSITION: {
+            y: event.clientY + '+scrolled',
+            x: event.clientX + '+scrolled' }
+        }
     );
     return false;
 };
 
 /* Tooltips*/
-var left_pop_id, right_pop_id, up_pop_id, down_pop_id;
 
 /* Tooltip Left*/
-document.getElementById('demo-tooltip-left').onmouseover = function () {
-    left_pop_id = pop("pop from the left", 'tooltip tip_right',
-        {near_element: this, nearElement: function (x, y, w, h) {
-            return [x - w - 6, y]
-        }})
-};
-document.getElementById('demo-tooltip-left').onmouseout = function () {
-    popOut(left_pop_id)
-};
+var tooltip_left_button = document.getElementById('demo-tooltip-left');
+pop([tooltip_left_button, ['mouseover', 'click'], ['mouseout', 'click']],
+    'pop from the left',
+    'tooltip tip_right',
+    {nearElement: [tooltip_left_button, function (x, y, w, h) {
+        return [x - w - 6, y]
+    }]}
+);
 
 /* Tooltip Right*/
-document.getElementById('demo-tooltip-right').onmouseover = function () {
-    right_pop_id = pop("pop from the right", 'tooltip tip_left',
-        {near_element: this, nearElement: function (x, y, w, h) {
-            return [x + w + 6, y]
-        }}
-    )
-};
-document.getElementById('demo-tooltip-right').onmouseout = function () {
-    popOut(right_pop_id)
-};
+var tooltip_right_button = document.getElementById('demo-tooltip-right');
+pop([tooltip_right_button, ['mouseover', 'click'], ['mouseout', 'click']],
+    'pop from the right',
+    'tooltip tip_left',
+    {nearElement: [tooltip_right_button, function (x, y, w, h) {
+        return [x + w + 6, y]
+    }]}
+);
 
 /* Tooltip Up*/
-document.getElementById('demo-tooltip-up').onmouseover = function () {
-    up_pop_id = pop("pop from the up", 'tooltip tip_up',
-        {near_element: this, nearElement: function (x, y, w, h) {
-            return [x, y - h]
-        }}
-    )
-};
-document.getElementById('demo-tooltip-up').onmouseout = function () {
-    popOut(up_pop_id)
-};
+var tooltip_up_button = document.getElementById('demo-tooltip-up');
+pop([tooltip_up_button, ['mouseover', 'click'], ['mouseout', 'click']],
+    'pop from the up',
+    'tooltip tip_up',
+    {nearElement: [tooltip_up_button, function (x, y, w, h) {
+        return [x, y - h]
+    }]}
+);
 
 /* Tooltip Down*/
-document.getElementById('demo-tooltip-down').onmouseover = function () {
-    down_pop_id = pop("pop from down below", 'tooltip tip_down',
-        {near_element: this, nearElement: function (x, y, w, h) {
-            return [x, y + h + 6]
-        }}
-    )
-};
-document.getElementById('demo-tooltip-down').onmouseout = function () {
-    popOut(down_pop_id)
-};</pre></div></div><div id="main-footer">Crafted with&nbsp;<span class="icon-heart-empty"></span> by&nbsp;<a href="http://relfor.co">Relfor</a></div><script src="/src/popscript.js" defer="defer"></script><script src="/static/js/prettify.js" defer="defer"></script><script src="/static/js/index.js" defer="defer"></script><a href="https://github.com/relfor/popscript"><img id="github-ribbon" style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a></body></html>
+var tooltip_down_down = document.getElementById('demo-tooltip-down');
+pop([tooltip_down_down, ['mouseover', 'click'], ['mouseout', 'click']],
+    'pop from down below',
+    'tooltip tip_down',
+    {nearElement: [tooltip_down_down, function (x, y, w, h) {
+        return [x, y + h + 6]
+    }]}
+);
+
+/* Roller*/
+pop([document.getElementById('demo-roller'), 'click'],
+    '&lt;iframe src="http://relfor.co/about"&gt;&lt;/iframe&gt;',
+    'roller');</pre></div></div><div id="main-footer">Crafted with&nbsp;<span class="icon-heart-empty"></span> by&nbsp;<a href="http://relfor.co">Relfor</a></div><script src="/src/popscript.js" defer="defer"></script><script src="/static/js/prettify.js" defer="defer"></script><script src="/static/js/index.js" defer="defer"></script><a href="https://github.com/relfor/popscript"><img id="github-ribbon" style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a></body></html>

@@ -1,11 +1,21 @@
 @import 'variables';
 
+@mixin section($level) {
+  > *:not(.section) {
+    margin-left: $sphinx-margin-left*$level;
+  }
+  > table.docutils {
+    width: 200px;
+    width: calc(100% - #{($sphinx-margin-left*$level)});
+    width: -webkit-calc(100% - #{($sphinx-margin-left*$level)});
 
-* {
-  margin-top:0;
-
+  }
 }
 
+* {
+  margin-top: 0;
+
+}
 
 body {
   background-color: $background-color;
@@ -13,31 +23,138 @@ body {
 }
 
 .documentwrapper {
-  h1,h2,h3,h4,h5,h6{
+  h1, h2, h3, h4, h5, h6 {
     margin: 14px 0 5px 0;
   }
 }
-#searchbox > form > input[type=submit],
-.searchtip
-{
-  display: none;
-}
 
-
-div.document {
-  padding-top:$header-height;
+.document {
+  margin-top: $header-height;
   a {
-    color:$that-red;
+    color: $that-red;
+    &:hover {
+      text-decoration: underline;
+      color: lighten($that-red, 20);
+      transition: 500ms all;
+    }
   }
-  div.body {
-    background-color: #ffffff;
+  .body {
+    overflow: auto;
+
+    pre {
+      max-height: 310px;
+      overflow: auto;
+    }
+    .section {
+
+      li {
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+      .toctree-wrapper {
+        ul {
+          margin: 1px 0 15px 0;
+          li {
+            margin: 5px 0;
+          }
+        }
+      }
+
+      > div[class^="highlight"] {
+        margin-left: 0 !important;
+      }
+      div[class^="highlight"] {
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+      .docs-ps-prop, .docs-ps-scope {
+        padding: 4px 8px;
+
+        color:white;
+      }
+
+      .docs-ps-prop {
+        cursor: pointer;
+        font-size:15px !important;
+        background-color: $that-red;
+        border-radius: 0 10px 10px 0 ;
+      }
+      .docs-ps-prop:hover {
+        background-color: lighten($that-red,15%);
+      }
+      .docs-ps-prop:active {
+        background-color: darken($that-red,15%);
+      }
+
+
+      .docs-ps-scope {
+        font-size:20px !important;
+        background-color: black;
+        border-radius: 10px 10px 0 0;
+
+      }
+
+    }
+
+    > .section {
+      @include section(1);
+      > .section {
+        @include section(2);
+        > .section {
+          @include section(3);
+          > .section {
+            @include section(4);
+            > .section {
+              @include section(5);
+              > .section {
+                @include section(6);
+              }
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
   }
 }
 
+.x-search-area {
+  margin-left: $sphinx-margin-left !important;
+}
 
-div.sphinxsidebar  {
-  margin-left:0;
+div.sphinxsidebar {
+  margin-left: 0;
   float: left;
+  position: fixed;
+  height: 90%;
+  height: calc(100% - #{($header-height)});
+  height: -webkit-calc(100% - #{($header-height)});
+  width: $sphinx-sidebar-width;
+  padding-right: $sphinx-sidebar-pad;
+  background-color: gainsboro;
+  //color:white;
+  overflow: auto;
+
+  ul {
+    padding-left: 21px;
+    ul {
+      font-style: italic; // do this to match the </em> links in the doc (due to the usage of the :ref: directive in sphinx)
+    }
+  }
+  .sphinxsidebarwrapper {
+    > ul {
+       li {
+        list-style-type: none;
+         li {
+          list-style-type: disc;
+         }
+      }
+    }
+  }
 }
 
 div.footer {
@@ -45,16 +162,70 @@ div.footer {
   background-color: black;
   padding: 10px 0;
   text-align: center;
-  color:white;
+  color: white;
   a {
-    color:white;
+    color: white;
     text-decoration: underline;
   }
 }
 
 .documentwrapper {
-  margin-left: 300px;
+  margin-left: $sphinx-sidebar-width+$sphinx-sidebar-pad;
+  .mobile & {
+    margin-left: 0;
+  }
+}
+
+div.sphinxsidebar ul ul, div.sphinxsidebar ul.want-points {
+  margin-left: 0;
+}
+
+table.docutils {
+  width: 100%;
+  td, table.docutils th {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    border: $nice-border;
+    padding: 10px;
+  }
+}
+
+div.sphinxsidebar {
+  form.search {
+    width: 100%;
+    margin: 8px 0 13px 0;
+  }
+  #searchbox input[type="text"]{
+    //width: 100%;
+
+    background-color: $background-color;
+    border-radius: 10px;
+    padding:5px 10px;
+
+    border: none;
+  }
+
 }
 
 
+
+
+h1 {
+  font-size:2.5em;
+}
+h2 {
+  font-size:2.2em;
+}
+h3 {
+  font-size:1.9em;
+}
+h4 {
+  font-size:1.6em;
+}
+h5 {
+  font-size:1.3em;
+}
+h6 {
+  font-size:1.1em;
+}
 

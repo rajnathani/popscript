@@ -1,25 +1,22 @@
 /* Advanced */
-.popscript-move {
+.popscript-drag {
     cursor: move;
 }
+
 /* End of Advanced */
 
 /* Intermediate */
 
 .simple-box {
-
     background-color: rgb(240, 240, 240);
-
     border: 1px solid rgb(200, 200, 200);
     box-shadow: 1px 1px 1px rgb(150, 150, 150);
-    width: 310px;
+    min-width: 200px;
     padding: 20px;
-
 }
 
 .curtain {
     background-color: rgba(0, 0, 0, 0.3);
-
 }
 
 .error {
@@ -41,8 +38,12 @@
 }
 
 .cross {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
     color: grey;
-    color:rgba(0,0,0,0.5);
+    color:rgba(0,0,0,0.4);
     background-color: transparent;
     width: 15px;
     line-height: 15px;
@@ -54,17 +55,16 @@
 }
 
 .cross:hover {
-    color: #ffffff;
     background-color: #ff475a;
     border-radius: 100%;
+    color:rgba(255,255,255,0.6);
 }
 
 .cross:active {
-    color: grey;
-    color:rgba(0,0,0,0.5);
+    background-color: #a12d38;
 }
 
-/***end of popups**/
+
 
 
 
@@ -80,7 +80,6 @@
 
     padding: 7px 10px;
     color: white;
-
 }
 
 .popscript-tooltip:after, .dropdown:before, .dropdown:after {
@@ -200,6 +199,21 @@ Alternatively, it can be done in 2 lesser lines of code by using background-imag
     color:blue;
 }
 
+
+.roller {
+    padding: 0;
+    height:auto;
+    width:600px;
+    background-color: transparent;
+}
+.roller iframe {
+    border:none;
+    width: 600px;
+    height: 1500px; /** note: these hardcoded dimensions exist due to the non dimension fluidity of frames **/
+    background-color: white;
+}
+
+/***end of popups**/
 /**animations**/
 
 @-webkit-keyframes fade-in {
@@ -320,99 +334,109 @@ Alternatively, it can be done in 2 lesser lines of code by using background-imag
 
 
 
-@keyframes short-arrive-left-fade-in {
+@keyframes short-arrive-left {
     from {
         transform: translate(20px, 0);
-        opacity: 0.2;
     }
     to {
         transform: translate(0, 0);
-        opacity: 1;
     }
 }
 
 
-@-webkit-keyframes short-arrive-left-fade-in {
+@-webkit-keyframes short-arrive-left {
     from {
         -webkit-transform: translate(20px, 0);
-        opacity: 0.2;
     }
     to {
         -webkit-transform: translate(0, 0);
-        opacity: 1;
     }
 }
 
 
-@keyframes short-arrive-right-fade-in {
+@keyframes short-arrive-right {
     from {
         transform: translate(-20px, 0);
-        opacity: 0.2;
     }
     to {
         transform: translate(0, 0);
-        opacity: 1;
     }
 }
 
 
-@-webkit-keyframes short-arrive-right-fade-in {
+@-webkit-keyframes short-arrive-right {
     from {
         -webkit-transform: translate(-20px, 0);
-        opacity: 0.2;
     }
     to {
         -webkit-transform: translate(0, 0);
-        opacity: 1;
     }
 }
 
-@keyframes short-arrive-up-fade-in {
+@keyframes short-arrive-up {
     from {
         transform: translate(0, -20px);
-        opacity: 0.2;
     }
     to {
         transform: translate(0, 0);
-        opacity: 1;
     }
 }
 
 
-@-webkit-keyframes short-arrive-up-fade-in {
+@-webkit-keyframes short-arrive-up {
     from {
         -webkit-transform: translate(0,-20px);
-        opacity: 0.2;
     }
     to {
         -webkit-transform: translate(0, 0);
-        opacity: 1;
     }
 }
 
-@keyframes short-arrive-down-fade-in {
+@keyframes short-arrive-down {
     from {
         transform: translate( 0, 20px);
-        opacity: 0.2;
     }
     to {
         transform: translate(0, 0);
-        opacity: 1;
     }
 }
 
 
-@-webkit-keyframes short-arrive-down-fade-in {
+@-webkit-keyframes short-arrive-down {
     from {
         -webkit-transform: translate(0,20px);
-        opacity: 0.2;
     }
     to {
         -webkit-transform: translate(0, 0);
-        opacity: 1;
     }
 }
+
+@keyframes newspaper {
+    from {
+        transform: scale(0.1,0.1) rotate(1080deg);
+    }
+    to {
+        transform: scale(1,1) rotate(0deg);
+    }
+}
+
+
+@-webkit-keyframes newspaper {
+    from {
+        -webkit-transform: scale(0.1,0.1) rotate(1080deg);
+    }
+    to {
+        -webkit-transform: scale(1,1) rotate(0deg);
+    }
+}
+
 
 
 
 /* End of Advanced */
+
+/* Do not edit anything below this */
+
+.popscript-display-none {
+    display: none;
+}

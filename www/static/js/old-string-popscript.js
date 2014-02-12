@@ -666,7 +666,7 @@ function _pAnimateOut(delay_length, main, todo) {
 }
 
 function _popAddAnimation(node, value, delay) {
-    node.style.animation = (value + ' ' + delay + 'ms');
+    node.style.ani = (value + ' ' + delay + 'ms');
     node.style.webkitAnimation = (value + ' ' + delay + 'ms');
     node.style.mozAnimation = (value + ' ' + delay + 'ms');
     node.style.oAnimation = (value + ' ' + delay + 'ms');

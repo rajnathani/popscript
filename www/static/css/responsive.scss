@@ -22,7 +22,7 @@
     font-size:20px;
   }
   #nav {
-    min-width: 500px;
+    min-width: 400px;
     float: left;
     a {
       margin-left: 5%;
@@ -33,23 +33,36 @@
 }
 
 .mobile {
-  min-width: 500px;
+  .demo {
+    .sample-popscript-code {
+      display: none;
+    }
+    .right-area {
+      width: 100% !important;
+    }
+  }
+  .sphinxsidebar {
+    margin-left:-#{$sphinx-sidebar-width+$sphinx-sidebar-pad};
+  }
+  min-width: initial;
   #github-ribbon {
     position: absolute;
   }
   #header {
-    position: absolute;
+   opacity:0.9;
 
     #logo {
       font-size:15px;
     }
     #nav {
-      min-width: 500px;
-      float: left;
+      min-width: initial;
+      //min-width: 500px;
+      //float: left;
       a:first-child {
-        margin-left: 0;
+        //margin-left: 0;
       }
     a {
+      margin-left: 21px;
       font-size:15px;
     }
     }

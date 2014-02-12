@@ -14,24 +14,28 @@
   .tablet #header #logo {
     font-size: 20px; }
   .tablet #header #nav {
-    min-width: 500px;
+    min-width: 400px;
     float: left; }
     .tablet #header #nav a {
       margin-left: 5%;
       font-size: 20px; }
 
 .mobile {
-  min-width: 500px; }
+  min-width: initial; }
+  .mobile .demo .sample-popscript-code {
+    display: none; }
+  .mobile .demo .right-area {
+    width: 100% !important; }
+  .mobile .sphinxsidebar {
+    margin-left: -260px; }
   .mobile #github-ribbon {
     position: absolute; }
   .mobile #header {
-    position: absolute; }
+    opacity: 0.9; }
     .mobile #header #logo {
       font-size: 15px; }
     .mobile #header #nav {
-      min-width: 500px;
-      float: left; }
-      .mobile #header #nav a:first-child {
-        margin-left: 0; }
+      min-width: initial; }
       .mobile #header #nav a {
+        margin-left: 21px;
         font-size: 15px; }

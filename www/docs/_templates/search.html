@@ -17,7 +17,7 @@
   {{ super() }}
 {% endblock %}
 {% block body %}
-  <h1 id="search-documentation">{{ _('Search') }}</h1>
+  <h1 id="search-documentation" class="x-search-area">{{ _('Search') }}</h1>
   <div id="fallback" class="admonition warning">
   <script type="text/javascript">$('#fallback').hide();</script>
   <p>
@@ -25,13 +25,13 @@
     functionality.{% endtrans %}
   </p>
   </div>
-  <p>
+  <p class="x-search-area">
     {% trans %}From here you can search these documents. Enter your search
     words into the box below and click "search". Note that the search
     function will automatically search for all of the words. Pages
     containing fewer words won't appear in the result list.{% endtrans %}
   </p>
-  <form action="" method="get">
+  <form action="" method="get" class="x-search-area">
     <input type="text" name="q" value="" />
     <input type="submit" value="{{ _('search') }}" />
     <span id="search-progress" style="padding-left: 10px"></span>
@@ -42,7 +42,7 @@
       <p>{{ _('Your search did not match any results.') }}</p>
     {% endif %}
   {% endif %}
-  <div id="search-results">
+  <div id="search-results" class="x-search-area">
   {% if search_results %}
     <ul>
     {% for href, caption, context in search_results %}

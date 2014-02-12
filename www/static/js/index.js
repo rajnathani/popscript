@@ -15,17 +15,18 @@ if (!demo_page && tooltip_index < all_tooltips.length) {
     setTimeout(popTooltip, tooltip_gap);
 }
 
+document.getElementById('download').onclick = function () {
+    pop('<table id="download-table"><tr><td>JS (pick any 1)</td><td><a href="src/popscript.js">popscript.js</a></td><td><a href="src/popscript.min.js">popscript.min.js</a></td></tr><tr><td>CSS</td><td colspan="2"><a href="src/popscript.css">popscript.css</a></td></tr></table>', {style_inline_box:'padding:0', style_inline_cross:'right:-10px;top:-10px;', style_class_cross:'cross cross-hover'});
+    return false;
+};
 
 function popTooltip() {
     pop(
         all_tooltips[tooltip_index].getAttribute('data-tooltip')
         , 'tooltip tip_left', {
-
-            near_element: all_tooltips[tooltip_index],
-            nearElement: function (x, y, width, height) {
+            nearElement: [all_tooltips[tooltip_index], function (x, y, width, height) {
                 return [x + width + 30, y - 8]
-            }
-
+            }]
         });
     tooltip_index++;
 
@@ -37,7 +38,7 @@ function popTooltip() {
 
 
 function responsive() {
-    var body = document.getElementsByTagName('body')[0];
+    var html_tag = document.getElementsByTagName('html')[0];
     var width = (window).innerWidth;
     var class_name;
     if (width < 1000) {
@@ -46,8 +47,7 @@ function responsive() {
             class_name = 'mobile'
         }
     }
-    body.className = "";
-    body.className = class_name;
+    html_tag.className = class_name ? class_name : "";
 }
 
 
@@ -55,106 +55,126 @@ responsive();
 
 window.onresize = responsive;
 
-document.getElementById('pending-docs').onclick = function(e){
-    e = e || window.event;
-    if (e.shiftKey){
-        window.location.href = '/docs/index.html';
-        return false;
+
+(function () {
+    var docs_body = (document.getElementsByClassName('body')[0]);
+    if (docs_body) {
+        var ps_props = (docs_body).querySelectorAll('.docs-ps-prop');
+        var ps_prop, table_desc;
+        for (var i = 0; i < ps_props.length; i++) {
+            ps_prop = ps_props[i];
+            table_desc = ps_prop.parentNode.nextSibling.nextSibling;
+            table_desc.style.display = 'none';
+            PS.event.add(ps_prop, 'click',
+                function () {
+                    var closure_table_desc;
+                    closure_table_desc = this.parentNode.nextSibling.nextSibling;
+                    closure_table_desc.style.display = closure_table_desc.style.display === 'none' ? 'table' : 'none';
+                })
+        }
     }
 
-};
+})();
+
 
 if (demo_page) {
     /* General*/
     document.getElementById('demo-general').onclick = function () {
-        pop("This is a general box");
+        pop('This is a general box');
     };
 
     /* Success*/
     document.getElementById('demo-success').onclick = function () {
-        pop("Your comment was successfully posted! (click to close)", "success");
+        pop('Your comment was successfully posted! (click to close)',
+            'success');
     };
 
     /* Error*/
     document.getElementById('demo-error').onclick = function () {
-        pop("Error 418: You are a teapot", "error");
+        pop('Error 418: You are a teapot',
+            'error');
     };
 
     /* Dropdown*/
-    var dropdown_pop_id;
-    document.getElementById('demo-dropdown').onclick = function () {
-        if (!(dropdown_pop_id && popExists(dropdown_pop_id))) {
-            dropdown_pop_id = pop("<ul><li>About</li><li>Help</li><li>Log Out</li></ul>", "dropdown",
-                {near_element: this, nearElement: function (x, y, w, h) {
-                    return [x, y + h + 4]
-                }}
-            )
-        } else {
-            popOut(dropdown_pop_id);
-        }
-    };
+    var dropdown_button = document.getElementById('demo-dropdown');
+    pop([dropdown_button, 'click', 'click'],
+        '<ul>' +
+            '<li>About</li>' +
+            '<li>Help</li>' +
+            '<li>Log Out</li>' +
+        '</ul>',
+        'dropdown',
+        { nearElement: [dropdown_button, function (x, y, w, h) {
+            return [x, y + h + 4]
+        }]}
+    );
+
 
     /* Context Menu*/
     document.getElementById('demo-context-menu').oncontextmenu = function (event) {
         event = event || window.event;
-        pop("<ul><li>Cut</li><li>Copy</li><li>Paste</li><li>Share</li></ul>", "context_menu",
-            {popscript: {POSITION: {
-                y: event.clientY + "+scrolled",
-                x: event.clientX + "+scrolled" }
-            }}
+        pop('<ul>' +
+                '<li>Cut</li>' +
+                '<li>Copy</li>' +
+                '<li>Paste</li>' +
+                '<li>Share</li>' +
+            '</ul>',
+            'context_menu',
+            {POSITION: {
+                y: event.clientY + '+scrolled',
+                x: event.clientX + '+scrolled' }
+            }
         );
         return false;
     };
 
     /* Tooltips*/
-    var left_pop_id, right_pop_id, up_pop_id, down_pop_id;
 
     /* Tooltip Left*/
-    document.getElementById('demo-tooltip-left').onmouseover = function () {
-        left_pop_id = pop("pop from the left", 'tooltip tip_right',
-            {near_element: this, nearElement: function (x, y, w, h) {
-                return [x - w - 6, y]
-            }})
-    };
-    document.getElementById('demo-tooltip-left').onmouseout = function () {
-        popOut(left_pop_id)
-    };
+    var tooltip_left_button = document.getElementById('demo-tooltip-left');
+    pop([tooltip_left_button, ['mouseover', 'click'], ['mouseout', 'click']],
+        'pop from the left',
+        'tooltip tip_right',
+        {nearElement: [tooltip_left_button, function (x, y, w, h) {
+            return [x - w - 6, y]
+        }]}
+    );
 
     /* Tooltip Right*/
-    document.getElementById('demo-tooltip-right').onmouseover = function () {
-        right_pop_id = pop("pop from the right", 'tooltip tip_left',
-            {near_element: this, nearElement: function (x, y, w, h) {
-                return [x + w + 6, y]
-            }}
-        )
-    };
-    document.getElementById('demo-tooltip-right').onmouseout = function () {
-        popOut(right_pop_id)
-    };
+    var tooltip_right_button = document.getElementById('demo-tooltip-right');
+    pop([tooltip_right_button, ['mouseover', 'click'], ['mouseout', 'click']],
+        'pop from the right',
+        'tooltip tip_left',
+        {nearElement: [tooltip_right_button, function (x, y, w, h) {
+            return [x + w + 6, y]
+        }]}
+    );
 
     /* Tooltip Up*/
-    document.getElementById('demo-tooltip-up').onmouseover = function () {
-        up_pop_id = pop("pop from the up", 'tooltip tip_up',
-            {near_element: this, nearElement: function (x, y, w, h) {
-                return [x, y - h]
-            }}
-        )
-    };
-    document.getElementById('demo-tooltip-up').onmouseout = function () {
-        popOut(up_pop_id)
-    };
+    var tooltip_up_button = document.getElementById('demo-tooltip-up');
+    pop([tooltip_up_button, ['mouseover', 'click'], ['mouseout', 'click']],
+        'pop from the up',
+        'tooltip tip_up',
+        {nearElement: [tooltip_up_button, function (x, y, w, h) {
+            return [x, y - h]
+        }]}
+    );
 
     /* Tooltip Down*/
-    document.getElementById('demo-tooltip-down').onmouseover = function () {
-        down_pop_id = pop("pop from down below", 'tooltip tip_down',
-            {near_element: this, nearElement: function (x, y, w, h) {
-                return [x, y + h + 6]
-            }}
-        )
-    };
-    document.getElementById('demo-tooltip-down').onmouseout = function () {
-        popOut(down_pop_id)
-    };
+    var tooltip_down_down = document.getElementById('demo-tooltip-down');
+    pop([tooltip_down_down, ['mouseover', 'click'], ['mouseout', 'click']],
+        'pop from down below',
+        'tooltip tip_down',
+        {nearElement: [tooltip_down_down, function (x, y, w, h) {
+            return [x, y + h + 6]
+        }]}
+    );
+
+    /* Roller*/
+    pop([document.getElementById('demo-roller'), 'click'],
+        '<iframe src="http://relfor.co/about"></iframe>',
+        'roller');
+
 }
 
 

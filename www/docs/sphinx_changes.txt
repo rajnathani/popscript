@@ -1,0 +1,10 @@
+
+
+- CSS changes: fix_sphinx.css
+- 'Table of Contents' in 'localtoc.html' renamed to 'Current Topic'
+- In 'search.html', added class of 'x-search-area' to distinguish between search area components and other components within div.body
+- 'Created using Sphinx' changed to 'Documentation created using Sphinx' in layout.html template
+- change 'table.docutils td, table.docutils th {' declaration which excludes every border width except bottom. Other CSS changes to 'table.docutils' mentioned in fix_sphinx.css
+- move the search box to the top of the sidebar
+- in 'searchbox.html' commented out the heading 'quick search' (compensating by adding a placeholder to the search box), the submit button 'go', and the search tip below the form. Additionally made CSS changes to the input box.
+- added `docs-ps-prop` and `docs-ps-scope` and `docs-ps-runtime` rules to add classes (thanks: http://stackoverflow.com/questions/9084173/how-to-underline-text-in-restructuredtext) to single out properties and scopes in the the almanac.

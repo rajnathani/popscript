@@ -5,6 +5,7 @@ html
         title PopScript
         //
           link href='http://fonts.googleapis.com/css?family=Skranji|Sigmar+One|Merienda:400,700' rel='stylesheet' type='text/css'
+        link(rel='shortcut icon', href='/static/imgs/favicon.png')
         link(rel='stylesheet', type='text/css', href='/static/css/google-web-fonts.css')
         link(rel='stylesheet', href='/static/css/font-awesome.min.css')
         link(rel='stylesheet', type='text/css', href='/src/popscript.css')
@@ -26,7 +27,7 @@ html
             })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
             ga('create', 'UA-46630680-1', 'relfor.co');
             ga('send', 'pageview');
-
+        block pre_doc
 
     body
         #header.cf
@@ -34,13 +35,13 @@ html
                 span POP
                 span SCRIPT
             #nav.cf
-                a#pending-docs(href='/pending-docs.html')
+                a(href='/docs/index.html')
                     span.icon-book
                     |  DOCS
                 a(href='/demo.html')
                     span.icon-hand-up
                     |  DEMO
-                a(href='http://github.com/relfor/popscript')
+                a#download(href='/download.html')
                     span.icon-download
                     |  DOWNLOAD
         block content
@@ -52,5 +53,6 @@ html
         script(src='/src/popscript.js', defer='defer')
         script(src='/static/js/prettify.js', defer='defer')
         script(src='/static/js/index.js', defer='defer')
+        block post_doc
         a(href='https://github.com/relfor/popscript')
             img#github-ribbon(style='position: absolute; top: 0; right: 0; border: 0;', src='https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png', alt='Fork me on GitHub')

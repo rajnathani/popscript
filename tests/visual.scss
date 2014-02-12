@@ -1,0 +1,51 @@
+@import '../www/static/css/variables';
+
+body {
+  counter-reset:section;
+}
+button[id^="vt-"]:after {
+  content: "invoke"
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+    position: relative;
+    list-style-type: none;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    padding: 12px 12px 12px 60px;
+
+  &:before {
+
+    counter-increment:section;
+    content: counter(section);
+    position: absolute;
+    left:-40px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    padding-left: 42px;
+    background-color: $that-red;
+    border-radius: 100%;
+    width: 80px;
+    height: 80px;
+
+    color:rgba(255,255,255,0.6);
+    text-align: left;
+    line-height: 80px;
+    font-size: 20px;
+  }
+  &:nth-child(odd) {
+    background-color: $that-grey;
+  }
+  p {
+    margin: 5px 0;
+  }
+  i {
+    margin: 5px 0;
+    display: block;
+  }
+}
