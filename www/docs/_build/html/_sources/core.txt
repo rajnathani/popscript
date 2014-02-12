@@ -99,14 +99,14 @@ As mentioned in the previous subsection, pop classes are designed to replicate C
                 x: 'auto',
                 y: 'auto'
             },
-
+    
             cover: 'yes',
             cross: 'yes',
             cross_content: 'x',
             esc: 'ye',
             full_draggable: 'yes'
         },
-
+    
         success: {
             STYLE: {
                 CLASS: {
@@ -124,12 +124,12 @@ As mentioned in the previous subsection, pop classes are designed to replicate C
             POSITION: {
                 y: 'top'
             },
-
+    
             cross: 'no',
             full_draggable: 'naaaaoh',
             click_me_out: 'yes, tis is convenient'
         },
-
+    
         error: {
             STYLE: {
                 CLASS: {
@@ -149,7 +149,7 @@ As mentioned in the previous subsection, pop classes are designed to replicate C
                 y: '10'
             }
         },
-
+    
         dropdown: {
             STYLE: {
                 CLASS: {
@@ -167,12 +167,12 @@ As mentioned in the previous subsection, pop classes are designed to replicate C
             POSITION: {
                 z: '-1'
             },
-
+    
             cross: 'no',
             cover: 'no',
             full_draggable: 'no'
         },
-
+    
         context_menu: {
             STYLE: {
                 CLASS: {
@@ -192,12 +192,12 @@ As mentioned in the previous subsection, pop classes are designed to replicate C
                 fixed: 'no',
                 z: '-1'
             },
-
+    
             cover: 'no',
             cross: 'no',
             full_draggable: 'no'
         },
-
+    
         tooltip: {
             STYLE: {
                 CLASS: {
@@ -212,7 +212,7 @@ As mentioned in the previous subsection, pop classes are designed to replicate C
             POSITION: {
                 z: '-1'
             },
-
+    
             click_me_out: 'yeh',
             cross: 'no',
             cover: 'no',
@@ -220,7 +220,7 @@ As mentioned in the previous subsection, pop classes are designed to replicate C
             esc: 'yes',
             full_draggable: 'no'
         },
-
+    
         tip_left: {
             STYLE: {
                 CLASS: {
@@ -269,7 +269,7 @@ As mentioned in the previous subsection, pop classes are designed to replicate C
                 }
             }
         },
-
+    
         roller: {
             STYLE: {
                 CLASS: {
@@ -753,8 +753,8 @@ Click on properties (in red) to view its role.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ======== ==================================================
- Input    Function
- Task     Accepts a function to be called after the pop has been outted (closed/hidden depending on the :ref:`out`  property). The function is provided with the parameters: <:ref:`pop-id`> , <out_type (this is based on the :ref:`out` property)>
+ Input    Function / Array
+ Task     Accepts a function or an array of functions, to be called after the pop has been outted (closed/hidden depending on the :ref:`out`  property). The function is provided with the parameters: <:ref:`pop-id`> , <out_type (this is based on the :ref:`out` property)>
 ======== ==================================================
 
 
@@ -897,14 +897,14 @@ parameter: binder
 
     1. Bind all the **in events** (2nd parameter) to the Node (1st parameter).
     2. On the firing of any of the above attached events, deploy the pop with remaining parameters as to be done :ref:`without-binder`.
-    3. If **out events** has been specified, attach all the **out events** to the Node; which on firing will cause pop to be hidden.
-    4. Attach all the **in events** to the Node; which on firing will cause the pop to be shown.
+    3. If **out events** has been specified, attach all the **out events** to the Node; which on firing will cause pop to be outted.
+    4. Attach all the **in events** to the Node; which on firing will cause the pop to be outted.
 
 | A state diagram showing the process of popping with a binder:
 
 .. image:: ../static/imgs/binder.png
 
-| Note that specifying an event in both **in events** and **out events** is a hack which will provide the ability to toggle the pop between being hidden and shown.
+| Note that specifying an event in both **in events** and **out events** is a hack which will provide the ability to toggle the pop's existence.
 
 Example (taken from the `demo </demo.html>`_  page)::
 

@@ -106,7 +106,7 @@ Would become this::
 
 .. _custom-out:
 
-Creating a custom close/hide button
+Creating a custowm close/hide button
 ---------------------------------------------
 
 .. image:: ../static/imgs/yuno-custom-close.jpg
@@ -307,7 +307,7 @@ parameter: property
 
 parameter: value
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-| Type: **String** | **Number**
+| Type: **String** | **Number** | **Array** | **Function** 
 | The new ``value`` for the pop property ``property``.
 
 

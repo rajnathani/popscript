@@ -1212,10 +1212,10 @@
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td>Input</td>
-<td>Function</td>
+<td>Function / Array</td>
 </tr>
 <tr class="row-even"><td>Task</td>
-<td>Accepts a function to be called after the pop has been outted (closed/hidden depending on the <a class="reference internal" href="#id16"><em>out:</em></a>  property). The function is provided with the parameters: &lt;<a class="reference internal" href="getting-started.html#pop-id"><em>pop ID</em></a>&gt; , &lt;out_type (this is based on the <a class="reference internal" href="#id16"><em>out:</em></a> property)&gt;</td>
+<td>Accepts a function or an array of functions, to be called after the pop has been outted (closed/hidden depending on the <a class="reference internal" href="#id16"><em>out:</em></a>  property). The function is provided with the parameters: &lt;<a class="reference internal" href="getting-started.html#pop-id"><em>pop ID</em></a>&gt; , &lt;out_type (this is based on the <a class="reference internal" href="#id16"><em>out:</em></a> property)&gt;</td>
 </tr>
 </tbody>
 </table>
@@ -1362,8 +1362,8 @@ pop( info );</pre>
 <div><ol class="arabic simple">
 <li>Bind all the <strong>in events</strong> (2nd parameter) to the Node (1st parameter).</li>
 <li>On the firing of any of the above attached events, deploy the pop with remaining parameters as to be done <a class="reference internal" href="#without-binder"><em>Without binder</em></a>.</li>
-<li>If <strong>out events</strong> has been specified, attach all the <strong>out events</strong> to the Node; which on firing will cause pop to be hidden.</li>
-<li>Attach all the <strong>in events</strong> to the Node; which on firing will cause the pop to be shown.</li>
+<li>If <strong>out events</strong> has been specified, attach all the <strong>out events</strong> to the Node; which on firing will cause pop to be outted.</li>
+<li>Attach all the <strong>in events</strong> to the Node; which on firing will cause the pop to be outted.</li>
 </ol>
 </div></blockquote>
 <div class="line-block">
@@ -1371,7 +1371,7 @@ pop( info );</pre>
 </div>
 <img alt="_images/binder.png" src="_images/binder.png" />
 <div class="line-block">
-<div class="line">Note that specifying an event in both <strong>in events</strong> and <strong>out events</strong> is a hack which will provide the ability to toggle the pop between being hidden and shown.</div>
+<div class="line">Note that specifying an event in both <strong>in events</strong> and <strong>out events</strong> is a hack which will provide the ability to toggle the pop&#8217;s existence.</div>
 </div>
 <p>Example (taken from the <a class="reference external" href="/demo.html">demo</a>  page):</p>
 <div class="highlight-python"><pre>var dropdown_button = document.getElementById('demo-dropdown');
