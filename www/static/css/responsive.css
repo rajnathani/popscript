@@ -28,6 +28,9 @@
     width: 100% !important; }
   .mobile .sphinxsidebar {
     margin-left: -260px; }
+  .mobile .body img {
+    width: 100%;
+    margin-left: 0 !important; }
   .mobile #github-ribbon {
     position: absolute; }
   .mobile #header {
