@@ -2241,7 +2241,7 @@ function pop(arg1, arg2, arg3, arg4) {
         roller_node = init[2];
         cross_node = init[3];
 
-        if (the_pop.scan('beforePopIn') && the_pop.scan('beforePopIn')() === false) {
+        if (the_pop.scan('beforePopIn') && the_pop.scan('beforePopIn')(true) === false) {
             return false;
         }
 
@@ -2393,6 +2393,10 @@ function popHide(arg1) {
 function popShow(pop_id) {
     var the_pop = PS.map[pop_id];
     if (!the_pop || !the_pop.compiled.hidden) return false;
+    if (the_pop.scan('beforePopIn') && the_pop.scan('beforePopIn')(false) === false) {
+        return false;
+    }
+
     var box_node, cover_node, roller_node;
     box_node = PS.boxNode(pop_id);
     cover_node = PS.coverNode(pop_id);

@@ -742,7 +742,7 @@ Click on properties (in red) to view its role.
 
 ======== ==================================================
  Input    Function
- Task     Accepts a function to be called just before the pop is about to be created. If the return value of this callback function evaluates to false, the pop will not be created. The function has no parameters supplied. You might wonder when such a function comes in use? Well its almost only while using binders with the pop() function.
+ Task     Accepts a function to be called just before the pop is about to be created. If the return value of this callback function evaluates to false, the pop will not be created or redisplayed after being hidden. The function has one parameter: <new> (new is set to true when the pop has not been created before, and false when the pop is being redisplayed after being hidden).
 ======== ==================================================
 
 
