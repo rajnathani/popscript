@@ -99,14 +99,14 @@ As mentioned in the previous subsection, pop classes are designed to replicate C
                 x: 'auto',
                 y: 'auto'
             },
-    
+
             cover: 'yes',
             cross: 'yes',
             cross_content: 'x',
             esc: 'ye',
             full_draggable: 'yes'
         },
-    
+
         success: {
             STYLE: {
                 CLASS: {
@@ -124,12 +124,12 @@ As mentioned in the previous subsection, pop classes are designed to replicate C
             POSITION: {
                 y: 'top'
             },
-    
+
             cross: 'no',
             full_draggable: 'naaaaoh',
             click_me_out: 'yes, tis is convenient'
         },
-    
+
         error: {
             STYLE: {
                 CLASS: {
@@ -149,7 +149,7 @@ As mentioned in the previous subsection, pop classes are designed to replicate C
                 y: '10'
             }
         },
-    
+
         dropdown: {
             STYLE: {
                 CLASS: {
@@ -167,12 +167,12 @@ As mentioned in the previous subsection, pop classes are designed to replicate C
             POSITION: {
                 z: '-1'
             },
-    
+
             cross: 'no',
             cover: 'no',
             full_draggable: 'no'
         },
-    
+
         context_menu: {
             STYLE: {
                 CLASS: {
@@ -192,12 +192,12 @@ As mentioned in the previous subsection, pop classes are designed to replicate C
                 fixed: 'no',
                 z: '-1'
             },
-    
+
             cover: 'no',
             cross: 'no',
             full_draggable: 'no'
         },
-    
+
         tooltip: {
             STYLE: {
                 CLASS: {
@@ -212,7 +212,7 @@ As mentioned in the previous subsection, pop classes are designed to replicate C
             POSITION: {
                 z: '-1'
             },
-    
+
             click_me_out: 'yeh',
             cross: 'no',
             cover: 'no',
@@ -220,7 +220,7 @@ As mentioned in the previous subsection, pop classes are designed to replicate C
             esc: 'yes',
             full_draggable: 'no'
         },
-    
+
         tip_left: {
             STYLE: {
                 CLASS: {
@@ -269,7 +269,7 @@ As mentioned in the previous subsection, pop classes are designed to replicate C
                 }
             }
         },
-    
+
         roller: {
             STYLE: {
                 CLASS: {
@@ -735,6 +735,18 @@ Click on properties (in red) to view its role.
 
 
 
+.. _before-pop-in:
+
+:docs-ps-prop:`beforePopIn:`
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+======== ==================================================
+ Input    Function
+ Task     Accepts a function to be called just before the pop is about to be created. If the return value of this callback function evaluates to false, the pop will not be created. The function has no parameters supplied. You might wonder when such a function comes in use? Well its almost only while using binders with the pop() function.
+======== ==================================================
+
+
+
 .. _before-pop-out:
 
 :docs-ps-prop:`beforePopOut:`
@@ -852,7 +864,7 @@ parameter: pop_class
 | Type: **String**
 | Optional: Yes
 | Default: ""
-| 
+|
 | The input here is the pop class for the given pop class which you want your pop to contain. Details of a pop class is given here: :ref:`pop-class`. Remember that the the 'basic' class is always preprended (:ref:`basic-class`). Which means that an input of "success" evaluates to "basic success". And if this parameter ``pop_class`` is not provided the default will be "", which evaluates to "basic".
 
 
@@ -869,8 +881,8 @@ parameter: inline_popscript
 | Type: **Object**
 | Optional: Yes
 | Default: {}
-| 
-| The input here is popscript. Inline popscript provides a way to specify pop specific popscript properties without having to declare a separate pop class altogether. 
+|
+| The input here is popscript. Inline popscript provides a way to specify pop specific popscript properties without having to declare a separate pop class altogether.
 
 
 Example::
@@ -956,7 +968,7 @@ popClose()
 | *Declaration:* ``popClose( [, pop_id ]``
 |
 | ``popClose( <parameter> )`` is the equivalent of calling :ref:`pop-out` with :ref:`out` specified as "close":
-| ``pop( <parameter> , "close")`` 
+| ``pop( <parameter> , "close")``
 
 
 
@@ -967,7 +979,7 @@ popHide()
 | *Declaration:* ``popHide( [, pop_id ]``
 |
 | ``popHide( <parameter> )`` is the equivalent of calling :ref:`pop-out` with with :ref:`out` specified as "hide":
-| ``pop( <parameter> , "hide")`` 
+| ``pop( <parameter> , "hide")``
 
 
 

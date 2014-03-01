@@ -48,6 +48,17 @@ document.getElementById('vt-beforepopout-2').onclick = function () {
     }});
 };
 
+document.getElementById('vt-beforepopin-1').onclick = function () {
+    pop("hello", {beforePopIn: function () {
+        pop("No I will not pop, you should not see me popping besides this pop");
+        return false;
+    }});
+};
+
+pop([document.getElementById('vt-beforepopin-2'),'click'], 'hello', {beforePopIn:function(){
+    pop("Before pop!");
+}});
+
 document.getElementById('vt-afterpopout-1').onclick = function () {
     pop("hello", {afterPopOut: function (pop_num, out_type) {
         pop("After pop called.<br>The out type is: " + out_type);

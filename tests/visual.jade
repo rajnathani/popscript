@@ -53,6 +53,16 @@ block content
             button#vt-beforepopout-2
 
         li
+            p This pop will check for `beforePopIn` where the developer's decision is to not let the pop be created (for a binder) (therefore the pop will not be created).
+            i beforePopIn
+            button#vt-beforepopin-1
+
+        li
+            p This pop will check for `beforePopIn` where the developer's decision is to let the pop be created (non-binder).
+            i beforePopIn
+            button#vt-beforepopin-2
+
+        li
             p This pop will check for `afterPopOut` and that its invoked at the correct moment, and with the correct paramters (pop_num and out_type). This also tests the successive manipulation of (animation and animation duration) through inline popscript. There will be dispatch of a pop as soon as the pop is closed/hidden.
             i afterPopOut, inline popscript
             button#vt-afterpopout-1
@@ -155,6 +165,11 @@ block content
             i +scrolled
             button#vt-scrolled
 
+
+        //li
+            p Check nearElement
+            i nearElement
+            button#vt-near
 
 
 

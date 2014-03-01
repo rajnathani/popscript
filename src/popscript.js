@@ -2240,6 +2240,11 @@ function pop(arg1, arg2, arg3, arg4) {
         cover_node = init[1];
         roller_node = init[2];
         cross_node = init[3];
+
+        if (the_pop.scan('beforePopIn') && the_pop.scan('beforePopIn')() === false) {
+            return false;
+        }
+
         PS.constructPop(the_pop, box_node, cover_node, roller_node, cross_node);
 
     }
@@ -2459,7 +2464,10 @@ PS.all_properties = {
 
     beforepopout: PS.convert.n,
     afterpopout: PS.convert.loff,
-    nearelement: PS.convert.n
+    nearelement: PS.convert.n,
+    beforepopin: PS.convert.n
+
+
 };
 
 /*

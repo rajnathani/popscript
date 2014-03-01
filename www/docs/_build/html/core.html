@@ -135,6 +135,7 @@
 <li><a class="reference internal" href="#id24"><span class="docs-ps-prop">cross:</span></a></li>
 <li><a class="reference internal" href="#cross-content"><span class="docs-ps-prop">cross_content:</span></a></li>
 <li><a class="reference internal" href="#runtime-properties-below"><span class="docs-ps-runtime">&lt; Runtime Properties Below: &gt;</span></a></li>
+<li><a class="reference internal" href="#beforepopin"><span class="docs-ps-prop">beforePopIn:</span></a></li>
 <li><a class="reference internal" href="#beforepopout"><span class="docs-ps-prop">beforePopOut:</span></a></li>
 <li><a class="reference internal" href="#afterpopout"><span class="docs-ps-prop">afterPopOut:</span></a></li>
 <li><a class="reference internal" href="#nearelement"><span class="docs-ps-prop">nearElement:</span></a></li>
@@ -1185,6 +1186,23 @@
 <div class="line">All properties below this line are runtime properties, which basically means that the input for these pop properties depend on the pop being created.</div>
 <div class="line">Note that these properties are function based:</div>
 </div>
+</div>
+<div class="section" id="beforepopin">
+<span id="before-pop-in"></span><h3><span class="docs-ps-prop">beforePopIn:</span><a class="headerlink" href="#beforepopin" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="2%" />
+<col width="98%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Input</td>
+<td>Function</td>
+</tr>
+<tr class="row-even"><td>Task</td>
+<td>Accepts a function to be called just before the pop is about to be created. If the return value of this callback function evaluates to false, the pop will not be created. The function has no parameters supplied. You might wonder when such a function comes in use? Well its almost only while using binders with the pop() function.</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="beforepopout">
 <span id="before-pop-out"></span><h3><span class="docs-ps-prop">beforePopOut:</span><a class="headerlink" href="#beforepopout" title="Permalink to this headline">¶</a></h3>
