@@ -338,12 +338,12 @@ var PS = {
             return animation;
         },
     /*
-     Returns the height (in pixels) of the document element.
+     Returns the height (in pixels) of the visible document.
      @returns {Number}
      */
     getDocHeight: function () {
         var body_dims = PS.dims.node(document.getElementsByTagName("html")[0], true);
-        return body_dims.h;
+        return Math.max(body_dims.h, PS.dims.window().height);
         /*return Math.max(
          Math.max(document.body.scrollHeight, document.documentElement.scrollHeight),
          Math.max(document.body.offsetHeight, document.documentElement.offsetHeight),
@@ -2145,6 +2145,7 @@ function pop(arg1, arg2, arg3, arg4) {
     binder_mature = false;
     if (binder) {
         var el = binder[0];
+        if (!el){return false}
         // the binder events can either be an array of events or a single event directly represented as a string
         // eg: ["click", "mouseover"] for an array (multiple events)
         // eg: "click" for string (single event)
