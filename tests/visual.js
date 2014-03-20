@@ -294,3 +294,7 @@ pop([document.getElementById('vt-scrolled'), 'click'],
     {position_fixed: 'no', position_y: "auto+scrolled"}
 );
 
+pop([document.getElementById('vt-destroy'), 'click'],
+"Going to destroy myself soon..",
+    {destroy:2000}
+);

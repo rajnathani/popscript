@@ -226,7 +226,7 @@ var popscript_flags = {
 
 // Create a Singleton
 var PS = {
-    version: 1.0,
+    version: 1.1,
 
     num_pops_created: 0,
     map: {},
@@ -1576,7 +1576,7 @@ var PS = {
             }
         },
 
-        changeTransition: function (pop, pop_id, transition_duration) {
+        changeTransition: function (the_pop, pop_id, transition_duration) {
 
             var transition = typeof transition_duration === 'number';   // Transition is off if given a value of 0
             var box_node = PS.boxNode(pop_id);
@@ -1605,7 +1605,7 @@ var PS = {
                 }, transition_duration + 100);
             }
 
-            PS.constructPop(pop, box_node,
+            PS.constructPop(the_pop, box_node,
                 cover_node,
                 PS.rollerNode(pop_id),
                 PS.crossNode(pop_id), transition)
@@ -1771,24 +1771,24 @@ var PS = {
         return [ box_node, cover_node, roller_node, cross_node];
     },
 
-    constructPop: function (pop, box_node, cover_node, roller_node, cross_node, transition) {
+    constructPop: function (the_pop, box_node, cover_node, roller_node, cross_node, transition) {
 
         box_node.cssText = '';
         cover_node.cssText = '';
         roller_node.cssText = '';
         cross_node.cssText = '';
 
-        var pop_id = pop.pop_id;
+        var pop_id = the_pop.pop_id;
 
         if (!transition)
-            PS.animateIn(pop, box_node, cover_node);
+            PS.animateIn(the_pop, box_node, cover_node);
 
-        if (pop.scan('cover')) {
-            cover_node.className = 'popscript-cover ' + pop.scan('style_class_cover');
-            if (pop.scan('style_inline_cover'))
-                cover_node.style.cssText += pop.scan('style_inline_cover');
+        if (the_pop.scan('cover')) {
+            cover_node.className = 'popscript-cover ' + the_pop.scan('style_class_cover');
+            if (the_pop.scan('style_inline_cover'))
+                cover_node.style.cssText += the_pop.scan('style_inline_cover');
 
-            cover_node.style.zIndex = pop.scan('position_z')();
+            cover_node.style.zIndex = the_pop.scan('position_z')();
             PS.css_class.remove(cover_node, 'popscript-display-none');
         } else {
             PS.css_class.add(cover_node, 'popscript-display-none');
@@ -1796,12 +1796,12 @@ var PS = {
 
         // Cross
         cross_node.innerHTML = "";
-        if (pop.scan('cross')) {
-            cross_node.className = 'popscript-cross  popscript-out ' + pop.scan('style_class_cross');
-            if (pop.scan('style_inline_cross'))
-                cross_node.style.cssText += pop.scan('style_inline_cross');
+        if (the_pop.scan('cross')) {
+            cross_node.className = 'popscript-cross  popscript-out ' + the_pop.scan('style_class_cross');
+            if (the_pop.scan('style_inline_cross'))
+                cross_node.style.cssText += the_pop.scan('style_inline_cross');
 
-            cross_node.appendChild(document.createTextNode(pop.scan('cross_content')));
+            cross_node.appendChild(document.createTextNode(the_pop.scan('cross_content')));
             cross_node.style.display = 'inline';
         } else {
             PS.css_class.add(cross_node, 'popscript-display-none');
@@ -1809,11 +1809,11 @@ var PS = {
 
         // Box
         PS.css_class.remove(box_node, 'popscript-display-none');
-        box_node.className = 'popscript-box ' + pop.scan('style_class_box');
-        box_node.style.zIndex = pop.scan('position_z')();
+        box_node.className = 'popscript-box ' + the_pop.scan('style_class_box');
+        box_node.style.zIndex = the_pop.scan('position_z')();
 
-        if (pop.scan('style_inline_box'))
-            box_node.style.cssText += pop.scan('style_inline_box');
+        if (the_pop.scan('style_inline_box'))
+            box_node.style.cssText += the_pop.scan('style_inline_box');
 
         // Clean up the drag events directly associated with the box node.
         // (Done due to popscript property conflicts with previous pop classes)
@@ -1821,7 +1821,7 @@ var PS = {
         PS.event.remove(box_node, 'mousedown', PS.drag.start);
         PS.event.remove(box_node, 'mouseup', PS.drag.done);
 
-        if (pop.scan('full_draggable'))
+        if (the_pop.scan('full_draggable'))
             PS.css_class.add(box_node, 'popscript-drag');
 
         // Clean up the hide/close events directly associated with the box node.
@@ -1831,13 +1831,13 @@ var PS = {
         PS.event.remove(box_node, 'click', popClose);
         PS.event.remove(box_node, 'click', popHide);
 
-        if (pop.scan('click_me_out'))
-            PS.css_class.add(box_node, 'popscript-' + pop.scan('out'));
+        if (the_pop.scan('click_me_out'))
+            PS.css_class.add(box_node, 'popscript-' + the_pop.scan('out'));
 
         box_node.parentNode.removeChild(box_node);
-        if (pop.scan('position_roller')) {
+        if (the_pop.scan('position_roller')) {
             roller_node.className = 'popscript-roller';
-            roller_node.style.zIndex = pop.scan('position_z')();
+            roller_node.style.zIndex = the_pop.scan('position_z')();
             roller_node.innerHTML = '';
             roller_node.appendChild(box_node);
             PS.cover_fix.fix();
@@ -1874,37 +1874,40 @@ var PS = {
             PS.event.add(all_hide[i], 'click', popHide);
         }
 
-        var align_checks = pop.scan('position_check');
-        if (pop.compiled.timeouts) {
-            for (var i = 0; i < pop.compiled.timeouts.length; i++) {
-                clearTimeout(pop.compiled.timeouts[i]);
+        var align_checks = the_pop.scan('position_check');
+        if (the_pop.compiled.timeouts) {
+            for (var i = 0; i < the_pop.compiled.timeouts.length; i++) {
+                clearTimeout(the_pop.compiled.timeouts[i]);
             }
         }
-        if (pop.compiled.intervals) {
-            for (var i = 0; i < pop.compiled.intervals.length; i++) {
-                clearTimeout(pop.compiled.intervals[i]);
+        if (the_pop.compiled.intervals) {
+            for (var i = 0; i < the_pop.compiled.intervals.length; i++) {
+                clearTimeout(the_pop.compiled.intervals[i]);
             }
         }
-        pop.compiled.timeouts = [];
-        pop.compiled.intervals = [];
+        the_pop.compiled.timeouts = [];
+        the_pop.compiled.intervals = [];
 
         if (align_checks) {
             var timeouts = align_checks[0];
             for (var i = 0; i < timeouts.length; i++) {
-                pop.compiled.timeouts.push(setTimeout(function () {
+                the_pop.compiled.timeouts.push(setTimeout(function () {
                     PS.pos.check(pop_id)
                 }, timeouts[i]));
             }
             var intervals = align_checks[1];
             for (i = 0; i < intervals.length; i++) {
-                pop.compiled.intervals.push(setInterval(function () {
+                the_pop.compiled.intervals.push(setInterval(function () {
                     PS.pos.check(pop_id)
                 }, intervals[i]));
             }
 
         }
+        if (the_pop.compiled.destroy) {
+            setTimeout(function(){popOut(pop_id)}, the_pop.compiled.destroy)
+        }
+        PS.blurNoPropagate(the_pop);
 
-        PS.blurNoPropagate(pop);
         PS.pos.check(pop_id, box_node, cover_node, roller_node);
     },
 
@@ -2464,6 +2467,7 @@ PS.all_properties = {
     cross: PS.convert.bool,
     click_me_out: PS.convert.bool,
     cross_content: PS.convert.n,
+    destroy:PS.convert.n,
 
     out: PS.convert.hideOrClose,
 

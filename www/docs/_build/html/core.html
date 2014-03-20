@@ -134,6 +134,7 @@
 <li><a class="reference internal" href="#id22"><span class="docs-ps-prop">cover:</span></a></li>
 <li><a class="reference internal" href="#id24"><span class="docs-ps-prop">cross:</span></a></li>
 <li><a class="reference internal" href="#cross-content"><span class="docs-ps-prop">cross_content:</span></a></li>
+<li><a class="reference internal" href="#destroy"><span class="docs-ps-prop">destroy:</span></a></li>
 <li><a class="reference internal" href="#runtime-properties-below"><span class="docs-ps-runtime">&lt; Runtime Properties Below: &gt;</span></a></li>
 <li><a class="reference internal" href="#beforepopin"><span class="docs-ps-prop">beforePopIn:</span></a></li>
 <li><a class="reference internal" href="#beforepopout"><span class="docs-ps-prop">beforePopOut:</span></a></li>
@@ -163,17 +164,17 @@
 <li><a class="reference internal" href="#popclose">popClose()</a></li>
 <li><a class="reference internal" href="#pophide">popHide()</a></li>
 <li><a class="reference internal" href="#popshow">popShow()</a><ul>
-<li><a class="reference internal" href="#id34">parameter: pop ID</a></li>
+<li><a class="reference internal" href="#id35">parameter: pop ID</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#poptoggle">popToggle()</a><ul>
-<li><a class="reference internal" href="#id35">parameter: pop ID</a></li>
+<li><a class="reference internal" href="#id36">parameter: pop ID</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li><a class="reference internal" href="#popscript-flags">PopScript Flags</a><ul>
-<li><a class="reference internal" href="#id37">Z</a></li>
+<li><a class="reference internal" href="#id38">Z</a></li>
 <li><a class="reference internal" href="#alert-error-on-error">alert error on error</a></li>
 <li><a class="reference internal" href="#throw-error-on-error">throw error on error</a></li>
 </ul>
@@ -859,13 +860,13 @@
 <td>String/Number</td>
 </tr>
 <tr class="row-even"><td>Task</td>
-<td>Accepts the absolute/relative z-index for pop&#8217;s box and (optionally) cover. <strong>absolute</strong>: only a numeric value is accepted, such as &#8220;999&#8221; (String) or 999 (Number), in this case both the pop&#8217;s box and cover will obtain a z-index of <tt class="docutils literal"><span class="pre">999</span></tt>. <strong>relative</strong>: a numeric value prepended with a unary operator is accepted here (regex: \s*(\+|\-)\s*(\d*)), example &#8220;+2&#8221; or &#8220;-5&#8221;. In the former case of &#8220;+2&#8221;, the z-index will evaluate to 2 greater than the base z-index <a class="reference internal" href="#id37"><em>Z</em></a> (mentioned in <a class="reference internal" href="#popscript-flags"><em>PopScript Flags</em></a>). In the latter case of &#8220;-5&#8221;, the z-index will evaluate to 5 lesser than the base z-index Z. This <em>relative</em> positioning has beneficial use cases in the event of multiple (fixed/absolute) elements being overlaid on the page, which includes other pops; however in any other case it can just easily be left out.</td>
+<td>Accepts the absolute/relative z-index for pop&#8217;s box and (optionally) cover. <strong>absolute</strong>: only a numeric value is accepted, such as &#8220;999&#8221; (String) or 999 (Number), in this case both the pop&#8217;s box and cover will obtain a z-index of <tt class="docutils literal"><span class="pre">999</span></tt>. <strong>relative</strong>: a numeric value prepended with a unary operator is accepted here (regex: \s*(\+|\-)\s*(\d*)), example &#8220;+2&#8221; or &#8220;-5&#8221;. In the former case of &#8220;+2&#8221;, the z-index will evaluate to 2 greater than the base z-index <a class="reference internal" href="#id38"><em>Z</em></a> (mentioned in <a class="reference internal" href="#popscript-flags"><em>PopScript Flags</em></a>). In the latter case of &#8220;-5&#8221;, the z-index will evaluate to 5 lesser than the base z-index Z. This <em>relative</em> positioning has beneficial use cases in the event of multiple (fixed/absolute) elements being overlaid on the page, which includes other pops; however in any other case it can just easily be left out.</td>
 </tr>
 <tr class="row-odd"><td>Example</td>
 <td>&#8220;999&#8221; / 999 / &#8220;+2&#8221; / &#8220;-5&#8221;</td>
 </tr>
 <tr class="row-even"><td>Default</td>
-<td>Base z-index <a class="reference internal" href="#id37"><em>Z</em></a> (in <a class="reference internal" href="#popscript-flags"><em>PopScript Flags</em></a>)`</td>
+<td>Base z-index <a class="reference internal" href="#id38"><em>Z</em></a> (in <a class="reference internal" href="#popscript-flags"><em>PopScript Flags</em></a>)`</td>
 </tr>
 </tbody>
 </table>
@@ -1180,6 +1181,29 @@
 </tbody>
 </table>
 </div>
+<div class="section" id="destroy">
+<span id="id27"></span><h3><span class="docs-ps-prop">destroy:</span><a class="headerlink" href="#destroy" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="11%" />
+<col width="89%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Input</td>
+<td>Number</td>
+</tr>
+<tr class="row-even"><td>Task</td>
+<td>Accepts the number of milliseconds after which to out the pop.</td>
+</tr>
+<tr class="row-odd"><td>Example</td>
+<td>300</td>
+</tr>
+<tr class="row-even"><td>Default</td>
+<td>disabled</td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="section" id="runtime-properties-below">
 <span id="runtime-properties"></span><h3><span class="docs-ps-runtime">&lt; Runtime Properties Below: &gt;</span><a class="headerlink" href="#runtime-properties-below" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
@@ -1263,14 +1287,14 @@
 <span id="popscript-few-functions"></span><h2>Few Functions<a class="headerlink" href="#few-functions" title="Permalink to this headline">¶</a></h2>
 <p>Interpreting the function declarations require knowledge of the documentation technique explained <a class="reference external" href="http://stackoverflow.com/questions/17132014/documenting-for-optional-parameters-in-javascript">here</a>.</p>
 <div class="section" id="pop">
-<span id="id27"></span><h3>pop()<a class="headerlink" href="#pop" title="Permalink to this headline">¶</a></h3>
+<span id="id28"></span><h3>pop()<a class="headerlink" href="#pop" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
 <div class="line"><em>Declaration:</em> <tt class="docutils literal"><span class="pre">pop(</span> <span class="pre">[</span> <span class="pre">binder,</span> <span class="pre">]</span> <span class="pre">content</span> <span class="pre">[,</span> <span class="pre">pop_class</span> <span class="pre">]</span> <span class="pre">[,</span> <span class="pre">inline_popscript</span> <span class="pre">]</span> <span class="pre">)</span></tt></div>
 <div class="line">(The return value is the pop&#8217;s <a class="reference internal" href="getting-started.html#pop-id"><em>pop ID</em></a>)</div>
 <div class="line"><tt class="docutils literal"><span class="pre">pop()</span></tt> is a multipurpose function and is broadly categorized as to having 2 behaviours depending on whether <tt class="docutils literal"><span class="pre">binder</span></tt> is specified or not:</div>
 </div>
 <div class="section" id="without-binder">
-<span id="id28"></span><h4>Without binder<a class="headerlink" href="#without-binder" title="Permalink to this headline">¶</a></h4>
+<span id="id29"></span><h4>Without binder<a class="headerlink" href="#without-binder" title="Permalink to this headline">¶</a></h4>
 <div class="line-block">
 <div class="line"><em>(Sub) Declaration:</em> <tt class="docutils literal"><span class="pre">pop(</span> <span class="pre">content</span> <span class="pre">[,</span> <span class="pre">pop_class</span> <span class="pre">]</span> <span class="pre">[,</span> <span class="pre">inline_popscript</span> <span class="pre">])</span></tt></div>
 <div class="line">Here is an explanation of each of the 3 parameters:</div>
@@ -1326,7 +1350,7 @@ pop( info );</pre>
 </div>
 </div>
 <div class="section" id="parameter-pop-class">
-<span id="id29"></span><h5>parameter: pop_class<a class="headerlink" href="#parameter-pop-class" title="Permalink to this headline">¶</a></h5>
+<span id="id30"></span><h5>parameter: pop_class<a class="headerlink" href="#parameter-pop-class" title="Permalink to this headline">¶</a></h5>
 <div class="line-block">
 <div class="line">Type: <strong>String</strong></div>
 <div class="line">Optional: Yes</div>
@@ -1340,7 +1364,7 @@ pop( info );</pre>
 </div>
 </div>
 <div class="section" id="parameter-inline-popscript">
-<span id="id30"></span><h5>parameter: inline_popscript<a class="headerlink" href="#parameter-inline-popscript" title="Permalink to this headline">¶</a></h5>
+<span id="id31"></span><h5>parameter: inline_popscript<a class="headerlink" href="#parameter-inline-popscript" title="Permalink to this headline">¶</a></h5>
 <div class="line-block">
 <div class="line">Type: <strong>Object</strong></div>
 <div class="line">Optional: Yes</div>
@@ -1355,7 +1379,7 @@ pop( info );</pre>
 </div>
 </div>
 <div class="section" id="with-binder">
-<span id="id31"></span><h4>With binder<a class="headerlink" href="#with-binder" title="Permalink to this headline">¶</a></h4>
+<span id="id32"></span><h4>With binder<a class="headerlink" href="#with-binder" title="Permalink to this headline">¶</a></h4>
 <div class="line-block">
 <div class="line"><em>(Sub) Declaration:</em> <tt class="docutils literal"><span class="pre">pop(</span> <span class="pre">binder,</span> <span class="pre">content</span> <span class="pre">[,</span> <span class="pre">pop_class</span> <span class="pre">]</span> <span class="pre">[,</span> <span class="pre">inline_popscript</span> <span class="pre">]</span> <span class="pre">)</span></tt></div>
 <div class="line">The binder parameter is peculiar, in the sense that it causes the <tt class="docutils literal"><span class="pre">pop()</span></tt> function to behave not as a function call, but instead a function handler.</div>
@@ -1421,7 +1445,7 @@ pop([dropdown_button, 'click', 'click'],
 </div>
 </div>
 <div class="section" id="parameter-out">
-<span id="id33"></span><h4>parameter: out<a class="headerlink" href="#parameter-out" title="Permalink to this headline">¶</a></h4>
+<span id="id34"></span><h4>parameter: out<a class="headerlink" href="#parameter-out" title="Permalink to this headline">¶</a></h4>
 <div class="line-block">
 <div class="line">Type: <strong>String</strong></div>
 <div class="line">Optional: Yes</div>
@@ -1455,8 +1479,8 @@ pop([dropdown_button, 'click', 'click'],
 <div class="line-block">
 <div class="line"><em>Declaration:</em> <tt class="docutils literal"><span class="pre">popShow(</span> <span class="pre">pop_id</span> <span class="pre">)</span></tt></div>
 </div>
-<div class="section" id="id34">
-<h4>parameter: pop ID<a class="headerlink" href="#id34" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id35">
+<h4>parameter: pop ID<a class="headerlink" href="#id35" title="Permalink to this headline">¶</a></h4>
 <div class="line-block">
 <div class="line">Displays the pop with the given pop ID, if its in the hidden state.</div>
 <div class="line">Else nothing is done.</div>
@@ -1468,8 +1492,8 @@ pop([dropdown_button, 'click', 'click'],
 <div class="line-block">
 <div class="line"><em>Declaration:</em> <tt class="docutils literal"><span class="pre">popShow(</span> <span class="pre">pop_id</span> <span class="pre">)</span></tt></div>
 </div>
-<div class="section" id="id35">
-<h4>parameter: pop ID<a class="headerlink" href="#id35" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id36">
+<h4>parameter: pop ID<a class="headerlink" href="#id36" title="Permalink to this headline">¶</a></h4>
 <div class="line-block">
 <div class="line">Displays the pop with the given pop ID, if its in the hidden state.</div>
 <div class="line">Else hides the pop.</div>
@@ -1478,7 +1502,7 @@ pop([dropdown_button, 'click', 'click'],
 </div>
 </div>
 <div class="section" id="popscript-flags">
-<span id="id36"></span><h2>PopScript Flags<a class="headerlink" href="#popscript-flags" title="Permalink to this headline">¶</a></h2>
+<span id="id37"></span><h2>PopScript Flags<a class="headerlink" href="#popscript-flags" title="Permalink to this headline">¶</a></h2>
 <div class="line-block">
 <div class="line">These flags provide basic information about the setup of PopScript.</div>
 </div>
@@ -1489,11 +1513,11 @@ pop([dropdown_button, 'click', 'click'],
     'Z': 1000                       // base z-index for all pops
 };</pre>
 </div>
-<div class="section" id="id37">
-<span id="id38"></span><h3>Z<a class="headerlink" href="#id37" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id38">
+<span id="id39"></span><h3>Z<a class="headerlink" href="#id38" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
 <div class="line">This is the base <tt class="docutils literal"><span class="pre">z-index</span></tt> for pops created.</div>
-<div class="line">Providing relative positions to this base z-index, or bypassing this base z-index is all done in the pop property <a class="reference internal" href="#id37"><em>Z</em></a>.</div>
+<div class="line">Providing relative positions to this base z-index, or bypassing this base z-index is all done in the pop property <a class="reference internal" href="#id38"><em>Z</em></a>.</div>
 </div>
 </div>
 <div class="section" id="alert-error-on-error">

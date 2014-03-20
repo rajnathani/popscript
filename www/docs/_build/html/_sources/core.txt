@@ -724,6 +724,18 @@ Click on properties (in red) to view its role.
  Default  "x"
 ======== ==================================================
 
+.. _destroy:
+
+:docs-ps-prop:`destroy:`
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+======== ==================================================
+ Input    Number
+ Task     Accepts the number of milliseconds after which to out the pop.
+ Example  300
+ Default  disabled
+======== ==================================================
+
 
 
 .. _runtime-properties:
