@@ -2401,6 +2401,10 @@ function popShow(pop_id) {
         return false;
     }
 
+    if (the_pop.scan('destroy')){
+        setTimeout(function(){popOut(pop_id)}, the_pop.scan('destroy'))
+    }
+
     var box_node, cover_node, roller_node;
     box_node = PS.boxNode(pop_id);
     cover_node = PS.coverNode(pop_id);
