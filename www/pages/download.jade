@@ -1,6 +1,6 @@
 extend base
 block append google_prettify_theme
-    link(rel='stylesheet', type='text/css', href='/static/css/dark-prettify-theme.css')
+    link(rel='stylesheet', type='text/css', href='/v1/static/css/dark-prettify-theme.css')
 block content
     #content.cf.demo
         #download-table-wrapper
@@ -9,14 +9,11 @@ block content
                     td
                         | JS (pick any 1)
                     td
-                        a(href="src/popscript.js") popscript.js
+                        a(href="/v1/src/popscript.js") popscript.js
                     td
-                        a(href="src/popscript.min.js") popscript.min.js
+                        a(href="/v1/src/popscript.min.js") popscript.min.js
                 tr
                     td
                         | CSS
                     td(colspan=2)
-                        a(href="src/popscript.css") popscript.css
-
-
-
+                        a(href="/v1/src/popscript.css") popscript.css

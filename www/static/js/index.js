@@ -16,7 +16,7 @@ if (!demo_page && tooltip_index < all_tooltips.length) {
 }
 
 document.getElementById('download').onclick = function () {
-    pop('<table id="download-table"><tr><td>JS (pick any 1)</td><td><a href="src/popscript.js">popscript.js</a></td><td><a href="src/popscript.min.js">popscript.min.js</a></td></tr><tr><td>CSS</td><td colspan="2"><a href="src/popscript.css">popscript.css</a></td></tr></table>', {style_inline_box:'padding:0', style_inline_cross:'right:-10px;top:-10px;', style_class_cross:'cross cross-hover'});
+    pop('<table id="download-table"><tr><td>JS (pick any 1)</td><td><a href="/v/1src/popscript.js">popscript.js</a></td><td><a href="/v1/src/popscript.min.js">popscript.min.js</a></td></tr><tr><td>CSS</td><td colspan="2"><a href="/v1/src/popscript.css">popscript.css</a></td></tr></table>', {style_inline_box:'padding:0', style_inline_cross:'right:-10px;top:-10px;', style_class_cross:'cross cross-hover'});
     return false;
 };
 
@@ -75,6 +75,11 @@ window.onresize = responsive;
     }
 
 })();
+
+(function(){
+  pop("The current version (PopScript v1) has been depracated in favour of the new version: <a href='http://popscript.relfor.co/v2'>(PopScript v2)</a>", "success");
+})();
+
 
 
 if (demo_page) {
@@ -176,12 +181,3 @@ if (demo_page) {
         'roller');
 
 }
-
-
-
-
-
-
-
-
-

@@ -9,13 +9,13 @@
     
     <title>Chapter 0: Getting started &mdash; Popscript 1.0 documentation</title>
 
-    <link rel="stylesheet" type="text/css" href="/static/css/google-web-fonts.css"/>
-    <link rel="stylesheet" href="/static/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="/src/popscript.css"/>
-    <link rel="stylesheet" type="text/css" href="/static/css/normalize.css"/>
-    <link rel="stylesheet" type="text/css" href="/static/css/main.css"/>
-    <link rel="stylesheet" type="text/css" href="/static/css/responsive.css"/>
-    <link rel="stylesheet" type="text/css" href="/static/css/dark-prettify-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="/v1/static/css/google-web-fonts.css"/>
+    <link rel="stylesheet" href="/v1/static/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/v1/src/popscript.css"/>
+    <link rel="stylesheet" type="text/css" href="/v1/static/css/normalize.css"/>
+    <link rel="stylesheet" type="text/css" href="/v1/static/css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="/v1/static/css/responsive.css"/>
+    <link rel="stylesheet" type="text/css" href="/v1/static/css/dark-prettify-theme.css"/>
 
     
 <link rel="stylesheet" href="_static/basic.css" type="text/css"/>
@@ -23,7 +23,7 @@
     
 <script type="text/javascript">
     var DOCUMENTATION_OPTIONS = {
-        URL_ROOT: '',
+        URL_ROOT: './',
         VERSION: '1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
@@ -36,16 +36,16 @@
     <link rel="top" title="Popscript 1.0 documentation" href="index.html"/>
     <link rel="next" title="Chapter 1: Core" href="core.html"/>
     <link rel="prev" title="Welcome to Popscript’s documentation!" href="index.html"/> 
-    <link rel="stylesheet" type="text/css" href="/static/css/fix_sphinx.css"/>
+    <link rel="stylesheet" type="text/css" href="/v1/static/css/fix_sphinx.css"/>
 </head>
 <body>
 
 <div id="header" class="cf">
-    <a id="logo" href="/"><span>POP</span><span>SCRIPT</span></a>
+    <a id="logo" href="/v1"><span>POP</span><span>SCRIPT</span></a>
     <div id="nav" class="cf">
-        <a href="/docs/index.html"><span class="icon-book"></span> DOCS</a>
-        <a href="/demo.html"><span class="icon-hand-up"></span> DEMO</a>
-        <a href="/download.html" id="download"><span class="icon-download"></span> DOWNLOAD</a>
+        <a href="/v1/docs/index.html"><span class="icon-book"></span> DOCS</a>
+        <a href="/v1/demo.html"><span class="icon-hand-up"></span> DEMO</a>
+        <a href="/v1/download.html" id="download"><span class="icon-download"></span> DOWNLOAD</a>
     </div>
 </div>
 
@@ -122,38 +122,40 @@ CSS classes and animations defined in popscript.css.</p>
 </ul>
 <p>How to put in these two files?</p>
 <p>Your webpage would look like this:</p>
-<div class="highlight-python"><pre>&lt;html&gt;
+<div class="highlight-python"><div class="highlight"><pre>&lt;html&gt;
     &lt;head&gt;
     ......................
-    &lt;link rel="stylesheet" type="text/css" href="popscript.css" /&gt;
-    &lt;script type="text/javascript" src="popscript.js"&gt;&lt;/script&gt;
+    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;popscript.css&quot; /&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;popscript.js&quot;&gt;&lt;/script&gt;
     ......................
     &lt;/head&gt;
     &lt;body&gt;
     ......................
-    &lt;button onclick="pop('hello world')"&gt;Click Me!&lt;/button&gt;
+    &lt;button onclick=&quot;pop(&#39;hello world&#39;)&quot;&gt;Click Me!&lt;/button&gt;
     ......................
   &lt;/body&gt;
-&lt;/html&gt;</pre>
+&lt;/html&gt;
+</pre></div>
 </div>
 <p><strong>OR</strong>:</p>
-<div class="highlight-python"><pre>&lt;html&gt;
+<div class="highlight-python"><div class="highlight"><pre>&lt;html&gt;
     &lt;head&gt;
         ......................
-        &lt;link rel="stylesheet" type="text/css" href="popscript.css" /&gt;
+        &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;popscript.css&quot; /&gt;
         ......................
     &lt;/head&gt;
     &lt;body&gt;
         ......................
-        &lt;button id="more-info"&gt;Click Me!&lt;/button&gt;
+        &lt;button id=&quot;more-info&quot;&gt;Click Me!&lt;/button&gt;
         ......................
     &lt;/body&gt;
-    &lt;script type="text/javascript" src="popscript.js"&gt;&lt;/script&gt;
-    &lt;script type="text/javascript"&gt;
-        document.getElementById("more-info").onclick =
-        function(){ pop('hello world') }
+    &lt;script type=&quot;text/javascript&quot; src=&quot;popscript.js&quot;&gt;&lt;/script&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        document.getElementById(&quot;more-info&quot;).onclick =
+        function(){ pop(&#39;hello world&#39;) }
     &lt;/script&gt;
-&lt;/html&gt;</pre>
+&lt;/html&gt;
+</pre></div>
 </div>
 <p>The way you go about it is entirely upto you, just as long as both the resources (popscript.css &amp; popscript.js) will
 be loaded before uou call <cite>pop()</cite> or any other available API.</p>
@@ -177,66 +179,67 @@ will be left for later topics.</p>
 <h3>(Second point) Pop Class<a class="headerlink" href="#second-point-pop-class" title="Permalink to this headline">¶</a></h3>
 <p>Let&#8217;s not waste time, pop classes are very much like CSS classes. This design decision was intentional.
 At the top of the <cite>popscript.js</cite> file we have something like this:</p>
-<div class="highlight-python"><pre>var popscript = {
+<div class="highlight-python"><div class="highlight"><pre>var popscript = {
     basic: {
         STYLE: {
             CLASS: {
-                box: 'simple-box',
-                cover: 'curtain',
-                cross: 'cross'
+                box: &#39;simple-box&#39;,
+                cover: &#39;curtain&#39;,
+                cross: &#39;cross&#39;
             }
         },
         ANIMATION: {
             IN: {
-                box: 'zap-in cubic-bezier(.73,.75,.72,1.77)',
-                cover: 'fade-in',
+                box: &#39;zap-in cubic-bezier(.73,.75,.72,1.77)&#39;,
+                cover: &#39;fade-in&#39;,
                 duration: 300
             },
             OUT: {
-                box: 'zap-out cubic-bezier(.73,.75,.72,1.77)',
-                cover: 'fade-out',
+                box: &#39;zap-out cubic-bezier(.73,.75,.72,1.77)&#39;,
+                cover: &#39;fade-out&#39;,
                 duration: 200
             }
         },
         POSITION: {
-            x: 'auto',
-            y: 'auto',
-            check: '20, 1000*'
+            x: &#39;auto&#39;,
+            y: &#39;auto&#39;,
+            check: &#39;20, 1000*&#39;
         },
 
-        cover: 'yes',
-        cross: 'yes',
-        cross_content: 'x',
-        esc: 'ye',
-        full_draggable: 'yes'
+        cover: &#39;yes&#39;,
+        cross: &#39;yes&#39;,
+        cross_content: &#39;x&#39;,
+        esc: &#39;ye&#39;,
+        full_draggable: &#39;yes&#39;
     },
 
     success: {
         STYLE: {
             CLASS: {
-                box: 'success'
+                box: &#39;success&#39;
             }
         },
         ANIMATION: {
             IN: {
-                box: 'drop'
+                box: &#39;drop&#39;
             },
             OUT: {
-                box: 'undrop'
+                box: &#39;undrop&#39;
             }
         },
         POSITION: {
-            y: 'top'
+            y: &#39;top&#39;
         },
 
-        cross: 'no',
-        full_draggable: 'naaaaoh',
-        click_me_out: 'yes, tis is convenient'
+        cross: &#39;no&#39;,
+        full_draggable: &#39;naaaaoh&#39;,
+        click_me_out: &#39;yes, tis is convenient&#39;
     },
     ......
     ......
     ......
-}</pre>
+}
+</pre></div>
 </div>
 <div class="line-block">
 <div class="line">The above is just a small cut of the popscript given on top of the file.</div>
@@ -291,7 +294,7 @@ At the top of the <cite>popscript.js</cite> file we have something like this:</p
             </div>
             <div class="footer">
                 &copy; Copyright 2013, Relfor.
-                Documentation created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+                Documentation created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.2.
             </div>
 
         </div>
@@ -304,10 +307,10 @@ At the top of the <cite>popscript.js</cite> file we have something like this:</p
 
 <img id="github-ribbon" style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub">
 </body>
-<script type="text/javascript" src="/static/js/prettify.js"></script>
-<script type="text/javascript" src="/src/popscript.js"></script>
-<script type="text/javascript" src="/static/js/index.js"></script>
-<script type="text/javascript" src="/static/js/docs.js"></script>
+<script type="text/javascript" src="/v1/static/js/prettify.js"></script>
+<script type="text/javascript" src="/v1/src/popscript.js"></script>
+<script type="text/javascript" src="/v1/static/js/index.js"></script>
+<script type="text/javascript" src="/v1/static/js/docs.js"></script>
 
 
 

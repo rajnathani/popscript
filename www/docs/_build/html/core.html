@@ -9,13 +9,13 @@
     
     <title>Chapter 1: Core &mdash; Popscript 1.0 documentation</title>
 
-    <link rel="stylesheet" type="text/css" href="/static/css/google-web-fonts.css"/>
-    <link rel="stylesheet" href="/static/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="/src/popscript.css"/>
-    <link rel="stylesheet" type="text/css" href="/static/css/normalize.css"/>
-    <link rel="stylesheet" type="text/css" href="/static/css/main.css"/>
-    <link rel="stylesheet" type="text/css" href="/static/css/responsive.css"/>
-    <link rel="stylesheet" type="text/css" href="/static/css/dark-prettify-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="/v1/static/css/google-web-fonts.css"/>
+    <link rel="stylesheet" href="/v1/static/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/v1/src/popscript.css"/>
+    <link rel="stylesheet" type="text/css" href="/v1/static/css/normalize.css"/>
+    <link rel="stylesheet" type="text/css" href="/v1/static/css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="/v1/static/css/responsive.css"/>
+    <link rel="stylesheet" type="text/css" href="/v1/static/css/dark-prettify-theme.css"/>
 
     
 <link rel="stylesheet" href="_static/basic.css" type="text/css"/>
@@ -23,7 +23,7 @@
     
 <script type="text/javascript">
     var DOCUMENTATION_OPTIONS = {
-        URL_ROOT: '',
+        URL_ROOT: './',
         VERSION: '1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
@@ -36,16 +36,16 @@
     <link rel="top" title="Popscript 1.0 documentation" href="index.html"/>
     <link rel="next" title="Chapter 2: Guru" href="guru.html"/>
     <link rel="prev" title="Chapter 0: Getting started" href="getting-started.html"/> 
-    <link rel="stylesheet" type="text/css" href="/static/css/fix_sphinx.css"/>
+    <link rel="stylesheet" type="text/css" href="/v1/static/css/fix_sphinx.css"/>
 </head>
 <body>
 
 <div id="header" class="cf">
-    <a id="logo" href="/"><span>POP</span><span>SCRIPT</span></a>
+    <a id="logo" href="/v1"><span>POP</span><span>SCRIPT</span></a>
     <div id="nav" class="cf">
-        <a href="/docs/index.html"><span class="icon-book"></span> DOCS</a>
-        <a href="/demo.html"><span class="icon-hand-up"></span> DEMO</a>
-        <a href="/download.html" id="download"><span class="icon-download"></span> DOWNLOAD</a>
+        <a href="/v1/docs/index.html"><span class="icon-book"></span> DOCS</a>
+        <a href="/v1/demo.html"><span class="icon-hand-up"></span> DEMO</a>
+        <a href="/v1/download.html" id="download"><span class="icon-download"></span> DOWNLOAD</a>
     </div>
 </div>
 
@@ -268,86 +268,86 @@
 <div class="section" id="pop-properties">
 <span id="id2"></span><h2>Pop Properties<a class="headerlink" href="#pop-properties" title="Permalink to this headline">¶</a></h2>
 <p>As mentioned in the previous subsection, pop classes are designed to replicate CSS classes in many ways. One of them is the notion of property-value. Now, to help you refer to pop properties, let us list below the entire default popscript (given at the top of the file <cite>popscript.js</cite>):</p>
-<div class="highlight-python"><pre>var popscript = {
+<div class="highlight-python"><div class="highlight"><pre>var popscript = {
     basic: {
         STYLE: {
             CLASS: {
-                box: 'simple-box',
-                cover: 'curtain',
-                cross: 'cross'
+                box: &#39;simple-box&#39;,
+                cover: &#39;curtain&#39;,
+                cross: &#39;cross&#39;
             }
         },
         ANIMATION: {
             IN: {
-                box: 'zap-in cubic-bezier(.73,.75,.72,1.77)',
-                cover: 'fade-in',
+                box: &#39;zap-in cubic-bezier(.73,.75,.72,1.77)&#39;,
+                cover: &#39;fade-in&#39;,
                 duration: 300
             },
             OUT: {
-                box: 'zap-out cubic-bezier(.73,.75,.72,1.77)',
-                cover: 'fade-out',
+                box: &#39;zap-out cubic-bezier(.73,.75,.72,1.77)&#39;,
+                cover: &#39;fade-out&#39;,
                 duration: 200
             }
         },
         POSITION: {
-            x: 'auto',
-            y: 'auto'
+            x: &#39;auto&#39;,
+            y: &#39;auto&#39;
         },
 
-        cover: 'yes',
-        cross: 'yes',
-        cross_content: 'x',
-        esc: 'ye',
-        full_draggable: 'yes'
+        cover: &#39;yes&#39;,
+        cross: &#39;yes&#39;,
+        cross_content: &#39;x&#39;,
+        esc: &#39;ye&#39;,
+        full_draggable: &#39;yes&#39;
     },
 
     success: {
         STYLE: {
             CLASS: {
-                box: 'success'
+                box: &#39;success&#39;
             }
         },
         ANIMATION: {
             IN: {
-                box: 'drop'
+                box: &#39;drop&#39;
             },
             OUT: {
-                box: 'undrop'
+                box: &#39;undrop&#39;
             }
         },
         POSITION: {
-            y: 'top'
+            y: &#39;top&#39;
         },
 
-        cross: 'no',
-        full_draggable: 'naaaaoh',
-        click_me_out: 'yes, tis is convenient'
+        cross: &#39;no&#39;,
+        full_draggable: &#39;naaaaoh&#39;,
+        click_me_out: &#39;yes, tis is convenient&#39;
     },
 
     error: {
         STYLE: {
             CLASS: {
-                box: 'error'
+                box: &#39;error&#39;
             }
         },
         ANIMATION: {
             IN: {
-                box: 'short-arrive-left, fade-in'
+                box: &#39;short-arrive-left, fade-in&#39;
             },
             OUT: {
-                box: 'fade-out'
+                box: &#39;fade-out&#39;
             }
         },
         POSITION: {
-            x: '!10',
-            y: '10'
+            x: &#39;!10&#39;,
+            y: &#39;10&#39;
         }
     },
 
     dropdown: {
         STYLE: {
             CLASS: {
-                box: 'dropdown'
+                box: &#39;dropdown&#39;
             }
         },
         ANIMATION: {
@@ -355,111 +355,111 @@
                 duration: 90
             },
             OUT: {
-                box: ''
+                box: &#39;&#39;
             }
         },
         POSITION: {
-            z: '-1'
+            z: &#39;-1&#39;
         },
 
-        cross: 'no',
-        cover: 'no',
-        full_draggable: 'no'
+        cross: &#39;no&#39;,
+        cover: &#39;no&#39;,
+        full_draggable: &#39;no&#39;
     },
 
     context_menu: {
         STYLE: {
             CLASS: {
-                box: 'context-menu'
+                box: &#39;context-menu&#39;
             }
         },
         ANIMATION: {
             IN: {
-                box: ''
+                box: &#39;&#39;
             },
             OUT: {
-                box: 'fade-out',
+                box: &#39;fade-out&#39;,
                 duration: 120
             }
         },
         POSITION: {
-            fixed: 'no',
-            z: '-1'
+            fixed: &#39;no&#39;,
+            z: &#39;-1&#39;
         },
 
-        cover: 'no',
-        cross: 'no',
-        full_draggable: 'no'
+        cover: &#39;no&#39;,
+        cross: &#39;no&#39;,
+        full_draggable: &#39;no&#39;
     },
 
     tooltip: {
         STYLE: {
             CLASS: {
-                box: 'popscript-tooltip'
+                box: &#39;popscript-tooltip&#39;
             }
         },
         ANIMATION: {
             OUT: {
-                box: 'fade-out'
+                box: &#39;fade-out&#39;
             }
         },
         POSITION: {
-            z: '-1'
+            z: &#39;-1&#39;
         },
 
-        click_me_out: 'yeh',
-        cross: 'no',
-        cover: 'no',
-        blur: 'no',
-        esc: 'yes',
-        full_draggable: 'no'
+        click_me_out: &#39;yeh&#39;,
+        cross: &#39;no&#39;,
+        cover: &#39;no&#39;,
+        blur: &#39;no&#39;,
+        esc: &#39;yes&#39;,
+        full_draggable: &#39;no&#39;
     },
 
     tip_left: {
         STYLE: {
             CLASS: {
-                box: 'popscript-tooltip left'
+                box: &#39;popscript-tooltip left&#39;
             }
         },
         ANIMATION: {
             IN: {
-                box: 'short-arrive-left, fade-in'
+                box: &#39;short-arrive-left, fade-in&#39;
             }
         }
     },
     tip_right: {
         STYLE: {
             CLASS: {
-                box: 'popscript-tooltip right'
+                box: &#39;popscript-tooltip right&#39;
             }
         },
         ANIMATION: {
             IN: {
-                box: 'short-arrive-right, fade-in'
+                box: &#39;short-arrive-right, fade-in&#39;
             }
         }
     },
     tip_up: {
         STYLE: {
             CLASS: {
-                box: 'popscript-tooltip up'
+                box: &#39;popscript-tooltip up&#39;
             }
         },
         ANIMATION: {
             IN: {
-                box: 'short-arrive-up, fade-in'
+                box: &#39;short-arrive-up, fade-in&#39;
             }
         }
     },
     tip_down: {
         STYLE: {
             CLASS: {
-                box: 'popscript-tooltip down'
+                box: &#39;popscript-tooltip down&#39;
             }
         },
         ANIMATION: {
             IN: {
-                box: 'short-arrive-down, fade-in'
+                box: &#39;short-arrive-down, fade-in&#39;
             }
         }
     },
@@ -467,22 +467,23 @@
     roller: {
         STYLE: {
             CLASS: {
-                box: 'roller'
+                box: &#39;roller&#39;
             }
         },
         ANIMATION: {
             IN: {
-                box: 'newspaper',
+                box: &#39;newspaper&#39;,
                 duration: 800
             }
         },
         POSITION: {
-            x: 'auto',
-            y: '8%',
-            roller: 'yes'
+            x: &#39;auto&#39;,
+            y: &#39;8%&#39;,
+            roller: &#39;yes&#39;
         }
     }
-}</pre>
+}
+</pre></div>
 </div>
 <p>Before commencing on the properties, let us note the meaning of a PopScript boolean:</p>
 </div>
@@ -1317,36 +1318,38 @@
 <div class="line">(2) <strong>Node</strong>: This will be accepted as the immediate child node of the box.</div>
 </div>
 <p>Example:</p>
-<div class="highlight-python"><pre>var info = document.createElement('div');
-var header = document.createElement('h3');
-header.innerText = "Your Account Balance";
-var result = document.createElement('p');
-result.innerText = "500 $";
+<div class="highlight-python"><div class="highlight"><pre>var info = document.createElement(&#39;div&#39;);
+var header = document.createElement(&#39;h3&#39;);
+header.innerText = &quot;Your Account Balance&quot;;
+var result = document.createElement(&#39;p&#39;);
+result.innerText = &quot;500 $&quot;;
 
 info.appendChild(header);
 info.appendChild(result);
 
-pop( info );</pre>
+pop( info );
+</pre></div>
 </div>
 <div class="line-block">
 <div class="line">(3) <strong>Function</strong>: The return value of the function will be accepted as either a (1) <strong>String</strong> or (2) <strong>Node</strong>. (You will notice that this isn&#8217;t very different from directly providing a string or a node, however the use of this will become more apparent with binders)</div>
 <div class="line">The two main advantages of using functions is (1) Available within a function is a new (local) context for separation of namespace and aesthetics of your code; (2) The <a class="reference internal" href="getting-started.html#pop-id"><em>pop ID</em></a> is available as the first argument of the function callback.</div>
 </div>
 <p>Example:</p>
-<div class="highlight-python"><pre>pop (
+<div class="highlight-python"><div class="highlight"><pre>pop (
     function (pop_id) {
-        var info = document.createElement('div');
-        var header = document.createElement('h3');
-        header.innerText = "Your Account Balance";
-        var result = document.createElement('p');
-        result.innerText = "500 $";
+        var info = document.createElement(&#39;div&#39;);
+        var header = document.createElement(&#39;h3&#39;);
+        header.innerText = &quot;Your Account Balance&quot;;
+        var result = document.createElement(&#39;p&#39;);
+        result.innerText = &quot;500 $&quot;;
 
         info.appendChild(header);
         info.appendChild(result);
 
         return info;
     }
-);</pre>
+);
+</pre></div>
 </div>
 </div>
 <div class="section" id="parameter-pop-class">
@@ -1416,13 +1419,14 @@ pop( info );</pre>
 <div class="line">Note that specifying an event in both <strong>in events</strong> and <strong>out events</strong> is a hack which will provide the ability to toggle the pop&#8217;s existence.</div>
 </div>
 <p>Example (taken from the <a class="reference external" href="/demo.html">demo</a>  page):</p>
-<div class="highlight-python"><pre>var dropdown_button = document.getElementById('demo-dropdown');
-pop([dropdown_button, 'click', 'click'],
-    '&lt;ul&gt;&lt;li&gt;About&lt;/li&gt;&lt;li&gt;Help&lt;/li&gt;&lt;li&gt;Log Out&lt;/li&gt;&lt;/ul&gt;', 'dropdown',
+<div class="highlight-python"><div class="highlight"><pre>var dropdown_button = document.getElementById(&#39;demo-dropdown&#39;);
+pop([dropdown_button, &#39;click&#39;, &#39;click&#39;],
+    &#39;&lt;ul&gt;&lt;li&gt;About&lt;/li&gt;&lt;li&gt;Help&lt;/li&gt;&lt;li&gt;Log Out&lt;/li&gt;&lt;/ul&gt;&#39;, &#39;dropdown&#39;,
     { nearElement: [dropdown_button, function (x, y, w, h) {
         return [x, y + h + 4]
     }]}
-);</pre>
+);
+</pre></div>
 </div>
 </div>
 </div>
@@ -1507,11 +1511,12 @@ pop([dropdown_button, 'click', 'click'],
 <div class="line">These flags provide basic information about the setup of PopScript.</div>
 </div>
 <p>The location is at top of the file, below the popscript:</p>
-<div class="highlight-python"><pre>var popscript_flags = {
-    'alert error on error': false,  // alerts the error (alert)
-    'throw error on error': true,   // throws the error (throw)
-    'Z': 1000                       // base z-index for all pops
-};</pre>
+<div class="highlight-python"><div class="highlight"><pre>var popscript_flags = {
+    &#39;alert error on error&#39;: false,  // alerts the error (alert)
+    &#39;throw error on error&#39;: true,   // throws the error (throw)
+    &#39;Z&#39;: 1000                       // base z-index for all pops
+};
+</pre></div>
 </div>
 <div class="section" id="id38">
 <span id="id39"></span><h3>Z<a class="headerlink" href="#id38" title="Permalink to this headline">¶</a></h3>
@@ -1539,7 +1544,7 @@ pop([dropdown_button, 'click', 'click'],
             </div>
             <div class="footer">
                 &copy; Copyright 2013, Relfor.
-                Documentation created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+                Documentation created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.2.
             </div>
 
         </div>
@@ -1552,10 +1557,10 @@ pop([dropdown_button, 'click', 'click'],
 
 <img id="github-ribbon" style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub">
 </body>
-<script type="text/javascript" src="/static/js/prettify.js"></script>
-<script type="text/javascript" src="/src/popscript.js"></script>
-<script type="text/javascript" src="/static/js/index.js"></script>
-<script type="text/javascript" src="/static/js/docs.js"></script>
+<script type="text/javascript" src="/v1/static/js/prettify.js"></script>
+<script type="text/javascript" src="/v1/src/popscript.js"></script>
+<script type="text/javascript" src="/v1/static/js/index.js"></script>
+<script type="text/javascript" src="/v1/static/js/docs.js"></script>
 
 
 

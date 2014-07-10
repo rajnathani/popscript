@@ -9,13 +9,13 @@
     
     <title>Chapter 2: Guru &mdash; Popscript 1.0 documentation</title>
 
-    <link rel="stylesheet" type="text/css" href="/static/css/google-web-fonts.css"/>
-    <link rel="stylesheet" href="/static/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="/src/popscript.css"/>
-    <link rel="stylesheet" type="text/css" href="/static/css/normalize.css"/>
-    <link rel="stylesheet" type="text/css" href="/static/css/main.css"/>
-    <link rel="stylesheet" type="text/css" href="/static/css/responsive.css"/>
-    <link rel="stylesheet" type="text/css" href="/static/css/dark-prettify-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="/v1/static/css/google-web-fonts.css"/>
+    <link rel="stylesheet" href="/v1/static/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/v1/src/popscript.css"/>
+    <link rel="stylesheet" type="text/css" href="/v1/static/css/normalize.css"/>
+    <link rel="stylesheet" type="text/css" href="/v1/static/css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="/v1/static/css/responsive.css"/>
+    <link rel="stylesheet" type="text/css" href="/v1/static/css/dark-prettify-theme.css"/>
 
     
 <link rel="stylesheet" href="_static/basic.css" type="text/css"/>
@@ -23,7 +23,7 @@
     
 <script type="text/javascript">
     var DOCUMENTATION_OPTIONS = {
-        URL_ROOT: '',
+        URL_ROOT: './',
         VERSION: '1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
@@ -35,16 +35,16 @@
 <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="Popscript 1.0 documentation" href="index.html"/>
     <link rel="prev" title="Chapter 1: Core" href="core.html"/> 
-    <link rel="stylesheet" type="text/css" href="/static/css/fix_sphinx.css"/>
+    <link rel="stylesheet" type="text/css" href="/v1/static/css/fix_sphinx.css"/>
 </head>
 <body>
 
 <div id="header" class="cf">
-    <a id="logo" href="/"><span>POP</span><span>SCRIPT</span></a>
+    <a id="logo" href="/v1"><span>POP</span><span>SCRIPT</span></a>
     <div id="nav" class="cf">
-        <a href="/docs/index.html"><span class="icon-book"></span> DOCS</a>
-        <a href="/demo.html"><span class="icon-hand-up"></span> DEMO</a>
-        <a href="/download.html" id="download"><span class="icon-download"></span> DOWNLOAD</a>
+        <a href="/v1/docs/index.html"><span class="icon-book"></span> DOCS</a>
+        <a href="/v1/demo.html"><span class="icon-hand-up"></span> DEMO</a>
+        <a href="/v1/download.html" id="download"><span class="icon-download"></span> DOWNLOAD</a>
     </div>
 </div>
 
@@ -155,14 +155,16 @@
 <div class="line">Example time.</div>
 </div>
 <p>This:</p>
-<div class="highlight-python"><pre>ANIMATION: {
+<div class="highlight-python"><div class="highlight"><pre>ANIMATION: {
     IN {
-        box: 'zap-in'
+        box: &#39;zap-in&#39;
     }
-}</pre>
+}
+</pre></div>
 </div>
 <p>Becomes:</p>
-<div class="highlight-python"><pre>animation_in_box: 'zap-in'</pre>
+<div class="highlight-python"><div class="highlight"><pre>animation_in_box: &#39;zap-in&#39;
+</pre></div>
 </div>
 <div class="line-block">
 <div class="line">You might ask now: <em>What use does, popscript&#8217;s decision of eliminating scopes, come to me?</em></div>
@@ -171,37 +173,40 @@
 <div class="line">Example time.</div>
 </div>
 <p>This:</p>
-<div class="highlight-python"><pre>success: {
+<div class="highlight-python"><div class="highlight"><pre>success: {
     STYLE: {
         CLASS: {
-            box: 'green-box'
+            box: &#39;green-box&#39;
         },
         INLINE: {
-            box: 'width:100%; padding:25px;'
+            box: &#39;width:100%; padding:25px;&#39;
         }
     },
     POSITION: {
-        y: 'top'
+        y: &#39;top&#39;
     }
-}</pre>
+}
+</pre></div>
 </div>
 <p>Can be rewritten as:</p>
-<div class="highlight-python"><pre>success: {
-    style_class_box: 'green-box',
-    style_inline_box: 'width:100%; padding:25px;',
-    position_y: 'top'
-}</pre>
+<div class="highlight-python"><div class="highlight"><pre>success: {
+    style_class_box: &#39;green-box&#39;,
+    style_inline_box: &#39;width:100%; padding:25px;&#39;,
+    position_y: &#39;top&#39;
+}
+</pre></div>
 </div>
 <p>Since incomplete scope-less property names are permitted, it can also be rewritten as:</p>
-<div class="highlight-python"><pre>success: {
+<div class="highlight-python"><div class="highlight"><pre>success: {
     STYLE: {
-        class_box: 'green-box',
+        class_box: &#39;green-box&#39;,
         INLINE: {
-            box: 'width:100%; padding:25px;'
+            box: &#39;width:100%; padding:25px;&#39;
         }
     }
-    position_y: 'top'
-}</pre>
+    position_y: &#39;top&#39;
+}
+</pre></div>
 </div>
 <div class="line-block">
 <div class="line">Now that you are aware of this, you may begin using scope-less/semi-scope-less property names when quickly writting PopScript code, however remember that the whole point of introducing scopes is to improve code readbility, and (long-run) conciseness. And therefore, its highly recommended to stick with nesting with scopes.</div>
@@ -209,13 +214,14 @@
 <div class="line">Example time.</div>
 </div>
 <p>This:</p>
-<div class="highlight-python"><pre>pop( "Hello World",
+<div class="highlight-python"><div class="highlight"><pre>pop( &quot;Hello World&quot;,
     {
         POSITION: {
-            x: "25%"
+            x: &quot;25%&quot;
         }
     }
-});</pre>
+});
+</pre></div>
 </div>
 <p>Would become this:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">pop</span><span class="p">(</span> <span class="s">&quot;Hello World&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="n">position_x</span><span class="p">:</span> <span class="s">&quot;25%&quot;</span> <span class="p">}</span> <span class="p">);</span>
@@ -232,36 +238,38 @@
 <div class="section" id="method-1-event-handlers">
 <h3>Method 1: Event Handlers<a class="headerlink" href="#method-1-event-handlers" title="Permalink to this headline">¶</a></h3>
 <p>If you have just read this documentation till <a class="reference internal" href="core.html"><em>Chapter 1: Core</em></a>, then you (probably) hacked your way like this. Its <strong>not the recommended way</strong>:</p>
-<div class="highlight-python"><pre>var inner_container = document.createElement("div");
+<div class="highlight-python"><div class="highlight"><pre>var inner_container = document.createElement(&quot;div&quot;);
 
-var msg = document.createElement("p");
-msg.innerHTML = "Your password has been successfully reseted.";
+var msg = document.createElement(&quot;p&quot;);
+msg.innerHTML = &quot;Your password has been successfully reseted.&quot;;
 
-var close_button = document.createElement("button");
-close_button.innerHTML = "Close this dialog";
+var close_button = document.createElement(&quot;button&quot;);
+close_button.innerHTML = &quot;Close this dialog&quot;;
 var pop_id;
-close_button.addEventListener('click', function() { popOut(pop_id) }, false);
+close_button.addEventListener(&#39;click&#39;, function() { popOut(pop_id) }, false);
 
 inner_container.appendChild(msg);
 inner_container.appendChild(close_button);
 
-pop_id = pop( inner_container );</pre>
+pop_id = pop( inner_container );
+</pre></div>
 </div>
 <p>Instead, PopScript provides you a simpler way. The secret is that the function <a class="reference internal" href="core.html#pop-out"><em>popOut()</em></a>, <a class="reference internal" href="core.html#pop-close"><em>popClose()</em></a>, and <a class="reference internal" href="core.html#pop-hide"><em>popHide()</em></a>, are all <a class="reference external" href="http://en.wikipedia.org/wiki/Function_overloading">overloaded</a> functions. You can use it to handle the events directly, here is <strong>the recommended way</strong> of doing it:</p>
-<div class="highlight-python"><pre>var inner_container = document.createElement("div");
+<div class="highlight-python"><div class="highlight"><pre>var inner_container = document.createElement(&quot;div&quot;);
 
-var msg = document.createElement("p");
-msg.innerHTML = "Your password has been successfully reseted.";
+var msg = document.createElement(&quot;p&quot;);
+msg.innerHTML = &quot;Your password has been successfully reseted.&quot;;
 
-var close_button = document.createElement("button");
-close_button.innerHTML = "Close this dialog";
+var close_button = document.createElement(&quot;button&quot;);
+close_button.innerHTML = &quot;Close this dialog&quot;;
 //var pop_id; &lt;- no need, as popOut will search the pop id for you
-close_button.addEventListener('click', popOut, false);
+close_button.addEventListener(&#39;click&#39;, popOut, false);
 
 inner_container.appendChild(msg);
 inner_container.appendChild(close_button);
 
-pop( inner_container );</pre>
+pop( inner_container );
+</pre></div>
 </div>
 </div>
 <div class="section" id="method-2-css-classes">
@@ -273,12 +281,13 @@ pop( inner_container );</pre>
 <div class="line">To create a hide button, add the CSS class &#8216;popscript-hide&#8217;.</div>
 </div>
 <p>Here is the example from Method 1 done with Method 2:</p>
-<div class="highlight-python"><pre>pop( "
+<div class="highlight-python"><div class="highlight"><pre>pop( &quot;
     &lt;div&gt;
         &lt;p&gt;Your password has been successfully reseted.&lt;/p&gt;
-        &lt;button class='popscript-out'&gt;Close this dialog&lt;/button&gt;
+        &lt;button class=&#39;popscript-out&#39;&gt;Close this dialog&lt;/button&gt;
     &lt;/div&gt;
-" );</pre>
+&quot; );
+</pre></div>
 </div>
 </div>
 </div>
@@ -291,18 +300,19 @@ pop( inner_container );</pre>
 <div class="line">This is done by adding the &#8216;popscript-drag&#8217; class to the sub element.</div>
 </div>
 <p>Here is an example where we have a header to drag the pop around, just as seen in (every freaking) Operating System dialog box:</p>
-<div class="highlight-python"><pre>pop(
-    '&lt;div class="popscript-drag" style="padding:20px;background-color: gainsboro"&gt;
+<div class="highlight-python"><div class="highlight"><pre>pop(
+    &#39;&lt;div class=&quot;popscript-drag&quot; style=&quot;padding:20px;background-color: gainsboro&quot;&gt;
         Draggable Header
     &lt;/div&gt;
-    &lt;p style="height:150px"&gt;
+    &lt;p style=&quot;height:150px&quot;&gt;
         Lorem Ipsum
-    &lt;/p&gt;',
+    &lt;/p&gt;&#39;,
     {
-        full_draggable: 'no',
-        style_inline_box: 'padding:0'
+        full_draggable: &#39;no&#39;,
+        style_inline_box: &#39;padding:0&#39;
     }
-)</pre>
+)
+</pre></div>
 </div>
 </div>
 <div class="section" id="the-secret-api">
@@ -493,7 +503,7 @@ pop( inner_container );</pre>
             </div>
             <div class="footer">
                 &copy; Copyright 2013, Relfor.
-                Documentation created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+                Documentation created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.2.
             </div>
 
         </div>
@@ -506,10 +516,10 @@ pop( inner_container );</pre>
 
 <img id="github-ribbon" style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub">
 </body>
-<script type="text/javascript" src="/static/js/prettify.js"></script>
-<script type="text/javascript" src="/src/popscript.js"></script>
-<script type="text/javascript" src="/static/js/index.js"></script>
-<script type="text/javascript" src="/static/js/docs.js"></script>
+<script type="text/javascript" src="/v1/static/js/prettify.js"></script>
+<script type="text/javascript" src="/v1/src/popscript.js"></script>
+<script type="text/javascript" src="/v1/static/js/index.js"></script>
+<script type="text/javascript" src="/v1/static/js/docs.js"></script>
 
 
 
