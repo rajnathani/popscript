@@ -557,7 +557,7 @@ Click on properties (in red) to view its role.
 
 ======== ==================================================
  Input    :ref:`popscript-boolean`
- Task     Accepts the choice of having a background fixed scrolling effect. You might be highly perplexed by the last sentence! Well its hard to explain in words. Check out the last example named 'roller' the `demo </demo.html>`_ page of this website. To see another example of such an implementation, check out the pop up Trello uses when you hit the "?" keystroke on `a Trello board <https://trello.com/b/nC8QJJoZ/trello-development>`_. Note: please don't let the name 'roller' confuse you here, its cause can be rooted to unimaginative issues of its creator.
+ Task     Accepts the choice of having a background fixed scrolling effect. You might be highly perplexed by the last sentence! Well its hard to explain in words. Check out the last example named 'roller' the `demo </v1/demo.html>`_ page of this website. To see another example of such an implementation, check out the pop up Trello uses when you hit the "?" keystroke on `a Trello board <https://trello.com/b/nC8QJJoZ/trello-development>`_. Note: please don't let the name 'roller' confuse you here, its cause can be rooted to unimaginative issues of its creator.
  Default  false
 ======== ==================================================
 
@@ -930,7 +930,7 @@ parameter: binder
 
 | Note that specifying an event in both **in events** and **out events** is a hack which will provide the ability to toggle the pop's existence.
 
-Example (taken from the `demo </demo.html>`_  page)::
+Example (taken from the `demo </v1/demo.html>`_  page)::
 
 
     var dropdown_button = document.getElementById('demo-dropdown');
