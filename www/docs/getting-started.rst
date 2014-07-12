@@ -231,8 +231,8 @@ The 2 steps: (1) Compile (2) Create
 
 (2) Create: ``PS.pop()``
 `````````````````````````
-| ``PS.pop()`` is the one and only function which you will use to create Pops.
-| As arguments, it takes in the content (html or DOM node) of the Pop, the PopScript class to be used, and additional inline popscript.
+| ``PS.pop()`` is the one and only function which you will use to create pops.
+| As arguments, it takes in the content (html or DOM node) of the pop, the PopScript class to be used, and additional inline popscript.
 | Fine grained details of the arguments are provided in the next chapter.
 
 | **Declaration:**
