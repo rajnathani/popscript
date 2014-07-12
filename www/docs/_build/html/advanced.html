@@ -1,0 +1,388 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    
+    <title>Chapter 3: Advanced &mdash; Popscript 1.0 documentation</title>
+
+    
+<link rel="stylesheet" href="_static/basic.css" type="text/css"/>
+<link rel="stylesheet" href="_static/pygments.css" type="text/css"/>
+    
+<script type="text/javascript">
+    var DOCUMENTATION_OPTIONS = {
+        URL_ROOT: './',
+        VERSION: '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE: true
+    };
+</script>
+<script type="text/javascript" src="_static/jquery.js"></script>
+<script type="text/javascript" src="_static/underscore.js"></script>
+<script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Popscript 1.0 documentation" href="index.html"/>
+    <link rel="prev" title="Chapter 2: Pop Methods" href="pop-methods.html"/> 
+
+    <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css">
+    <link href="http://fonts.googleapis.com/css?family=Skranji|Sigmar+One|Merienda:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/v2/dist/popscript-boilerplate.css"/>
+    <link rel="stylesheet" type="text/css" href="/v2/static/css/browser.css"/>
+
+</head>
+<body>
+
+<div id="header" class="cf">
+    <a id="logo" href="/"><span>POP</span><span>SCRIPT</span></a>
+    <div id="nav" class="cf">
+        <a href="/v2/docs/index.html"><span class="icon-book"></span> DOCS</a>
+        <a href="/v2/demo.html"><span class="icon-hand-up"></span> DEMO</a>
+        <a href="/v2/download.html" id="download"><span class="icon-download"></span> DOWNLOAD</a>
+    </div>
+</div>
+
+  
+
+<div class="document">
+    
+<div class="sphinxsidebar">
+    <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <!-- h3>Quick search</h3 -->
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" placeholder="Quick search" />
+      <!-- input type="submit" value="Go" / -->
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <!-- p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p -->
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+    <!--h3><a href="index.html">Table Of Contents</a></h3-->
+    <!--h3>Table Of Contents</h3-->
+    <h3>Current topic</h3>
+    <ul>
+<li><a class="reference internal" href="#">Chapter 3: Advanced</a><ul>
+<li><a class="reference internal" href="#popscript-flags">PopScript Flags</a><ul>
+<li><a class="reference internal" href="#z">Z</a></li>
+<li><a class="reference internal" href="#alert-error-on-error">alert error on error</a></li>
+<li><a class="reference internal" href="#throw-error-on-error">throw error on error</a></li>
+<li><a class="reference internal" href="#garbage-collection">garbage collection</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#binder">Binder</a></li>
+<li><a class="reference internal" href="#reality-there-is-no-scope">Reality: There is no Scope</a></li>
+<li><a class="reference internal" href="#creating-a-custowm-close-hide-button">Creating a custowm close/hide button</a></li>
+<li><a class="reference internal" href="#creating-an-element-to-drag-a-pop">Creating an element to drag a pop</a></li>
+<li><a class="reference internal" href="#popscript-functions">PopScript Functions</a><ul>
+<li><a class="reference internal" href="#popscript-checkall">PopScript.checkAll()</a></li>
+<li><a class="reference internal" href="#popscript-garbagecollect">PopScript.garbageCollect()</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="pop-methods.html"
+                        title="previous chapter">Chapter 2: Pop Methods</a></p>
+        
+    </div>
+</div>
+    <div class="documentwrapper">
+        <div class="bodywrapper">
+            <div class="body">
+                
+  <div class="section" id="chapter-3-advanced">
+<h1>Chapter 3: Advanced<a class="headerlink" href="#chapter-3-advanced" title="Permalink to this headline">¶</a></h1>
+<div class="line-block">
+<div class="line">Hold on, first congratulations on reading through the entire of <a class="reference internal" href="pop-properties.html"><em>Chapter 1: PopScript Properties</em></a>, and reaching this part.</div>
+<div class="line">In this section we shall look over some of the advanced parts of PopScript.</div>
+<div class="line">These are features which on not knowing about wouldn&#8217;t disable you from using PopScript, however if you are aware of them, you could reap benefits like no one other.</div>
+<div class="line"><br /></div>
+<div class="line">We will go over the following:</div>
+</div>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="#flags"><em>PopScript Flags</em></a></li>
+<li><a class="reference internal" href="#binder-explanation"><em>Binder</em></a></li>
+<li><a class="reference internal" href="#there-is-no-scope"><em>Reality: There is no Scope</em></a></li>
+<li><a class="reference internal" href="#custom-out"><em>Creating a custowm close/hide button</em></a></li>
+<li><a class="reference internal" href="#custom-drag"><em>Creating an element to drag a pop</em></a></li>
+<li><a class="reference internal" href="#popscript-exta-functions"><em>PopScript Functions</em></a></li>
+</ul>
+</div></blockquote>
+<div class="section" id="popscript-flags">
+<span id="flags"></span><h2>PopScript Flags<a class="headerlink" href="#popscript-flags" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="z">
+<span id="flag-z"></span><h3>Z<a class="headerlink" href="#z" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line">Type: Number</div>
+<div class="line">Default: 1000</div>
+<div class="line"><br /></div>
+<div class="line">This is the base <tt class="docutils literal"><span class="pre">z-index</span></tt> for pops created.</div>
+<div class="line">Providing relative positions to this base z-index, or bypassing this base z-index is all done in the pop property <a class="reference internal" href="pop-properties.html#position-z"><em>z:</em></a>.</div>
+</div>
+</div>
+<div class="section" id="alert-error-on-error">
+<span id="flag-error-alert"></span><h3>alert error on error<a class="headerlink" href="#alert-error-on-error" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line">Type: Boolean</div>
+<div class="line">Default: false</div>
+<div class="line"><br /></div>
+<div class="line">This is a (javascript) boolean representing the choice of alerting with <tt class="docutils literal"><span class="pre">alert()</span></tt> due to a popscript errors caused by malformed syntax or directives.</div>
+</div>
+</div>
+<div class="section" id="throw-error-on-error">
+<span id="flag-error-throw"></span><h3>throw error on error<a class="headerlink" href="#throw-error-on-error" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line">Type: Boolean</div>
+<div class="line">Default: true</div>
+<div class="line"><br /></div>
+<div class="line">This is a (javascript) boolean representing the choice of throwing with <tt class="docutils literal"><span class="pre">throw</span></tt> due to a popscript errors caused by malformed syntax or directives.</div>
+</div>
+</div>
+<div class="section" id="garbage-collection">
+<span id="flag-garbage-collect-interval"></span><h3>garbage collection<a class="headerlink" href="#garbage-collection" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line">Type: Number</div>
+<div class="line">Default: 16000</div>
+<div class="line"><br /></div>
+<div class="line">Duration of intervals in milliseconds to run the garbage collector: <a class="reference internal" href="#popscript-garbage-collect"><em>PopScript.garbageCollect()</em></a>.</div>
+</div>
+</div>
+</div>
+<div class="section" id="binder">
+<span id="binder-explanation"></span><h2>Binder<a class="headerlink" href="#binder" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">Type: <strong>Array</strong> of &lt; <strong>Node</strong>, <strong>Array</strong> / <strong>String</strong> [, <strong>Array</strong> / <strong>String</strong>] &gt;</div>
+<div class="line">The input here is an Array which either contains 2 items or 3 items. Here is a breakdown of the elements:</div>
+</div>
+<blockquote>
+<div><ul class="simple">
+<li><strong>Node</strong>: This is a DOM Node. Example: <tt class="docutils literal"><span class="pre">document.getElementById('dropdown-button')</span></tt>.</li>
+<li><strong>Array</strong> / <strong>String</strong>: This is either, an Array of Strings <em>or</em> a single String. The String(s) here are events. Example: <tt class="docutils literal"><span class="pre">[&quot;click&quot;,</span> <span class="pre">&quot;mouseover&quot;]</span></tt> / <tt class="docutils literal"><span class="pre">&quot;focus&quot;</span></tt>. (These events are <strong>in events</strong>)</li>
+<li><strong>Array</strong> / <strong>String</strong>: This is either, an Array of Strings <em>or</em> a single String. The String(s) here are events. Example: <tt class="docutils literal"><span class="pre">[&quot;click&quot;,</span> <span class="pre">&quot;mouseout&quot;]</span></tt> / <tt class="docutils literal"><span class="pre">&quot;blur&quot;</span></tt>. (These events are <strong>out events</strong>) [optional parameter]</li>
+</ul>
+</div></blockquote>
+<div class="line-block">
+<div class="line">In essence, the role which binder plays follows these sequences of steps:</div>
+</div>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Bind all the <strong>in events</strong> (2nd parameter) to the Node (1st parameter).</li>
+<li>On the firing of any of the above attached events, deploy the pop with remaining parameters as to be done without binder.</li>
+<li>If <strong>out events</strong> has been specified, attach all the <strong>out events</strong> to the Node; which on firing will cause pop to be outted.</li>
+<li>Attach all the <strong>in events</strong> to the Node; which on firing will cause the pop to be outted.</li>
+</ol>
+</div></blockquote>
+<div class="line-block">
+<div class="line">A state diagram showing the process of popping with a binder:</div>
+</div>
+<img alt="_images/binder.png" src="_images/binder.png" />
+<div class="line-block">
+<div class="line">Note that specifying an event in both <strong>in events</strong> and <strong>out events</strong> is a hack which will provide the ability to toggle the pop&#8217;s existence.</div>
+</div>
+<p>Example (taken from the <a class="reference external" href="/v2/demo.html">demo</a>  page):</p>
+<div class="highlight-python"><div class="highlight"><pre>var dropdown_button = document.getElementById(&#39;demo-dropdown&#39;);
+PS.pop(
+    &quot;general&quot;,
+    &#39;&lt;ul&gt;&lt;li&gt;About&lt;/li&gt;&lt;li&gt;Help&lt;/li&gt;&lt;li&gt;Log Out&lt;/li&gt;&lt;/ul&gt;&#39;, &#39;dropdown&#39;,
+    { nearElement: [dropdown_button, function (x, y, w, h) {
+        return [x, y + h + 4]
+    }],
+      binder: [dropdown_button, &#39;click&#39;]
+    }
+);
+</pre></div>
+</div>
+</div>
+<div class="section" id="reality-there-is-no-scope">
+<span id="there-is-no-scope"></span><h2>Reality: There is no Scope<a class="headerlink" href="#reality-there-is-no-scope" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">In the <a class="reference internal" href="getting-started.html#popscript-class"><em>PopScript Class</em></a> section of <a class="reference internal" href="getting-started.html"><em>Chapter 0: Getting started</em></a>, we mentioned about &#8220;scopes&#8221;, which are essentially the non-properties within popscript such as <tt class="docutils literal"><span class="pre">ANIMATIONS</span></tt>, <tt class="docutils literal"><span class="pre">STYLE</span></tt>, and many more. These serve as contexts to distinguish pop properties: for instance, the property <tt class="docutils literal"><span class="pre">box</span></tt> appears in both <tt class="docutils literal"><span class="pre">STYLE</span></tt> &gt; <tt class="docutils literal"><span class="pre">CLASS</span></tt> <em>and</em> <tt class="docutils literal"><span class="pre">ANIMATION</span></tt> &gt; <tt class="docutils literal"><span class="pre">IN</span></tt>/<tt class="docutils literal"><span class="pre">OUT</span></tt>.</div>
+<div class="line">But the reality is that although the novice user using popscript visibly sees scopes, the popscript architecture doesn&#8217;t see them. <strong>How?</strong> All of popscript code is compiled down to a single nest level, where there exists no scope.</div>
+<div class="line">Here are the steps followed in compiling down a scope&#8217;s properties to scope-less properties:</div>
+</div>
+<p><tt class="docutils literal"><span class="pre">Concatenate</span> <span class="pre">(Join)</span> <span class="pre">all</span> <span class="pre">the</span> <span class="pre">scopes</span> <span class="pre">with</span> <span class="pre">an</span> <span class="pre">underscore</span> <span class="pre">&quot;_&quot;</span> <span class="pre">between</span> <span class="pre">each</span> <span class="pre">scope</span> <span class="pre">in</span> <span class="pre">its</span> <span class="pre">lower</span> <span class="pre">case.</span></tt></p>
+<div class="line-block">
+<div class="line">Note that lower casing is optional as, as mentioned earlier (in <a class="reference internal" href="getting-started.html"><em>Chapter 0: Getting started</em></a>) <em>pop scopes</em> and <em>pop properties</em> are case insensitive.</div>
+<div class="line">Example time.</div>
+</div>
+<p>This:</p>
+<div class="highlight-python"><div class="highlight"><pre>ANIMATION: {
+    IN {
+        box: &#39;zap-in&#39;
+    }
+}
+</pre></div>
+</div>
+<p>Becomes:</p>
+<div class="highlight-python"><div class="highlight"><pre>animation_in_box: &#39;zap-in&#39;
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">You might ask now: <em>What use does, popscript&#8217;s decision of eliminating scopes, come to me?</em></div>
+<div class="line">Good question! Well the awesome truth is that popscript not only eliminates scopes for internal usage, but also provides the developer an option to eliminate it too.</div>
+<div class="line">Which means that instead of specifying pop properties within scope(s) you can: jump ahead by directly provide the <strong>scope-less</strong> property name. It is also possible to even provide PopScript an <strong>incomplete scope-less</strong> property name.</div>
+<div class="line">Example time.</div>
+</div>
+<p>This:</p>
+<div class="highlight-python"><div class="highlight"><pre>success: {
+    STYLE: {
+        CLASS: {
+            box: &#39;green-box&#39;
+        },
+        INLINE: {
+            box: &#39;width:100%; padding:25px;&#39;
+        }
+    },
+    POSITION: {
+        y: &#39;top&#39;
+    }
+}
+</pre></div>
+</div>
+<p>Can be rewritten as:</p>
+<div class="highlight-python"><div class="highlight"><pre>success: {
+    style_class_box: &#39;green-box&#39;,
+    style_inline_box: &#39;width:100%; padding:25px;&#39;,
+    position_y: &#39;top&#39;
+}
+</pre></div>
+</div>
+<p>Since incomplete scope-less property names are permitted, it can also be rewritten as:</p>
+<div class="highlight-python"><div class="highlight"><pre>success: {
+    STYLE: {
+        class_box: &#39;green-box&#39;,
+        INLINE: {
+            box: &#39;width:100%; padding:25px;&#39;
+        }
+    }
+    position_y: &#39;top&#39;
+}
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">Now that you are aware of this, you may begin using scope-less/semi-scope-less property names when quickly writting PopScript code, however remember that the whole point of introducing scopes is to improve code readbility, and (long-run) conciseness. And therefore, its highly recommended to stick with nesting with scopes.</div>
+<div class="line">Albeit, there is one exceptional case where the usage of scope-less property names is actually encouraged, highly encouraged. That is with <a class="reference internal" href="getting-started.html#parameter-inline-popscript"><em>parameter: inline_popscript</em></a>.</div>
+<div class="line">Example time.</div>
+</div>
+<p>This:</p>
+<div class="highlight-python"><div class="highlight"><pre>PS.pop(
+ &quot;general&quot;,
+ &quot;Hello World&quot;,
+    {
+        POSITION: {
+            x: &quot;25%&quot;
+        }
+    }
+});
+</pre></div>
+</div>
+<p>Would become this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">pop</span><span class="p">(</span> <span class="s">&quot;Hello World&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="n">position_x</span><span class="p">:</span> <span class="s">&quot;25%&quot;</span> <span class="p">}</span> <span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="creating-a-custowm-close-hide-button">
+<span id="custom-out"></span><h2>Creating a custowm close/hide button<a class="headerlink" href="#creating-a-custowm-close-hide-button" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/yuno-custom-close.jpg" src="_images/yuno-custom-close.jpg" />
+<div class="line-block">
+<div class="line">Well, well, well. Yes, you actually can.</div>
+<div class="line">From <a class="reference internal" href="getting-started.html#components"><em>Components of a pop</em></a> you learnt that the <tt class="docutils literal"><span class="pre">cross</span></tt> button can be used to close or hide (depending on <a class="reference internal" href="pop-properties.html#id15"><em>out:</em></a>). The issue really, is that supplying <tt class="docutils literal"><span class="pre">cross</span></tt>, although it provides an exceedingly agile method of creating pops, it inhibits flexibility, as it can only be modified by its CSS, and furthermore can be enabled or disabled as a whole through the property <a class="reference internal" href="pop-properties.html#id23"><em>cross:</em></a>.</div>
+<div class="line"><br /></div>
+<div class="line">To create an out (close/hide depending upon <a class="reference internal" href="pop-properties.html#id15"><em>out:</em></a>) button, add the CSS class &#8216;popscript-out&#8217;.</div>
+<div class="line">To create a close button, add the CSS class &#8216;popscript-close&#8217;.</div>
+<div class="line">To create a hide button, add the CSS class &#8216;popscript-hide&#8217;.</div>
+</div>
+<p>Here is the example:</p>
+<div class="highlight-python"><div class="highlight"><pre>PS.pop(&quot;general&quot;,
+&quot;
+    &lt;div&gt;
+        &lt;p&gt;Your password has been successfully reseted.&lt;/p&gt;
+        &lt;button class=&#39;popscript-out&#39;&gt;Close this dialog&lt;/button&gt;
+    &lt;/div&gt;
+&quot; );
+</pre></div>
+</div>
+</div>
+<div class="section" id="creating-an-element-to-drag-a-pop">
+<span id="custom-drag"></span><h2>Creating an element to drag a pop<a class="headerlink" href="#creating-an-element-to-drag-a-pop" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">From <a class="reference internal" href="pop-properties.html"><em>Chapter 1: PopScript Properties</em></a> it was learnt that the pop property <a class="reference internal" href="pop-properties.html#full-draggable"><em>full_draggable:</em></a> allows you to drag the pop box around, by holding down anywhere on the box.</div>
+<div class="line">What if, what if it is not desirable to have the entire box serve as a dragging patch?</div>
+<div class="line">Well you can specifically make sub-elements of the box server as dragging patches.</div>
+<div class="line">This is done by adding the &#8216;popscript-drag&#8217; class to the sub element.</div>
+</div>
+<p>Here is an example where we have a header to drag the pop around, just as seen in (every living and dead) Operating System dialog box:</p>
+<div class="highlight-python"><div class="highlight"><pre>PS.pop(
+    &quot;general&quot;,
+    &#39;&lt;div class=&quot;popscript-drag&quot; style=&quot;padding:20px;background-color: gainsboro&quot;&gt;
+        Draggable Header
+    &lt;/div&gt;
+    &lt;p style=&quot;height:150px&quot;&gt;
+        Lorem Ipsum
+    &lt;/p&gt;&#39;,
+    {
+        full_draggable: &#39;no&#39;,
+        style_inline_box: &#39;padding:0&#39;
+    }
+)
+</pre></div>
+</div>
+</div>
+<div class="section" id="popscript-functions">
+<span id="popscript-exta-functions"></span><h2>PopScript Functions<a class="headerlink" href="#popscript-functions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="popscript-checkall">
+<span id="popscript-pos-check"></span><h3>PopScript.checkAll()<a class="headerlink" href="#popscript-checkall" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line"><em>Declaration:</em> <tt class="docutils literal"><span class="pre">PopScript.checkAll()</span></tt></div>
+<div class="line"><br /></div>
+<div class="line"><em>Role</em>: Checks the position and alignment of all the visible pops. (inclusive of all: <a class="reference internal" href="getting-started.html#components"><em>Components of a pop</em></a>). This is the function which gets called in accordance to the value set at <a class="reference internal" href="pop-properties.html#position-check"><em>check:</em></a>, and addtionally (done behind the scenes by PopScript) when the users scrolls the page or resizes the window.</div>
+</div>
+</div>
+<div class="section" id="popscript-garbagecollect">
+<span id="popscript-garbage-collect"></span><h3>PopScript.garbageCollect()<a class="headerlink" href="#popscript-garbagecollect" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line"><em>Declaration:</em> <tt class="docutils literal"><span class="pre">PopScript.garbageCollect()</span></tt></div>
+<div class="line"><br /></div>
+<div class="line"><em>Role</em>: Frees up the memory occupied by Pops which have been destroyed.</div>
+<div class="line">This function is called on a regular interval of (presently) 12 seconds.</div>
+<div class="line">The interval duration can be controlled through <a class="reference internal" href="#flag-garbage-collect-interval"><em>garbage collection</em></a>.</div>
+</div>
+</div>
+</div>
+</div>
+
+
+            </div>
+            <div class="footer">
+                &copy; Copyright 2013, Relfor.
+                Documentation created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.2.
+            </div>
+
+        </div>
+    </div>
+
+    <div class="clearer"></div>
+</div>
+
+
+
+<img id="github-ribbon" style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub">
+</body>
+<script type="text/javascript" src="/v2/static/js/prettify.js"></script>
+<script type="text/javascript" src="/v2/dist/popscript.js"></script>
+<script type="text/javascript" src="/v2/static/js/index.js"></script>
+<script type="text/javascript" src="/v2/static/js/docs.js"></script>
+
+
+
+</html>

@@ -1,14 +1,10 @@
 popscript
 =========
 
-**Note the below documentation is not up to date, the official documentation shall be posted on the website soon**
-A JS + CSS library for creating pop ups (modals) with support for animations, lightweight with zero dependencies. (GPLv2 licensed)
-Check the official PopScript [website](popscript.relfor.co) for everything.
+PopScript is a systematic way to design modal boxes, lightboxes, dropdown menus, tooltips, and any other dynamic element.
 
 
+Check the official popscript website for documentation and examples:
 
-
-
-
-
-
+- v1 : [popscript.relfor.co/v1/](http://popscript.relfor.co/v1) (**depracated**)
+- v2 : [popscript.relfor.co/v2](http://popscript.relfor.co/v2)

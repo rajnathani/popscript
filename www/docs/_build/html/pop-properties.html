@@ -1,0 +1,1185 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    
+    <title>Chapter 1: PopScript Properties &mdash; Popscript 1.0 documentation</title>
+
+    
+<link rel="stylesheet" href="_static/basic.css" type="text/css"/>
+<link rel="stylesheet" href="_static/pygments.css" type="text/css"/>
+    
+<script type="text/javascript">
+    var DOCUMENTATION_OPTIONS = {
+        URL_ROOT: './',
+        VERSION: '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE: true
+    };
+</script>
+<script type="text/javascript" src="_static/jquery.js"></script>
+<script type="text/javascript" src="_static/underscore.js"></script>
+<script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Popscript 1.0 documentation" href="index.html"/>
+    <link rel="next" title="Chapter 2: Pop Methods" href="pop-methods.html"/>
+    <link rel="prev" title="Chapter 0: Getting started" href="getting-started.html"/> 
+
+    <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css">
+    <link href="http://fonts.googleapis.com/css?family=Skranji|Sigmar+One|Merienda:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/v2/dist/popscript-boilerplate.css"/>
+    <link rel="stylesheet" type="text/css" href="/v2/static/css/browser.css"/>
+
+</head>
+<body>
+
+<div id="header" class="cf">
+    <a id="logo" href="/"><span>POP</span><span>SCRIPT</span></a>
+    <div id="nav" class="cf">
+        <a href="/v2/docs/index.html"><span class="icon-book"></span> DOCS</a>
+        <a href="/v2/demo.html"><span class="icon-hand-up"></span> DEMO</a>
+        <a href="/v2/download.html" id="download"><span class="icon-download"></span> DOWNLOAD</a>
+    </div>
+</div>
+
+  
+
+<div class="document">
+    
+<div class="sphinxsidebar">
+    <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <!-- h3>Quick search</h3 -->
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" placeholder="Quick search" />
+      <!-- input type="submit" value="Go" / -->
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <!-- p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p -->
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+    <!--h3><a href="index.html">Table Of Contents</a></h3-->
+    <!--h3>Table Of Contents</h3-->
+    <h3>Current topic</h3>
+    <ul>
+<li><a class="reference internal" href="#">Chapter 1: PopScript Properties</a><ul>
+<li><a class="reference internal" href="#pop-properties">Pop Properties</a></li>
+<li><a class="reference internal" href="#properties">Properties</a><ul>
+<li><a class="reference internal" href="#style"><span class="docs-ps-scope">STYLE {</span></a><ul>
+<li><a class="reference internal" href="#class"><span class="docs-ps-scope">CLASS {</span></a><ul>
+<li><a class="reference internal" href="#box"><span class="docs-ps-prop">box:</span></a></li>
+<li><a class="reference internal" href="#cover"><span class="docs-ps-prop">cover:</span></a></li>
+<li><a class="reference internal" href="#cross"><span class="docs-ps-prop">cross:</span></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#inline"><span class="docs-ps-scope">INLINE {</span></a><ul>
+<li><a class="reference internal" href="#style-inline-box"><span class="docs-ps-prop">box:</span></a></li>
+<li><a class="reference internal" href="#style-inline-cover"><span class="docs-ps-prop">cover:</span></a></li>
+<li><a class="reference internal" href="#style-inline-cross"><span class="docs-ps-prop">cross:</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#animation"><span class="docs-ps-scope">ANIMATION {</span></a><ul>
+<li><a class="reference internal" href="#in"><span class="docs-ps-scope">IN {</span></a><ul>
+<li><a class="reference internal" href="#animation-in-box"><span class="docs-ps-prop">box:</span></a></li>
+<li><a class="reference internal" href="#animation-in-cover"><span class="docs-ps-prop">cover:</span></a></li>
+<li><a class="reference internal" href="#duration"><span class="docs-ps-prop">duration:</span></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#out"><span class="docs-ps-scope">OUT {</span></a><ul>
+<li><a class="reference internal" href="#animation-out-box"><span class="docs-ps-prop">box:</span></a></li>
+<li><a class="reference internal" href="#animation-out-cover"><span class="docs-ps-prop">cover:</span></a></li>
+<li><a class="reference internal" href="#animation-out-duration"><span class="docs-ps-prop">duration:</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#position"><span class="docs-ps-scope">POSITION {</span></a><ul>
+<li><a class="reference internal" href="#x"><span class="docs-ps-prop">x:</span></a></li>
+<li><a class="reference internal" href="#y"><span class="docs-ps-prop">y:</span></a></li>
+<li><a class="reference internal" href="#z"><span class="docs-ps-prop">z:</span></a></li>
+<li><a class="reference internal" href="#fixed"><span class="docs-ps-prop">fixed:</span></a></li>
+<li><a class="reference internal" href="#position-roller"><span class="docs-ps-prop">roller:</span></a></li>
+<li><a class="reference internal" href="#x-scrolled"><span class="docs-ps-prop">x_scrolled:</span></a></li>
+<li><a class="reference internal" href="#y-scrolled"><span class="docs-ps-prop">y_scrolled:</span></a></li>
+<li><a class="reference internal" href="#x-scroll"><span class="docs-ps-prop">x_scroll:</span></a></li>
+<li><a class="reference internal" href="#y-scroll"><span class="docs-ps-prop">y_scroll:</span></a></li>
+<li><a class="reference internal" href="#check"><span class="docs-ps-prop">check:</span></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id15"><span class="docs-ps-prop">out:</span></a></li>
+<li><a class="reference internal" href="#click-me-out"><span class="docs-ps-prop">click_me_out:</span></a></li>
+<li><a class="reference internal" href="#full-draggable"><span class="docs-ps-prop">full_draggable:</span></a></li>
+<li><a class="reference internal" href="#esc"><span class="docs-ps-prop">esc:</span></a></li>
+<li><a class="reference internal" href="#blur"><span class="docs-ps-prop">blur:</span></a></li>
+<li><a class="reference internal" href="#id21"><span class="docs-ps-prop">cover:</span></a></li>
+<li><a class="reference internal" href="#id23"><span class="docs-ps-prop">cross:</span></a></li>
+<li><a class="reference internal" href="#cross-content"><span class="docs-ps-prop">cross_content:</span></a></li>
+<li><a class="reference internal" href="#destroy"><span class="docs-ps-prop">destroy:</span></a></li>
+<li><a class="reference internal" href="#runtime-properties-below"><span class="docs-ps-runtime">&lt; Runtime Properties Below: &gt;</span></a></li>
+<li><a class="reference internal" href="#beforepopin"><span class="docs-ps-prop">beforePopIn:</span></a></li>
+<li><a class="reference internal" href="#beforepopout"><span class="docs-ps-prop">beforePopOut:</span></a></li>
+<li><a class="reference internal" href="#afterpopout"><span class="docs-ps-prop">afterPopOut:</span></a></li>
+<li><a class="reference internal" href="#nearelement"><span class="docs-ps-prop">nearElement:</span></a></li>
+<li><a class="reference internal" href="#binder"><span class="docs-ps-prop">binder:</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="getting-started.html"
+                        title="previous chapter">Chapter 0: Getting started</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pop-methods.html"
+                        title="next chapter">Chapter 2: Pop Methods</a></p>
+        
+    </div>
+</div>
+    <div class="documentwrapper">
+        <div class="bodywrapper">
+            <div class="body">
+                
+  <div class="section" id="chapter-1-popscript-properties">
+<h1>Chapter 1: PopScript Properties<a class="headerlink" href="#chapter-1-popscript-properties" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="pop-properties">
+<span id="id1"></span><h2>Pop Properties<a class="headerlink" href="#pop-properties" title="Permalink to this headline">¶</a></h2>
+<p>Script for reference:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">PS</span><span class="o">.</span><span class="n">compile</span><span class="p">({</span>
+    <span class="n">general</span><span class="p">:</span> <span class="p">{</span>
+        <span class="n">STYLE</span><span class="p">:</span> <span class="p">{</span>
+            <span class="n">CLASS</span><span class="p">:</span> <span class="p">{</span>
+                <span class="n">box</span><span class="p">:</span> <span class="s">&#39;simple-box&#39;</span><span class="p">,</span>
+                <span class="n">cover</span><span class="p">:</span> <span class="s">&#39;curtain&#39;</span><span class="p">,</span>
+                <span class="n">cross</span><span class="p">:</span> <span class="s">&#39;cross&#39;</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="n">ANIMATION</span><span class="p">:</span> <span class="p">{</span>
+            <span class="n">IN</span><span class="p">:</span> <span class="p">{</span>
+                <span class="n">box</span><span class="p">:</span> <span class="s">&#39;zap-in&#39;</span><span class="p">,</span>
+                <span class="n">cover</span><span class="p">:</span> <span class="s">&#39;fade-in&#39;</span><span class="p">,</span>
+                <span class="n">duration</span><span class="p">:</span> <span class="mi">200</span>
+            <span class="p">},</span>
+            <span class="n">OUT</span><span class="p">:</span> <span class="p">{</span>
+                <span class="n">box</span><span class="p">:</span> <span class="s">&#39;zap-out ease-in&#39;</span><span class="p">,</span>
+                <span class="n">cover</span><span class="p">:</span> <span class="s">&#39;fade-out&#39;</span><span class="p">,</span>
+                <span class="n">duration</span><span class="p">:</span> <span class="mi">170</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="n">POSITION</span><span class="p">:</span> <span class="p">{</span>
+            <span class="n">x</span><span class="p">:</span> <span class="s">&#39;auto&#39;</span><span class="p">,</span>
+            <span class="n">y</span><span class="p">:</span> <span class="s">&#39;auto&#39;</span>
+        <span class="p">},</span>
+        <span class="n">full_draggable</span><span class="p">:</span> <span class="s">&#39;yes&#39;</span><span class="p">,</span>
+        <span class="n">esc</span><span class="p">:</span> <span class="s">&#39;yup&#39;</span>
+    <span class="p">},</span>
+
+    <span class="n">success</span><span class="p">:</span> <span class="p">{</span>
+        <span class="n">STYLE</span><span class="p">:</span> <span class="p">{</span>
+            <span class="n">CLASS</span><span class="p">:</span> <span class="p">{</span>
+                <span class="n">box</span><span class="p">:</span> <span class="s">&#39;success&#39;</span><span class="p">,</span>
+                <span class="n">cover</span><span class="p">:</span> <span class="s">&#39;curtain&#39;</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="n">ANIMATION</span><span class="p">:</span> <span class="p">{</span>
+            <span class="n">IN</span><span class="p">:</span> <span class="p">{</span>
+                <span class="n">box</span><span class="p">:</span> <span class="s">&#39;drop&#39;</span>
+            <span class="p">},</span>
+            <span class="n">OUT</span><span class="p">:</span> <span class="p">{</span>
+                <span class="n">box</span><span class="p">:</span> <span class="s">&#39;undrop&#39;</span><span class="p">,</span>
+                <span class="n">cover</span><span class="p">:</span> <span class="s">&#39;fade-out&#39;</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="n">POSITION</span><span class="p">:</span> <span class="p">{</span>
+            <span class="n">y</span><span class="p">:</span> <span class="s">&#39;top&#39;</span>
+        <span class="p">},</span>
+        <span class="n">cross</span><span class="p">:</span> <span class="s">&#39;no&#39;</span><span class="p">,</span>
+        <span class="n">full_draggable</span><span class="p">:</span> <span class="s">&#39;naaaaoh&#39;</span><span class="p">,</span>
+        <span class="n">click_me_out</span><span class="p">:</span> <span class="s">&#39;yes, tis is convenient&#39;</span>
+    <span class="p">},</span>
+
+    <span class="n">error</span><span class="p">:</span> <span class="p">{</span>
+        <span class="n">STYLE</span><span class="p">:</span> <span class="p">{</span>
+            <span class="n">CLASS</span><span class="p">:</span> <span class="p">{</span>
+                <span class="n">box</span><span class="p">:</span> <span class="s">&#39;error&#39;</span><span class="p">,</span>
+                <span class="n">cover</span><span class="p">:</span> <span class="s">&#39;curtain&#39;</span><span class="p">,</span>
+                <span class="n">cross</span><span class="p">:</span> <span class="s">&#39;cross&#39;</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="n">ANIMATION</span><span class="p">:</span> <span class="p">{</span>
+            <span class="n">IN</span><span class="p">:</span> <span class="p">{</span>
+                <span class="n">box</span><span class="p">:</span> <span class="s">&#39;short-arrive-left, fade-in&#39;</span>
+            <span class="p">},</span>
+            <span class="n">OUT</span><span class="p">:</span> <span class="p">{</span>
+                <span class="n">box</span><span class="p">:</span> <span class="s">&#39;zap-out&#39;</span><span class="p">,</span>
+                <span class="n">cover</span><span class="p">:</span> <span class="s">&#39;fade-out&#39;</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="n">POSITION</span><span class="p">:</span> <span class="p">{</span>
+            <span class="n">x</span><span class="p">:</span> <span class="s">&#39;!10&#39;</span><span class="p">,</span>
+            <span class="n">y</span><span class="p">:</span> <span class="s">&#39;10&#39;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+
+    <span class="n">dropdown</span><span class="p">:</span> <span class="p">{</span>
+        <span class="n">STYLE</span><span class="p">:</span> <span class="p">{</span>
+            <span class="n">CLASS</span><span class="p">:</span> <span class="p">{</span>
+                <span class="n">box</span><span class="p">:</span> <span class="s">&#39;dropdown&#39;</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="n">ANIMATION</span><span class="p">:</span> <span class="p">{</span>
+            <span class="n">IN</span><span class="p">:</span> <span class="p">{</span>
+                <span class="n">box</span><span class="p">:</span><span class="s">&#39;short-arrive-down, fade-in&#39;</span><span class="p">,</span>
+                <span class="n">duration</span><span class="p">:</span> <span class="mi">90</span>
+            <span class="p">},</span>
+            <span class="n">OUT</span><span class="p">:</span> <span class="p">{</span>
+                <span class="n">box</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="n">POSITION</span><span class="p">:</span> <span class="p">{</span>
+            <span class="n">z</span><span class="p">:</span> <span class="s">&#39;-1&#39;</span>
+        <span class="p">},</span>
+        <span class="n">cross</span><span class="p">:</span> <span class="s">&#39;no&#39;</span><span class="p">,</span>
+        <span class="n">cover</span><span class="p">:</span> <span class="s">&#39;no&#39;</span><span class="p">,</span>
+        <span class="n">full_draggable</span><span class="p">:</span> <span class="s">&#39;no&#39;</span>
+    <span class="p">},</span>
+
+    <span class="n">context_menu</span><span class="p">:</span> <span class="p">{</span>
+        <span class="n">STYLE</span><span class="p">:</span> <span class="p">{</span>
+            <span class="n">CLASS</span><span class="p">:</span> <span class="p">{</span>
+                <span class="n">box</span><span class="p">:</span> <span class="s">&#39;context-menu&#39;</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="n">ANIMATION</span><span class="p">:</span> <span class="p">{</span>
+            <span class="n">IN</span><span class="p">:</span> <span class="p">{</span>
+                <span class="n">box</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
+            <span class="p">},</span>
+            <span class="n">OUT</span><span class="p">:</span> <span class="p">{</span>
+                <span class="n">box</span><span class="p">:</span> <span class="s">&#39;fade-out&#39;</span><span class="p">,</span>
+                <span class="n">duration</span><span class="p">:</span> <span class="mi">40</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="n">POSITION</span><span class="p">:</span> <span class="p">{</span>
+            <span class="n">fixed</span><span class="p">:</span> <span class="s">&#39;no&#39;</span><span class="p">,</span>
+            <span class="n">z</span><span class="p">:</span> <span class="s">&#39;-1&#39;</span>
+        <span class="p">},</span>
+        <span class="n">cover</span><span class="p">:</span> <span class="s">&#39;no&#39;</span><span class="p">,</span>
+        <span class="n">cross</span><span class="p">:</span> <span class="s">&#39;no&#39;</span><span class="p">,</span>
+        <span class="n">full_draggable</span><span class="p">:</span> <span class="s">&#39;no&#39;</span>
+    <span class="p">},</span>
+
+    <span class="n">tooltip</span><span class="p">:</span> <span class="p">{</span>
+        <span class="n">STYLE</span><span class="p">:</span> <span class="p">{</span>
+            <span class="n">CLASS</span><span class="p">:</span> <span class="p">{</span>
+                <span class="n">box</span><span class="p">:</span> <span class="s">&#39;popscript-tooltip&#39;</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="n">ANIMATION</span><span class="p">:</span> <span class="p">{</span>
+            <span class="n">OUT</span><span class="p">:</span> <span class="p">{</span>
+                <span class="n">box</span><span class="p">:</span> <span class="s">&#39;fade-out&#39;</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="n">POSITION</span><span class="p">:</span> <span class="p">{</span>
+            <span class="n">z</span><span class="p">:</span> <span class="s">&#39;-1&#39;</span>
+        <span class="p">},</span>
+        <span class="n">click_me_out</span><span class="p">:</span> <span class="s">&#39;yeh&#39;</span><span class="p">,</span>
+        <span class="n">cross</span><span class="p">:</span> <span class="s">&#39;no&#39;</span><span class="p">,</span>
+        <span class="n">cover</span><span class="p">:</span> <span class="s">&#39;no&#39;</span><span class="p">,</span>
+        <span class="n">blur</span><span class="p">:</span> <span class="s">&#39;no&#39;</span><span class="p">,</span>
+        <span class="n">esc</span><span class="p">:</span> <span class="s">&#39;yes&#39;</span><span class="p">,</span>
+        <span class="n">full_draggable</span><span class="p">:</span> <span class="s">&#39;no&#39;</span>
+    <span class="p">},</span>
+
+    <span class="n">tip_left</span><span class="p">:</span> <span class="p">{</span>
+        <span class="n">STYLE</span><span class="p">:</span> <span class="p">{</span>
+            <span class="n">CLASS</span><span class="p">:</span> <span class="p">{</span>
+                <span class="n">box</span><span class="p">:</span> <span class="s">&#39;popscript-tooltip left&#39;</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="n">ANIMATION</span><span class="p">:</span> <span class="p">{</span>
+            <span class="n">IN</span><span class="p">:</span> <span class="p">{</span>
+                <span class="n">box</span><span class="p">:</span> <span class="s">&#39;short-arrive-left, fade-in&#39;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+
+    <span class="n">tip_right</span><span class="p">:</span> <span class="p">{</span>
+        <span class="n">STYLE</span><span class="p">:</span> <span class="p">{</span>
+            <span class="n">CLASS</span><span class="p">:</span> <span class="p">{</span>
+                <span class="n">box</span><span class="p">:</span> <span class="s">&#39;popscript-tooltip right&#39;</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="n">ANIMATION</span><span class="p">:</span> <span class="p">{</span>
+            <span class="n">IN</span><span class="p">:</span> <span class="p">{</span>
+                <span class="n">box</span><span class="p">:</span> <span class="s">&#39;short-arrive-right, fade-in&#39;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+
+    <span class="n">tip_up</span><span class="p">:</span> <span class="p">{</span>
+        <span class="n">STYLE</span><span class="p">:</span> <span class="p">{</span>
+            <span class="n">CLASS</span><span class="p">:</span> <span class="p">{</span>
+                <span class="n">box</span><span class="p">:</span> <span class="s">&#39;popscript-tooltip up&#39;</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="n">ANIMATION</span><span class="p">:</span> <span class="p">{</span>
+            <span class="n">IN</span><span class="p">:</span> <span class="p">{</span>
+                <span class="n">box</span><span class="p">:</span> <span class="s">&#39;short-arrive-up, fade-in&#39;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+
+    <span class="n">tip_down</span><span class="p">:</span> <span class="p">{</span>
+        <span class="n">STYLE</span><span class="p">:</span> <span class="p">{</span>
+            <span class="n">CLASS</span><span class="p">:</span> <span class="p">{</span>
+                <span class="n">box</span><span class="p">:</span> <span class="s">&#39;popscript-tooltip down&#39;</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="n">ANIMATION</span><span class="p">:</span> <span class="p">{</span>
+            <span class="n">IN</span><span class="p">:</span> <span class="p">{</span>
+                <span class="n">box</span><span class="p">:</span> <span class="s">&#39;short-arrive-down, fade-in&#39;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+
+    <span class="n">roller</span><span class="p">:</span> <span class="p">{</span>
+        <span class="n">STYLE</span><span class="p">:</span> <span class="p">{</span>
+            <span class="n">CLASS</span><span class="p">:</span> <span class="p">{</span>
+                <span class="n">box</span><span class="p">:</span> <span class="s">&#39;roller&#39;</span><span class="p">,</span>
+                <span class="n">cover</span><span class="p">:</span> <span class="s">&#39;curtain&#39;</span><span class="p">,</span>
+                <span class="n">cross</span><span class="p">:</span> <span class="s">&#39;cross&#39;</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="n">ANIMATION</span><span class="p">:</span> <span class="p">{</span>
+            <span class="n">IN</span><span class="p">:</span> <span class="p">{</span>
+                <span class="n">box</span><span class="p">:</span> <span class="s">&#39;newspaper&#39;</span><span class="p">,</span>
+                <span class="n">cover</span><span class="p">:</span><span class="s">&#39;fade-in&#39;</span><span class="p">,</span>
+                <span class="n">duration</span><span class="p">:</span> <span class="mi">400</span>
+            <span class="p">},</span>
+            <span class="n">OUT</span><span class="p">:</span> <span class="p">{</span>
+                <span class="n">box</span><span class="p">:</span> <span class="s">&#39;zap-out&#39;</span><span class="p">,</span>
+                <span class="n">cover</span><span class="p">:</span> <span class="s">&#39;fade-out&#39;</span><span class="p">,</span>
+                <span class="n">duration</span><span class="p">:</span> <span class="mi">170</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="n">POSITION</span><span class="p">:</span> <span class="p">{</span>
+            <span class="n">x</span><span class="p">:</span> <span class="s">&#39;auto&#39;</span><span class="p">,</span>
+            <span class="n">y</span><span class="p">:</span> <span class="s">&#39;8%&#39;</span><span class="p">,</span>
+            <span class="n">roller</span><span class="p">:</span> <span class="s">&#39;yes&#39;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="properties">
+<span id="id2"></span><h2>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
+<p>Click on properties (in red) to view its role.</p>
+<div class="section" id="style">
+<h3><span class="docs-ps-scope">STYLE {</span><a class="headerlink" href="#style" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="class">
+<h4><span class="docs-ps-scope">CLASS {</span><a class="headerlink" href="#class" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="box">
+<span id="style-class-box"></span><h5><span class="docs-ps-prop">box:</span><a class="headerlink" href="#box" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="3%" />
+<col width="97%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Input</td>
+<td>String</td>
+</tr>
+<tr class="row-even"><td>Task</td>
+<td>Accepts the CSS class(es) for the pop&#8217;s box. Single CSS class mentioned with the class name itself &#8216;&lt;class&gt;&#8217;. Multiple CSS classes separated by spaces as &#8216;&lt;class1&gt; &lt;class2&gt; ... &lt;classN&gt;&#8217; (the order is maintained by PopScript).</td>
+</tr>
+<tr class="row-odd"><td>Default</td>
+<td>No class</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="cover">
+<span id="style-class-cover"></span><h5><span class="docs-ps-prop">cover:</span><a class="headerlink" href="#cover" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="3%" />
+<col width="97%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Input</td>
+<td>String</td>
+</tr>
+<tr class="row-even"><td>Task</td>
+<td>Accepts the CSS class(es) for the pop&#8217;s cover (inclusion of this cover is optional, see the scope-less property <a class="reference internal" href="#id21"><em>cover:</em></a>. Single CSS class mentioned with the class name itself &#8216;&lt;class&gt;&#8217;. Multiple CSS classes separated by spaces as &#8216;&lt;class1&gt; &lt;class2&gt; ... &lt;classN&gt;&#8217; (the order is maintained by PopScript).</td>
+</tr>
+<tr class="row-odd"><td>Default</td>
+<td>No class</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="cross">
+<span id="style-class-cross"></span><h5><span class="docs-ps-prop">cross:</span><a class="headerlink" href="#cross" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="2%" />
+<col width="98%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Input</td>
+<td>String</td>
+</tr>
+<tr class="row-even"><td>Task</td>
+<td>Accepts the CSS class(es) for the pop&#8217;s cross button (inclusion of this cross button is optional, see the scope-less property <a class="reference internal" href="#id23"><em>cross:</em></a>). Single CSS class mentioned with the class name itself &#8216;&lt;class&gt;&#8217;. Multiple CSS classes separated by spaces as &#8216;&lt;class1&gt; &lt;class2&gt; ... &lt;classN&gt;&#8217; (the order is maintained by PopScript).</td>
+</tr>
+<tr class="row-odd"><td>Default</td>
+<td>No class</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="inline">
+<h4><span class="docs-ps-scope">INLINE {</span><a class="headerlink" href="#inline" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="style-inline-box">
+<span id="id3"></span><h5><span class="docs-ps-prop">box:</span><a class="headerlink" href="#style-inline-box" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%" />
+<col width="86%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Input</td>
+<td>String</td>
+</tr>
+<tr class="row-even"><td>Task</td>
+<td>Accepts inline CSS for box.</td>
+</tr>
+<tr class="row-odd"><td>Example</td>
+<td>&#8216;background-color: gainsboro; padding:20px;&#8217;</td>
+</tr>
+<tr class="row-even"><td>Default</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="style-inline-cover">
+<span id="id4"></span><h5><span class="docs-ps-prop">cover:</span><a class="headerlink" href="#style-inline-cover" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%" />
+<col width="86%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Input</td>
+<td>String</td>
+</tr>
+<tr class="row-even"><td>Task</td>
+<td>Accepts inline CSS for cover.</td>
+</tr>
+<tr class="row-odd"><td>Example</td>
+<td>&#8216;background-color: rgba(0,0,0,0.5)&#8217;</td>
+</tr>
+<tr class="row-even"><td>Default</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="style-inline-cross">
+<span id="id5"></span><h5><span class="docs-ps-prop">cross:</span><a class="headerlink" href="#style-inline-cross" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%" />
+<col width="86%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Input</td>
+<td>String</td>
+</tr>
+<tr class="row-even"><td>Task</td>
+<td>Accepts inline CSS for cross.</td>
+</tr>
+<tr class="row-odd"><td>Example</td>
+<td>&#8216;border-radius:5px&#8217;</td>
+</tr>
+<tr class="row-even"><td>Default</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="animation">
+<h3><span class="docs-ps-scope">ANIMATION {</span><a class="headerlink" href="#animation" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="in">
+<h4><span class="docs-ps-scope">IN {</span><a class="headerlink" href="#in" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="animation-in-box">
+<span id="id6"></span><h5><span class="docs-ps-prop">box:</span><a class="headerlink" href="#animation-in-box" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="1%" />
+<col width="99%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Input</td>
+<td>String</td>
+</tr>
+<tr class="row-even"><td>Task</td>
+<td>Accepts the CSS animation for the entrance of the pop&#8217;s box. The input of the animation is of same format of that of the standard CSS3 animation property. There are multiple ways of entering a CSS3 animation inclusive of all animation subproperties such as keyframe name, delay, curving, duration and more. Refer to the <a class="reference external" href="http://dev.w3.org/csswg/css-animations/">w3 docs</a> for further details. Remember that multiple animations can be specified with the delimiter of a comma.Please note that supplying a duration for the animation is optional in case you specify the <tt class="docutils literal"><span class="pre">duration</span></tt> property. And if no animation is desired then input the empty string &#8216;&#8217;.</td>
+</tr>
+<tr class="row-odd"><td>Example</td>
+<td>&#8216;zap-in 2s, fade-in&#8217; (yes, no duration is mentioned for the second animation &#8216;fade-in&#8217;, please read on)</td>
+</tr>
+<tr class="row-even"><td>Default</td>
+<td>&#8216;&#8217;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="animation-in-cover">
+<span id="id7"></span><h5><span class="docs-ps-prop">cover:</span><a class="headerlink" href="#animation-in-cover" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="1%" />
+<col width="99%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Input</td>
+<td>String</td>
+</tr>
+<tr class="row-even"><td>Task</td>
+<td>Accepts the CSS animation for the entrance of the pop&#8217;s cover. The input of the animation is of same format of that of the standard CSS3 animation property. There are multiple ways of entering a CSS3 animation inclusive of all animation subproperties such as keyframe name, delay, curving, duration and more. Refer to the <a class="reference external" href="http://dev.w3.org/csswg/css-animations/">w3 docs</a> for further details. Remember that multiple animations can be specified with the delimiter of a comma. Please note that supplying a duration for the animation is optional in case you specify the <tt class="docutils literal"><span class="pre">duration</span></tt> property. And if no animation is desired then input the empty string &#8216;&#8217;.</td>
+</tr>
+<tr class="row-odd"><td>Example</td>
+<td>&#8216;fade-in 1s&#8217;</td>
+</tr>
+<tr class="row-even"><td>Default</td>
+<td>&#8216;&#8217;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="duration">
+<span id="animation-in-duration"></span><h5><span class="docs-ps-prop">duration:</span><a class="headerlink" href="#duration" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="3%" />
+<col width="97%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Input</td>
+<td>Number</td>
+</tr>
+<tr class="row-even"><td>Task</td>
+<td>Accepts the (default) duration in milliseconds for the CSS3 (entrance) animations of the pop&#8217;s box and pop&#8217;s cover. In the case of a duration being explicitly mentioned in the CSS3 animation of the pop&#8217;s box or pop&#8217;s cover, that duration will be respected over this <tt class="docutils literal"><span class="pre">duration</span></tt> property.</td>
+</tr>
+<tr class="row-odd"><td>Example</td>
+<td>250 (this is evaluated to 250 milliseconds)</td>
+</tr>
+<tr class="row-even"><td>Default</td>
+<td>300</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="out">
+<h4><span class="docs-ps-scope">OUT {</span><a class="headerlink" href="#out" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="animation-out-box">
+<span id="id9"></span><h5><span class="docs-ps-prop">box:</span><a class="headerlink" href="#animation-out-box" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="1%" />
+<col width="99%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Input</td>
+<td>String</td>
+</tr>
+<tr class="row-even"><td>Task</td>
+<td>Accepts the CSS animation for the exit of the pop&#8217;s box. The input of the animation is of same format of that of the standard CSS3 animation property. There are multiple ways of entering a CSS3 animation inclusive of all animation subproperties such as keyframe name, delay, curving, duration and more. Refer to the <a class="reference external" href="http://dev.w3.org/csswg/css-animations/">w3 docs</a> for further details. Remember that multiple animations can be specified with the delimiter of a comma. Please note that supplying a duration for the animation is optional in case you specify the <tt class="docutils literal"><span class="pre">duration</span></tt> property. And if no animation is desired then input the empty string &#8216;&#8217;.</td>
+</tr>
+<tr class="row-odd"><td>Example</td>
+<td>&#8216;zap-in 2s, fade-in&#8217; (yes, no duration is mentioned for the second animation &#8216;fade-in&#8217;, please read on)</td>
+</tr>
+<tr class="row-even"><td>Default</td>
+<td>&#8216;&#8217;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="animation-out-cover">
+<span id="id11"></span><h5><span class="docs-ps-prop">cover:</span><a class="headerlink" href="#animation-out-cover" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="1%" />
+<col width="99%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Input</td>
+<td>String</td>
+</tr>
+<tr class="row-even"><td>Task</td>
+<td>Accepts the CSS animation for the exit of the pop&#8217;s cover. The input of the animation is of same format of that of the standard CSS3 animation property. There are multiple ways of entering a CSS3 animation inclusive of all animation subproperties such as keyframe name, delay, curving, duration and more. Refer to the <a class="reference external" href="http://dev.w3.org/csswg/css-animations/">w3 docs</a> for further details. Remember that multiple animations can be specified with the delimiter of a comma. Please note that supplying a duration for the animation is optional in case you specify the <tt class="docutils literal"><span class="pre">duration</span></tt> property. And if no animation is desired then input the empty string &#8216;&#8217;.</td>
+</tr>
+<tr class="row-odd"><td>Example</td>
+<td>&#8216;fade-in 1s&#8217;</td>
+</tr>
+<tr class="row-even"><td>Default</td>
+<td>&#8216;&#8217;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="animation-out-duration">
+<span id="id13"></span><h5><span class="docs-ps-prop">duration:</span><a class="headerlink" href="#animation-out-duration" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="3%" />
+<col width="97%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Input</td>
+<td>Number</td>
+</tr>
+<tr class="row-even"><td>Task</td>
+<td>Accepts the (default) duration in milliseconds for the CSS3 (exit) animations of the pop&#8217;s box and pop&#8217;s cover. In the case of a duration being explicitly mentioned in the CSS3 animation of the pop&#8217;s box or pop&#8217;s cover, that duration will be respected over this <tt class="docutils literal"><span class="pre">duration</span></tt> property.</td>
+</tr>
+<tr class="row-odd"><td>Example</td>
+<td>250 (this is evaluated to 250 milliseconds)</td>
+</tr>
+<tr class="row-even"><td>Default</td>
+<td>300</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="position">
+<h3><span class="docs-ps-scope">POSITION {</span><a class="headerlink" href="#position" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="x">
+<span id="position-x"></span><h4><span class="docs-ps-prop">x:</span><a class="headerlink" href="#x" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="0%" />
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Input</td>
+<td>String/Number</td>
+</tr>
+<tr class="row-even"><td>Task</td>
+<td>Accepts the horizontal positioning for the pop&#8217;s box. Broadly there are 3 types of inputs: (1) <strong>basic</strong>: only a numeric value is accepted, such as &#8220;400&#8221; (String) or 400 (Number), in this case (of &#8220;400&#8221;/400) the box will be positioned 400 pixels from the left of the page. If provided a number prefixed with &#8221;!&#8221; then the position will be respected from the right of the page, in the case of &#8221;!400&#8221;, the box will be positioned 400 pixels from the right of the page. (2) <strong>percent</strong>: a percent value is accepted, such as &#8220;20%&#8221;, in this case the box will be positioned 20% from the left of the page. Similar to the previous <em>basic</em> positioning, if a number prefixed with a &#8221;!&#8221; then the position will be respected from the right of the screen, in the case of &#8221;!20%&#8221;, the box will be positioned 20% from the right of the page. (3) <strong>macro</strong>: a predefined value is accepted which can be any of the 3 -&gt; &#8220;auto&#8221;, &#8220;left&#8221;, or &#8220;right&#8221;. &#8220;auto&#8221; positions the box at the center of the screen, &#8220;left&#8221; positions the box to the left most of the screen (equivalent to 0 or &#8220;0&#8221; or &#8220;0%&#8221;), &#8220;right&#8221; positions the box to the right most of the screen (equivalent to &#8221;!0&#8221; or &#8221;!0%&#8221;). <strong>+scrolled</strong> or <strong>+scroll</strong> can be added to any of the aforementioned values, this will include the current amount of horizontal scroll to the given position. For instance if the value of &#8220;400 +scrolled&#8221; is given, and the user has scrolled 150 pixels to the right, creating a pop will be positioned at <cite>400 +150</cite> = 550 pixels from the left of the page. The difference between &#8220;+scrolled&#8221; and &#8220;+scroll&#8221; is that &#8220;+scrolled&#8221; is applied on a one-time basis, whereas &#8220;+scroll&#8221; is applied forever as it updates with further scrolling. In the current example of &#8220;400+scrolled&#8221;, if the user further scrolls 30 pixels to the right, with an overall scroll of (150+30) 180 pixels, the &#8220;400+scrolled&#8221; will strictly evaluate to the initial call where the scrolled amount was 150 pixels and therefore evaluates to 550 again, whereas &#8220;400+scroll&#8221; will respect the new scroll position of 180 pixels and evaluate to 580 pixels.</td>
+</tr>
+<tr class="row-odd"><td>Example</td>
+<td>400 / &#8220;400&#8221; / &#8221;!400&#8221; / &#8220;20%&#8221; / &#8221;!20%&#8221; / &#8220;auto&#8221; / &#8220;left&#8221; / &#8220;right&#8221; / &#8220;40 +scrolled&#8221; / &#8220;40 +scroll&#8221;</td>
+</tr>
+<tr class="row-even"><td>Default</td>
+<td>&#8220;auto&#8221;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="y">
+<span id="position-y"></span><h4><span class="docs-ps-prop">y:</span><a class="headerlink" href="#y" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="0%" />
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Input</td>
+<td>String/Number</td>
+</tr>
+<tr class="row-even"><td>Task</td>
+<td>Accepts the vertical positioning for the pop&#8217;s box. Broadly there are 3 types of inputs: (1) <strong>basic</strong>: only a numeric value is accepted, such as &#8220;400&#8221; (String) or 400 (Number), in this case (of &#8220;400&#8221;/400) the box will be positioned 400 pixels from the top of the page. If provided a number prefixed with &#8221;!&#8221; then the position will be respected from the bottom of the page, in the case of &#8221;!400&#8221;, the box will be positioned 400 pixels from the bottom of the page. (2) <strong>percent</strong>: a percent value is accepted, such as &#8220;20%&#8221;, in this case the box will be positioned 20% from the top of the page. Similar to the previous <em>basic</em> positioning, if a number prefixed with a &#8221;!&#8221; then the position will be respected from the bottom of the screen, in the case of &#8221;!20%&#8221;, the box will be positioned 20% from the bottom of the page. (3) <strong>macro</strong>: a predefined value is accepted which can be any of the 3 -&gt; &#8220;auto&#8221;, &#8220;top&#8221;, or &#8220;bottom&#8221;. &#8220;auto&#8221; positions the box at the center of the screen, &#8220;top&#8221; positions the box to the top most of the screen (equivalent to 0 or &#8220;0&#8221; or &#8220;0%&#8221;), &#8220;bottom&#8221; positions the box to the bottom most of the screen (equivalent to &#8221;!0&#8221; or &#8221;!0%&#8221;). <strong>+scrolled</strong> or <strong>+scroll</strong> can be added to any of the aforementioned values, this will include the current amount of horizontal scroll to the given position. For instance if the value of &#8220;400 +scrolled&#8221; is given, and the user has scrolled 150 pixels to the bottom, creating a pop will be positioned at <cite>400 +150</cite> = 550 pixels from the top of the page. The difference between &#8220;+scrolled&#8221; and &#8220;+scroll&#8221; is that &#8220;+scrolled&#8221; is applied on a one-time basis, whereas &#8220;+scroll&#8221; is applied forever as it updates with further scrolling. In the current example of &#8220;400+scrolled&#8221;, if the user further scrolls 30 pixels to the bottom, with an overall scroll of (150+30) 180 pixels, the &#8220;400+scrolled&#8221; will strictly evaluate to the initial call where the scrolled amount was 150 pixels and therefore evaluates to 550 again, whereas &#8220;400+scroll&#8221; will respect the new scroll position of 180 pixels and evaluate to 580 pixels.</td>
+</tr>
+<tr class="row-odd"><td>Example</td>
+<td>400 / &#8220;400&#8221; / &#8220;-400&#8221; / &#8220;20%&#8221; / &#8220;-20%&#8221; / &#8220;auto&#8221; / &#8220;top&#8221; / &#8220;bottom&#8221; / &#8220;40 +scrolled&#8221; / &#8220;40 +scroll&#8221;</td>
+</tr>
+<tr class="row-even"><td>Default</td>
+<td>&#8220;auto&#8221;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="z">
+<span id="position-z"></span><h4><span class="docs-ps-prop">z:</span><a class="headerlink" href="#z" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="1%" />
+<col width="99%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Input</td>
+<td>String/Number</td>
+</tr>
+<tr class="row-even"><td>Task</td>
+<td>Accepts the absolute/relative z-index for pop&#8217;s box and (optionally) cover. <strong>absolute</strong>: only a numeric value is accepted, such as &#8220;999&#8221; (String) or 999 (Number), in this case both the pop&#8217;s box and cover will obtain a z-index of <tt class="docutils literal"><span class="pre">999</span></tt>. <strong>relative</strong>: a numeric value prepended with a unary operator is accepted here (regex: \s*(\+|\-)\s*(\d*)), example &#8220;+2&#8221; or &#8220;-5&#8221;. In the former case of &#8220;+2&#8221;, the z-index will evaluate to 2 greater than the base z-index <a class="reference internal" href="advanced.html#flag-z"><em>Z</em></a> (mentioned in <a class="reference internal" href="advanced.html#flags"><em>PopScript Flags</em></a>). In the latter case of &#8220;-5&#8221;, the z-index will evaluate to 5 lesser than the base z-index Z. This <em>relative</em> positioning has beneficial use cases in the event of multiple (fixed/absolute) elements being overlaid on the page, which includes other pops; however in any other case it can just easily be left out.</td>
+</tr>
+<tr class="row-odd"><td>Example</td>
+<td>&#8220;999&#8221; / 999 / &#8220;+2&#8221; / &#8220;-5&#8221;</td>
+</tr>
+<tr class="row-even"><td>Default</td>
+<td>Base z-index <a class="reference internal" href="advanced.html#flag-z"><em>Z</em></a> (in <a class="reference internal" href="advanced.html#flags"><em>PopScript Flags</em></a>)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="fixed">
+<span id="position-fixed"></span><h4><span class="docs-ps-prop">fixed:</span><a class="headerlink" href="#fixed" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="4%" />
+<col width="96%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Input</td>
+<td><a class="reference internal" href="getting-started.html#popscript-boolean"><em>PopScript Boolean (poolean)</em></a></td>
+</tr>
+<tr class="row-even"><td>Task</td>
+<td>Accepts the choice of keeping the pop&#8217;s box fixed on the page. This is similar to CSS position fixed, and by default is turned on. However note that if <a class="reference external" href="#roller">roller</a> is set to true, then this property is ignored.</td>
+</tr>
+<tr class="row-odd"><td>Default</td>
+<td>true</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="position-roller">
+<span id="id14"></span><h4><span class="docs-ps-prop">roller:</span><a class="headerlink" href="#position-roller" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="1%" />
+<col width="99%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Input</td>
+<td><a class="reference internal" href="getting-started.html#popscript-boolean"><em>PopScript Boolean (poolean)</em></a></td>
+</tr>
+<tr class="row-even"><td>Task</td>
+<td>Accepts the choice of having a background fixed scrolling effect. You might be highly perplexed by the last sentence! Well its hard to explain in words. Check out the last example named &#8216;roller&#8217; the <a class="reference external" href="/v2/demo.html">demo</a> page of this website. To see another example of such an implementation, check out the pop up Trello uses when you hit the &#8221;?&#8221; keystroke on <a class="reference external" href="https://trello.com/b/nC8QJJoZ/trello-development">a Trello board</a>. Note: please don&#8217;t let the name &#8216;roller&#8217; confuse you here, its cause can be rooted to unimaginative issues of its creator.</td>
+</tr>
+<tr class="row-odd"><td>Default</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="x-scrolled">
+<span id="position-x-scrolled"></span><h4><span class="docs-ps-prop">x_scrolled:</span><a class="headerlink" href="#x-scrolled" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="5%" />
+<col width="95%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Input</td>
+<td><a class="reference internal" href="getting-started.html#popscript-boolean"><em>PopScript Boolean (poolean)</em></a></td>
+</tr>
+<tr class="row-even"><td>Task</td>
+<td>Setting this property to true is equivalent to specifying &#8220;+scrolled&#8221; for the <a class="reference internal" href="#position-x"><em>x:</em></a>. Its recommended that you specify it through <a class="reference internal" href="#position-x"><em>x:</em></a>.</td>
+</tr>
+<tr class="row-odd"><td>Default</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="y-scrolled">
+<span id="position-y-scrolled"></span><h4><span class="docs-ps-prop">y_scrolled:</span><a class="headerlink" href="#y-scrolled" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="5%" />
+<col width="95%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Input</td>
+<td><a class="reference internal" href="getting-started.html#popscript-boolean"><em>PopScript Boolean (poolean)</em></a></td>
+</tr>
+<tr class="row-even"><td>Task</td>
+<td>Setting this property to true is equivalent to specifying &#8220;+scrolled&#8221; for the <a class="reference internal" href="#position-y"><em>y:</em></a>. Its recommended that you specify it through <a class="reference internal" href="#position-y"><em>y:</em></a>.</td>
+</tr>
+<tr class="row-odd"><td>Default</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="x-scroll">
+<span id="position-x-scroll"></span><h4><span class="docs-ps-prop">x_scroll:</span><a class="headerlink" href="#x-scroll" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="5%" />
+<col width="95%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Input</td>
+<td><a class="reference internal" href="getting-started.html#popscript-boolean"><em>PopScript Boolean (poolean)</em></a></td>
+</tr>
+<tr class="row-even"><td>Task</td>
+<td>Setting this property to true is equivalent to specifying &#8220;+scroll&#8221; for the <a class="reference internal" href="#position-x"><em>x:</em></a>. Its recommended that you specify it through <a class="reference internal" href="#position-x"><em>x:</em></a>.</td>
+</tr>
+<tr class="row-odd"><td>Default</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="y-scroll">
+<span id="position-y-scroll"></span><h4><span class="docs-ps-prop">y_scroll:</span><a class="headerlink" href="#y-scroll" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="5%" />
+<col width="95%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Input</td>
+<td><a class="reference internal" href="getting-started.html#popscript-boolean"><em>PopScript Boolean (poolean)</em></a></td>
+</tr>
+<tr class="row-even"><td>Task</td>
+<td>Setting this property to true is equivalent to specifying &#8220;+scroll&#8221; for the <a class="reference internal" href="#position-y"><em>y:</em></a>. Its recommended that you specify it through <a class="reference internal" href="#position-y"><em>y:</em></a>.</td>
+</tr>
+<tr class="row-odd"><td>Default</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="check">
+<span id="position-check"></span><h4><span class="docs-ps-prop">check:</span><a class="headerlink" href="#check" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="0%" />
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Input</td>
+<td>String</td>
+</tr>
+<tr class="row-even"><td>Task</td>
+<td>Accepts the timeout and interval checking of the pop&#8217;s alignment. This is by far, the most complicated and advanced property you would deal with, leaving it to its default value is highly suggested, however for optimization reasons we provide you the ability to set it. Explanation: When a user scrolls on a page OR resizes the page, PopScript <em>already has</em> event handlers to deal with any position/alignment changes in real time. However, in the case of the box of your pop, abruptly changes its size due to: (1) An image included within the box loaded finally, blossoming to its true size (2) The developer dynamically modifies the DOM within the box. Due to lack of DOM4&#8217;s MutationObserver support, the only way to detect these size changes would involve polling every few seconds/milliseconds. This could be achieved with a simple <cite>setInterval(function(){//Check the alignment of every box and cover here}, 1)</cite> however performing a routine like that can be extremely resource intensive, and can potentially impact runtime performance. <strong>Explanation of this property</strong>: Given a string of syntax &#8220;&lt;number1&gt;, &lt;number2&gt;*, &lt;number3&gt;, &lt;number4&gt;, ... &lt;numberN&gt;(asterisk optional)&#8221;, this merely represents a list, with items of 2 types: (1) <em>asterisk suffixed</em>: For instance in the example given, &lt;number2&gt; is followed by an asterisk &#8220;*&#8221;, this signifies that every &lt;number2&gt; milliseconds a check on the position alignment of the given pop will be performed (the base: setInterval), (2) <em>non-asterisk suffixed</em>: The remaining numbers in the example are not followed by an immediate asterisk &#8220;*&#8221;, which translates to that after &lt;number1&gt;, &lt;number3&gt;, and &lt;number4&gt; milliseconds from the entry of the pop on the page, a check on the position alignment of the given pop will be performed. The current default value is &#8220;20, 333, 1000*&#8221;; which means that 20 ms and 333 ms after the pop has entered alignment checks will be performed, and every 1000 ms (1 second) an alignment check will be performed. As we warned you, this property is especially complicated.</td>
+</tr>
+<tr class="row-odd"><td>Example</td>
+<td>&#8220;100&#8221;, &#8220;200*&#8221;, &#8220;150, 800*&#8221;</td>
+</tr>
+<tr class="row-even"><td>Default</td>
+<td>&#8220;20, 333, 1000*&#8221;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="id15">
+<span id="id16"></span><h3><span class="docs-ps-prop">out:</span><a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="1%" />
+<col width="99%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Input</td>
+<td>String (&#8220;destroy&#8221; | &#8220;hide&#8221;)</td>
+</tr>
+<tr class="row-even"><td>Task</td>
+<td>Accepts the type of exit desired on the pop being exited by the user. There exist multiple possible ways of the user exiting a pop as you have seen so far: it could be that the user pressed the cross button, or hit the &#8216;esc&#8217; key, or click on the cover overlay area behind the pop. Whichever it may be, broadly the pop has 2 possible destinies: (1) &#8220;destroy&#8221;: where its destroyed permanently from the DOM (2) &#8220;hide&#8221;: where its completely hidden from the display, however it exists in the DOM and can be re-popped (using the function <a class="reference internal" href="pop-methods.html#pop-show"><em>Pop.show()</em></a>). Therefore you have 2, and only 2 options here: &#8220;hide&#8221; or &#8220;destroy&#8221;.</td>
+</tr>
+<tr class="row-odd"><td>Example</td>
+<td>&#8220;destroy&#8221; / &#8220;hide&#8221;</td>
+</tr>
+<tr class="row-even"><td>Default</td>
+<td>&#8220;destroy&#8221;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="click-me-out">
+<span id="id17"></span><h3><span class="docs-ps-prop">click_me_out:</span><a class="headerlink" href="#click-me-out" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="8%" />
+<col width="92%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Input</td>
+<td><a class="reference internal" href="getting-started.html#popscript-boolean"><em>PopScript Boolean (poolean)</em></a></td>
+</tr>
+<tr class="row-even"><td>Task</td>
+<td>Accepts the choice of enabling the user to click anywhere on the (box of) pop to exit the pop.</td>
+</tr>
+<tr class="row-odd"><td>Default</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="full-draggable">
+<span id="id18"></span><h3><span class="docs-ps-prop">full_draggable:</span><a class="headerlink" href="#full-draggable" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="2%" />
+<col width="98%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Input</td>
+<td><a class="reference internal" href="getting-started.html#popscript-boolean"><em>PopScript Boolean (poolean)</em></a></td>
+</tr>
+<tr class="row-even"><td>Task</td>
+<td>Accepts the choice of enabling the user to click anywhere on the (box of) pop to drag it around. Once the pop is dragged, its mentioned properties of <a class="reference internal" href="#position-x"><em>x:</em></a> and <a class="reference internal" href="#position-y"><em>y:</em></a> are overridden. (By default the cursor changes to a <tt class="docutils literal"><span class="pre">cursor:move</span></tt> value while the pop is dragged, if this is desired to be changed then edit the 3 lines CSS code specific to <tt class="docutils literal"><span class="pre">.popscript-drag</span></tt> at the top of the <tt class="docutils literal"><span class="pre">popscript.css</span></tt> file)</td>
+</tr>
+<tr class="row-odd"><td>Default</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="esc">
+<span id="id19"></span><h3><span class="docs-ps-prop">esc:</span><a class="headerlink" href="#esc" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="9%" />
+<col width="91%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Input</td>
+<td><a class="reference internal" href="getting-started.html#popscript-boolean"><em>PopScript Boolean (poolean)</em></a></td>
+</tr>
+<tr class="row-even"><td>Task</td>
+<td>Accepts the choice of enabling the user to escape a pop using the &#8216;esc&#8217; keystroke.</td>
+</tr>
+<tr class="row-odd"><td>Default</td>
+<td>true</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="blur">
+<span id="id20"></span><h3><span class="docs-ps-prop">blur:</span><a class="headerlink" href="#blur" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="6%" />
+<col width="94%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Input</td>
+<td><a class="reference internal" href="getting-started.html#popscript-boolean"><em>PopScript Boolean (poolean)</em></a></td>
+</tr>
+<tr class="row-even"><td>Task</td>
+<td>Accepts the choice of enabling the user to escape a pop by clicking (inclusive of right-clicks) anywhere on the page behind the pop.</td>
+</tr>
+<tr class="row-odd"><td>Default</td>
+<td>true</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id21">
+<span id="id22"></span><h3><span class="docs-ps-prop">cover:</span><a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="5%" />
+<col width="95%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Input</td>
+<td><a class="reference internal" href="getting-started.html#popscript-boolean"><em>PopScript Boolean (poolean)</em></a></td>
+</tr>
+<tr class="row-even"><td>Task</td>
+<td>Accepts the choice of enabling a cover behind the box of the pop. The cover is essentially the (translucent/opaque) overlay behind the box of the pop.</td>
+</tr>
+<tr class="row-odd"><td>Default</td>
+<td>true</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id23">
+<span id="id24"></span><h3><span class="docs-ps-prop">cross:</span><a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="3%" />
+<col width="97%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Input</td>
+<td><a class="reference internal" href="getting-started.html#popscript-boolean"><em>PopScript Boolean (poolean)</em></a></td>
+</tr>
+<tr class="row-even"><td>Task</td>
+<td>Accepts the choice of enabling the cross button on the box of the pop. Note that for in-depth customization one can simply disable this option of cross button, and create a custom node as described in the advanced section.</td>
+</tr>
+<tr class="row-odd"><td>Default</td>
+<td>true</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="cross-content">
+<span id="id25"></span><h3><span class="docs-ps-prop">cross_content:</span><a class="headerlink" href="#cross-content" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="9%" />
+<col width="91%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Input</td>
+<td>String</td>
+</tr>
+<tr class="row-even"><td>Task</td>
+<td>Accepts the text content of the cross button. See cross content in <a class="reference internal" href="getting-started.html#components"><em>Components of a pop</em></a>.</td>
+</tr>
+<tr class="row-odd"><td>Example</td>
+<td>&#8220;x&#8221; / &#8220;exit&#8221; / &#8220;dispatch&#8221;</td>
+</tr>
+<tr class="row-even"><td>Default</td>
+<td>&#8220;x&#8221;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="destroy">
+<span id="id26"></span><h3><span class="docs-ps-prop">destroy:</span><a class="headerlink" href="#destroy" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="11%" />
+<col width="89%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Input</td>
+<td>Number</td>
+</tr>
+<tr class="row-even"><td>Task</td>
+<td>Accepts the number of milliseconds after which to out the pop.</td>
+</tr>
+<tr class="row-odd"><td>Example</td>
+<td>300</td>
+</tr>
+<tr class="row-even"><td>Default</td>
+<td>disabled</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="runtime-properties-below">
+<span id="runtime-properties"></span><h3><span class="docs-ps-runtime">&lt; Runtime Properties Below: &gt;</span><a class="headerlink" href="#runtime-properties-below" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line">All properties below this line are runtime properties, which basically means that the input for these pop properties depend on the pop being created.</div>
+<div class="line">Note that these properties are function based:</div>
+</div>
+</div>
+<div class="section" id="beforepopin">
+<span id="before-pop-in"></span><h3><span class="docs-ps-prop">beforePopIn:</span><a class="headerlink" href="#beforepopin" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="2%" />
+<col width="98%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Input</td>
+<td>Function</td>
+</tr>
+<tr class="row-even"><td>Task</td>
+<td>Accepts a function to be called just before the pop is about to be created. If the return value of this callback function evaluates to false, the pop will not be created or redisplayed after being hidden. The function has one parameter: &lt;new&gt; (new is set to true when the pop has not been created before, and false when the pop is being redisplayed after being hidden).</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="beforepopout">
+<span id="before-pop-out"></span><h3><span class="docs-ps-prop">beforePopOut:</span><a class="headerlink" href="#beforepopout" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="2%" />
+<col width="98%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Input</td>
+<td>Function</td>
+</tr>
+<tr class="row-even"><td>Task</td>
+<td>Accepts a function to be called when the user attempts to out (destroyed/hidden depending on the <a class="reference internal" href="#id15"><em>out:</em></a> property) the pop. If the return value of this callback function evaluates to false, the pop will not be destroyed/hidden. This can be used to confirm with the user that they would like to destroy/hide the pop with &#8220;are you sure?&#8221; type messages. The function is provided with the parameters: &lt;box node&gt; , &lt;out_type (this is based on the <a class="reference internal" href="#id15"><em>out:</em></a>  property)&gt;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="afterpopout">
+<span id="after-pop-out"></span><h3><span class="docs-ps-prop">afterPopOut:</span><a class="headerlink" href="#afterpopout" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="3%" />
+<col width="97%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Input</td>
+<td>Function / Array</td>
+</tr>
+<tr class="row-even"><td>Task</td>
+<td>Accepts a function or an array of functions, to be called after the pop has been outted (destroyed/hidden depending on the <a class="reference internal" href="#id15"><em>out:</em></a>  property). The function is provided with the parameters: &lt;<a class="reference internal" href="getting-started.html#pop-instance"><em>Pop</em></a>&gt; , &lt;out_type (this is based on the <a class="reference internal" href="#id15"><em>out:</em></a> property)&gt;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="nearelement">
+<span id="near-element"></span><h3><span class="docs-ps-prop">nearElement:</span><a class="headerlink" href="#nearelement" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="1%" />
+<col width="99%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Input</td>
+<td>Array: [Node, Function]</td>
+</tr>
+<tr class="row-even"><td>Task</td>
+<td>Accepts an array containing a DOM Node as the 1st element, and callback function as the 2nd element. The pop is positioned on the return value of the function provided, where the return value must be an array, the 1st element being the popscript <tt class="docutils literal"><span class="pre">x</span></tt> position and the second element being the popscript <tt class="docutils literal"><span class="pre">y</span></tt> position (this popscript position co-ordinates shall always be given priority over any previously mentioned popscript position co-ordinates). Now you may ask: Why did I provide a DOM node as the first element of this property? The answer lies in the function callback; the function has 4 parameters: &lt;x (px) position of Node&gt; , &lt;y (px) position of Node&gt; , &lt;width (px) position of Node&gt; , &lt;height (px) position of Node&gt;</td>
+</tr>
+<tr class="row-odd"><td>Example</td>
+<td>Check the &#8220;dropdown&#8221; example on the demo page</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="binder">
+<span id="id27"></span><h3><span class="docs-ps-prop">binder:</span><a class="headerlink" href="#binder" title="Permalink to this headline">¶</a></h3>
+<p>Due to the complexity of binders, the explanation has been ported to <a class="reference internal" href="advanced.html#binder-explanation"><em>Binder</em></a> in <a class="reference internal" href="advanced.html"><em>Chapter 3: Advanced</em></a>.</p>
+</div>
+</div>
+</div>
+
+
+            </div>
+            <div class="footer">
+                &copy; Copyright 2013, Relfor.
+                Documentation created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.2.
+            </div>
+
+        </div>
+    </div>
+
+    <div class="clearer"></div>
+</div>
+
+
+
+<img id="github-ribbon" style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub">
+</body>
+<script type="text/javascript" src="/v2/static/js/prettify.js"></script>
+<script type="text/javascript" src="/v2/dist/popscript.js"></script>
+<script type="text/javascript" src="/v2/static/js/index.js"></script>
+<script type="text/javascript" src="/v2/static/js/docs.js"></script>
+
+
+
+</html>

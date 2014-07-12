@@ -12,8 +12,9 @@ Contents:
    :maxdepth: 2
 
    getting-started
-   core
-   guru
+   pop-properties
+   pop-methods
+   advanced
 
 
 
@@ -23,4 +24,3 @@ Contents:
     * :ref:`genindex`
     * :ref:`modindex`
     * :ref:`search`
-

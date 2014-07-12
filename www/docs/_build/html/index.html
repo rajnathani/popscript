@@ -9,21 +9,13 @@
     
     <title>Welcome to Popscript’s documentation! &mdash; Popscript 1.0 documentation</title>
 
-    <link rel="stylesheet" type="text/css" href="/static/css/google-web-fonts.css"/>
-    <link rel="stylesheet" href="/static/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="/src/popscript.css"/>
-    <link rel="stylesheet" type="text/css" href="/static/css/normalize.css"/>
-    <link rel="stylesheet" type="text/css" href="/static/css/main.css"/>
-    <link rel="stylesheet" type="text/css" href="/static/css/responsive.css"/>
-    <link rel="stylesheet" type="text/css" href="/static/css/dark-prettify-theme.css"/>
-
     
 <link rel="stylesheet" href="_static/basic.css" type="text/css"/>
 <link rel="stylesheet" href="_static/pygments.css" type="text/css"/>
     
 <script type="text/javascript">
     var DOCUMENTATION_OPTIONS = {
-        URL_ROOT: '',
+        URL_ROOT: './',
         VERSION: '1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
@@ -35,16 +27,21 @@
 <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="Popscript 1.0 documentation" href="#"/>
     <link rel="next" title="Chapter 0: Getting started" href="getting-started.html"/> 
-    <link rel="stylesheet" type="text/css" href="/static/css/fix_sphinx.css"/>
+
+    <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css">
+    <link href="http://fonts.googleapis.com/css?family=Skranji|Sigmar+One|Merienda:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/v2/dist/popscript-boilerplate.css"/>
+    <link rel="stylesheet" type="text/css" href="/v2/static/css/browser.css"/>
+
 </head>
 <body>
 
 <div id="header" class="cf">
     <a id="logo" href="/"><span>POP</span><span>SCRIPT</span></a>
     <div id="nav" class="cf">
-        <a href="/docs/index.html"><span class="icon-book"></span> DOCS</a>
-        <a href="/demo.html"><span class="icon-hand-up"></span> DEMO</a>
-        <a href="/download.html" id="download"><span class="icon-download"></span> DOWNLOAD</a>
+        <a href="/v2/docs/index.html"><span class="icon-book"></span> DOCS</a>
+        <a href="/v2/demo.html"><span class="icon-hand-up"></span> DEMO</a>
+        <a href="/v2/download.html" id="download"><span class="icon-download"></span> DOWNLOAD</a>
     </div>
 </div>
 
@@ -83,27 +80,41 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="getting-started.html">Chapter 0: Getting started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="getting-started.html#the-two-files-you-will-need">The two files you will need</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getting-started.html#how-am-i-going-to-use-popscript">How am I going to use popscript?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getting-started.html#pop-id">pop ID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#namespace">Namespace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#popscript-class">PopScript Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#popscript-boolean-poolean">PopScript Boolean (poolean)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#components-of-a-pop">Components of a pop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#terminology-pop-vs-pop">Terminology: pop vs Pop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#the-2-steps-1-compile-2-create">The 2 steps: (1) Compile (2) Create</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="core.html">Chapter 1: Core</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="core.html#before-we-begin-namespace">Before we begin: Namespace</a></li>
-<li class="toctree-l2"><a class="reference internal" href="core.html#components-of-a-pop">Components of a Pop</a></li>
-<li class="toctree-l2"><a class="reference internal" href="core.html#pop-class">Pop Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="core.html#pop-properties">Pop Properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="core.html#popscript-boolean-poolean">PopScript Boolean (poolean)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="core.html#properties">Properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="core.html#few-functions">Few Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="core.html#popscript-flags">PopScript Flags</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pop-properties.html">Chapter 1: PopScript Properties</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pop-properties.html#pop-properties">Pop Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pop-properties.html#properties">Properties</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="guru.html">Chapter 2: Guru</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="guru.html#reality-there-is-no-scope">Reality: There is no Scope</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guru.html#creating-a-custowm-close-hide-button">Creating a custowm close/hide button</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guru.html#creating-an-element-to-drag-a-pop">Creating an element to drag a pop</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guru.html#the-secret-api">The secret API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pop-methods.html">Chapter 2: Pop Methods</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pop-methods.html#pop-out">Pop.out()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pop-methods.html#pop-destroy">Pop.destroy()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pop-methods.html#pop-hide">Pop.hide()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pop-methods.html#pop-show">Pop.show()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pop-methods.html#pop-toggle">Pop.toggle()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pop-methods.html#pop-ishidden">Pop.isHidden()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pop-methods.html#pop-isconstructed">Pop.isConstructed()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pop-methods.html#pop-hasclass">Pop.hasClass()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pop-methods.html#pop-changeclass">Pop.changeClass()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pop-methods.html#pop-changeproperties">Pop.changeProperties()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pop-methods.html#pop-changeproperty">Pop.changeProperty()</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="advanced.html">Chapter 3: Advanced</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="advanced.html#popscript-flags">PopScript Flags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced.html#binder">Binder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced.html#reality-there-is-no-scope">Reality: There is no Scope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced.html#creating-a-custowm-close-hide-button">Creating a custowm close/hide button</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced.html#creating-an-element-to-drag-a-pop">Creating an element to drag a pop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced.html#popscript-functions">PopScript Functions</a></li>
 </ul>
 </li>
 </ul>
@@ -114,7 +125,7 @@
             </div>
             <div class="footer">
                 &copy; Copyright 2013, Relfor.
-                Documentation created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+                Documentation created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.2.
             </div>
 
         </div>
@@ -127,10 +138,10 @@
 
 <img id="github-ribbon" style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub">
 </body>
-<script type="text/javascript" src="/static/js/prettify.js"></script>
-<script type="text/javascript" src="/src/popscript.js"></script>
-<script type="text/javascript" src="/static/js/index.js"></script>
-<script type="text/javascript" src="/static/js/docs.js"></script>
+<script type="text/javascript" src="/v2/static/js/prettify.js"></script>
+<script type="text/javascript" src="/v2/dist/popscript.js"></script>
+<script type="text/javascript" src="/v2/static/js/index.js"></script>
+<script type="text/javascript" src="/v2/static/js/docs.js"></script>
 
 
 

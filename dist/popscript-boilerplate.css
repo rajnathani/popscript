@@ -1,0 +1,434 @@
+
+
+
+
+.simple-box {
+    background-color: rgb(240, 240, 240);
+    border: 1px solid rgb(200, 200, 200);
+    box-shadow: 1px 1px 1px rgb(150, 150, 150);
+    width: 250px;
+    padding: 20px;
+
+    /* For the flip-in animation */
+    -webkit-backface-visibility:hidden;
+    backface-visibility:hidden;
+}
+
+.curtain {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.error {
+    background-color: #ff475a;
+    padding: 10px;
+    width:200px;
+    color:white;
+    border-radius: 3px;
+}
+
+.success {
+    width:100%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    background-color: #37a35b;
+    padding: 10px;
+    color: #ffffff;
+    text-align: center;
+}
+
+.cross {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    color: grey;
+    color:rgba(0,0,0,0.3);
+    background-color: transparent;
+    width: 15px;
+    line-height: 15px;
+    text-align: center;
+    margin: 2px 2px 0 0;
+    padding: 1px;
+    font-family: sans-serif;
+    font-size: 16px;
+}
+
+.cross:hover {
+    background-color: #ff475a;
+    border-radius: 100%;
+    color:rgba(255,255,255,0.6);
+}
+
+.cross:active {
+    background-color: #a12d38;
+}
+
+
+
+
+
+.popscript-tooltip {
+    box-sizing:border-box;
+    -moz-box-sizing: border-box;
+    cursor: default;
+
+    background-color: black;
+    width:200px;
+    max-width: 200px;
+    border-radius: 4px;
+
+    padding: 7px 10px;
+    color: white;
+}
+
+.popscript-tooltip:after, .dropdown:before, .dropdown:after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+
+    font-size: 0;
+    line-height: 0;
+}
+
+/* In this section below, we use css to draw triangles to mimic pointers on tooltips
+Alternatively, it can be done in 2 lesser lines of code by using background-image. Eg:
+.popscript-tooltip.left:after {
+    left:-10px;
+    top:8px;
+    background-image:url('static/img/pointer.png');
+}
+*/
+.popscript-tooltip.left:after {
+    left:-10px;
+    top:8px;
+    border-bottom: 8px solid transparent;  /* left arrow slant */
+    border-top: 8px solid transparent; /* right arrow slant */
+    border-right: 10px solid black; /* bottom, add background color here */
+}
+
+.popscript-tooltip.right:after {
+    right:-10px;
+    top:8px;
+    border-bottom: 8px solid transparent;  /* left arrow slant */
+    border-top: 8px solid transparent; /* right arrow slant */
+    border-left: 10px solid black; /* bottom, add background color here */
+}
+
+.popscript-tooltip.down:after {
+    left:95px;
+    top:-10px;
+    border-left: 8px solid transparent;  /* left arrow slant */
+    border-right: 8px solid transparent; /* right arrow slant */
+    border-bottom: 10px solid black; /* bottom, add background color here */
+}
+
+.popscript-tooltip.up:after {
+    left:95px;
+    bottom:-10px;
+    border-left: 8px solid transparent;  /* left arrow slant */
+    border-right: 8px solid transparent; /* right arrow slant */
+    border-top: 10px solid black; /* bottom, add background color here */
+}
+
+
+.context-menu {
+    background-color: white;
+    border: 1px solid grey;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+}
+
+.context-menu ul {
+    margin: 0;
+    padding: 0;
+}
+.context-menu li {
+    cursor: default;
+    list-style-type: none;
+    padding: 10px;
+    width: 150px;
+    border-bottom: 1px solid gainsboro;
+}
+
+.context-menu li:hover {
+    background-color: whitesmoke;
+}
+
+.context-menu li:active {
+    background-color:gainsboro;
+}
+
+.dropdown {
+    width: 200px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    background-color: white;
+    border: 1px solid rgba(0,0,0,0.3);
+    box-shadow: 0 0 4px 1px rgba(0,0,0,0.3);
+    border-radius: 3px;
+}
+
+.dropdown:before {
+    left:94px;
+    top:-11px;
+
+    border-left: 9px solid transparent;  /* left arrow slant */
+    border-right: 9px solid transparent; /* right arrow slant */
+    border-bottom: 11px solid rgba(0,0,0,0.5); /* bottom, add background color here */
+}
+
+.dropdown:after {
+    left:95px;
+    top:-10px;
+
+    border-left: 8px solid transparent;  /* left arrow slant */
+    border-right: 8px solid transparent; /* right arrow slant */
+    border-bottom: 10px solid white; /* bottom, add background color here */
+}
+
+
+.dropdown ul {
+    margin: 0;
+    padding: 0;
+}
+.dropdown li {
+    cursor: pointer;
+    list-style-type: none;
+    padding: 10px;
+    border-bottom: 1px solid gainsboro;
+}
+
+.dropdown li:hover{
+    color:blue;
+}
+
+
+.roller {
+    padding: 0;
+    height:auto;
+    width:600px;
+    background-color: transparent;
+}
+.roller iframe {
+    border:none;
+    width: 600px;
+    height: 1500px; /** note: these hardcoded dimensions exist due to the non dimension fluidity of frames **/
+    background-color: white;
+}
+
+/***end of popups**/
+/**animations**/
+
+@-webkit-keyframes fade-in {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+@-webkit-keyframes flip-in {
+    from {
+        -webkit-transform: rotateY(-180deg) scale(0.5, 0.5)
+    }
+    to {
+        -webkit-transform: rotateY(0deg) scale(1, 1)
+    }
+}
+
+@keyframes flip-in {
+    from {
+        transform: rotateY(-180deg) scale(0.5, 0.5)
+    }
+    to {
+        transform: rotateY(0deg) scale(1, 1)
+    }
+}
+
+@-webkit-keyframes zap-out {
+    from {
+        -webkit-transform: scale(1, 1)
+    }
+    to {
+        -webkit-transform: scale(1.4, 1.4);
+        opacity: 0;
+    }
+}
+
+@keyframes zap-out {
+    from {
+        transform: scale(1, 1)
+    }
+    to {
+        transform: scale(1.4, 1.4);
+        opacity: 0;
+    }
+}
+
+
+@-webkit-keyframes fade-out {
+    from {
+       opacity: 1;
+    }
+    to {
+        opacity:0.3;
+    }
+}
+
+
+
+@keyframes fade-out {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity:0.3;
+    }
+}
+
+
+
+@keyframes drop {
+    from {
+        transform:translate(0,-100px);
+    }
+    to {
+        transform:translate(0, 0);
+    }
+}
+@-webkit-keyframes drop {
+    from {
+        -webkit-transform:translate(0,-100px);
+    }
+    to {
+        -webkit-transform:translate(0, 0);
+    }
+}
+
+@keyframes undrop {
+    from {
+        transform:translate(0, 0);
+    }
+    to {
+        transform:translate(0,-100px);
+    }
+}
+@-webkit-keyframes undrop {
+    from {
+        -webkit-transform:translate(0, 0);
+    }
+    to {
+        -webkit-transform:translate(0,-100px);
+    }
+}
+
+
+
+
+
+@keyframes short-arrive-left {
+    from {
+        transform: translate(20px, 0);
+    }
+    to {
+        transform: translate(0, 0);
+    }
+}
+
+
+@-webkit-keyframes short-arrive-left {
+    from {
+        -webkit-transform: translate(20px, 0);
+    }
+    to {
+        -webkit-transform: translate(0, 0);
+    }
+}
+
+
+@keyframes short-arrive-right {
+    from {
+        transform: translate(-20px, 0);
+    }
+    to {
+        transform: translate(0, 0);
+    }
+}
+
+
+@-webkit-keyframes short-arrive-right {
+    from {
+        -webkit-transform: translate(-20px, 0);
+    }
+    to {
+        -webkit-transform: translate(0, 0);
+    }
+}
+
+@keyframes short-arrive-up {
+    from {
+        transform: translate(0, -20px);
+    }
+    to {
+        transform: translate(0, 0);
+    }
+}
+
+
+@-webkit-keyframes short-arrive-up {
+    from {
+        -webkit-transform: translate(0,-20px);
+    }
+    to {
+        -webkit-transform: translate(0, 0);
+    }
+}
+
+@keyframes short-arrive-down {
+    from {
+        transform: translate( 0, 20px);
+    }
+    to {
+        transform: translate(0, 0);
+    }
+}
+
+
+@-webkit-keyframes short-arrive-down {
+    from {
+        -webkit-transform: translate(0,20px);
+    }
+    to {
+        -webkit-transform: translate(0, 0);
+    }
+}
+
+@keyframes newspaper {
+    from {
+        transform: scale(0.1,0.1) rotate(720deg);
+    }
+    to {
+        transform: scale(1,1) rotate(0deg);
+    }
+}
+
+
+@-webkit-keyframes newspaper {
+    from {
+        -webkit-transform: scale(0.1,0.1) rotate(720deg);
+    }
+    to {
+        -webkit-transform: scale(1,1) rotate(0deg);
+    }
+}

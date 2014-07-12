@@ -142,7 +142,7 @@ div.sphinxsidebar {
   ul {
     padding-left: 21px;
     ul {
-      font-style: italic; // do this to match the </em> links in the doc (due to the usage of the :ref: directive in sphinx)
+//      font-style: italic; // do this to match the </em> links in the doc (due to the usage of the :ref: directive in sphinx)
     }
   }
   .sphinxsidebarwrapper {
@@ -228,4 +228,3 @@ h5 {
 h6 {
   font-size:1.1em;
 }
-

@@ -6,7 +6,7 @@
 @import 'variables';
 
 .pln {
-  color: #7584ff;
+  color: $that-blue;
 }
 
 @media screen {
@@ -39,7 +39,7 @@
 
   /* punctuation */
   .pun {
-    color: green;
+    color: $that-green;
   }
 
   /* lisp open bracket */
@@ -85,14 +85,19 @@
 /* Style */
 pre {
   font-family: Menlo, "Bitstream Vera Sans Mono", "DejaVu Sans Mono", Monaco, Consolas, monospace;
-  font-size: 15px;
+  font-size: 16px !important;
   line-height: 1.5;
   padding: 10px;
-    background-color:rgb(0,0,0) ;
+  background-color:$that-light-black;
+//  background-image:repeating-linear-gradient(90deg, $that-light-black , $that-light-black 10px, black 10px, black 20px);
+  background-image: $that-gradient;
 
-  background-image:repeating-linear-gradient(90deg, rgb(20,20,20) , rgb(20,20,20) 8px, black 8px, black 16px);
   //background-color: rgb(55,55,55);
+  &.long-pre {
+      background-image: $that-fixed-gradient;
+  }
 }
+
 
 code, tt {
   padding:1px 10px;

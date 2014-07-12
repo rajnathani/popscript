@@ -3,15 +3,13 @@ import re
 
 
 tooltip_mappings = {
-    "basic: {": "This is a pop class.",
+    "general: {": "pop class",
 
-    "ANIMATION: {": "Animate your pops",
+    "duration: 500": "Animate pops using CSS3 animations",
 
-    "duration: 200": "Enter a number for the duration of the animation period",
+    "x: 'auto'": "Align your pop the position where you think it belongs.",
 
-    "y: 'auto'": "Align your pop the position where you think it belongs.",
-
-    "esc: 'ye',": "Mention your booleans through 'yes', 'yeah', 'naah', ...",
+    "esc: 'yup'": "Mention your booleans through 'y' and 'n' words",
 
     "tooltip: {": "The pop you are currently viewing",
 
@@ -27,19 +25,18 @@ def extract_popscript(tooltips=False, variable=False):
     If tooltips is mentioned then it fill up the code with the respective tooltips.
     If variable is mentioned then retain 'var popscript = {'
     '''
-    popscript_js = open('../src/popscript.js')
-    popscript_code = popscript_js.read()
-    start_index =  popscript_code.index('var popscript') if variable else (popscript_code.index('\n') + 1)
-    end_index = popscript_code.index(';')
-    extracted_popscript = popscript_code[start_index : end_index]
+
+    extracted_popscript = "";
+    with open('../dist/popscript-boilerplate.js') as f:
+      extracted_popscript = f.read();
     if not variable:
         extracted_popscript = extracted_popscript[:extracted_popscript.rindex('}')] + extracted_popscript[extracted_popscript.rfind('}')+1:]
     if (tooltips):
         for find,tooltip in tooltip_mappings.iteritems():
             if find not in extracted_popscript:
-                raise Exception()
-            extracted_popscript = extracted_popscript.replace(find, find + '   <span class="nocode sample-popscript-tooltip" data-tooltip="%s"></span>' % tooltip, 1)
-    popscript_js.close()
+                raise Exception(find)
+            extracted_popscript = extracted_popscript.replace(find, find + '<span class="nocode sample-popscript-tooltip" data-tooltip="%s"></span>' % tooltip, 1)
+    #popscript_js.close()
     return extracted_popscript
 
 if __name__ == '__main__':

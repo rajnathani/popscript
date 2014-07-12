@@ -9,7 +9,7 @@ function _escapePopOut(e) {
     var keycode = e ? e.keyCode : (window.event).keyCode;
     if (keycode === 27) {
         popOut(_currentHighestPopNum(function () {
-            return new Pop(JSON.parse(this.getAttribute('data-pop-cache'))).scan('escape') !== 'no'
+            return newPS.pop(JSON.parse(this.getAttribute('data-pop-cache'))).scan('escape') !== 'no'
         }));
     }
 
@@ -18,7 +18,7 @@ function _escapePopOut(e) {
 function _blurPopOut(e) {
 
     popOut(_currentHighestPopNum(function () {
-        return new Pop(JSON.parse(this.getAttribute('data-pop-cache'))).scan('blur') !== 'no'
+        return newPS.pop(JSON.parse(this.getAttribute('data-pop-cache'))).scan('blur') !== 'no'
     }));
 }
 
@@ -386,7 +386,7 @@ var Pop = function () {
     }
 };
 
-function pop(content, pop_input, extra_dict) {
+functionPS.pop(content, pop_input, extra_dict) {
 
     if (!pop_input) {
         pop_input = "";
@@ -401,7 +401,7 @@ function pop(content, pop_input, extra_dict) {
 
     var new_popscript_number = _total_pops_created + 1;
 
-    var pop = new Pop(pop_input);
+    var pop = newPS.pop(pop_input);
     if (pop.isValid() === false) {
 
         return false;
@@ -560,7 +560,7 @@ function popOut(pop_num) {
 
     var pop_popup = document.getElementById('popscript-popup-' + current_highest_pop_num);
 
-    var pop = new Pop(JSON.parse(pop_popup.getAttribute('data-pop-cache')));
+    var pop = newPS.pop(JSON.parse(pop_popup.getAttribute('data-pop-cache')));
 
     pop_popup.onClosePop();
 

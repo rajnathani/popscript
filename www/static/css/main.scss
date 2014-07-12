@@ -1,7 +1,7 @@
 //@import url(http://fonts.googleapis.com/css?family=Noto+Sans:400,700);
 @import 'variables';
 
-h1, h2, h3, h4, h5, h6, pre {
+h1, h2, h3, h4, h5, h6 {
   margin: 0;
   font-family: $display-font;
 }
@@ -20,7 +20,6 @@ body {
   /*min-height: 5000px;
   min-width: 5000px;*/
 
-
 > #header {
 
   z-index: $header-zindex;
@@ -29,7 +28,7 @@ body {
   right: 0;
   left: 0;
   background-color: black;
-  background-image: repeating-linear-gradient(10deg, rgb(55, 55, 55), rgb(55, 55, 55) 13%, black 13%, black 26%);
+  background-image: $that-fixed-gradient;
   padding-left: $left-pad;
   #nav {
     a {
@@ -39,7 +38,7 @@ body {
       -moz-box-sizing: border-box;
 
       border-right-width: 0;
-      color: white;
+      color: $background-color;
       text-align: center;
 
       font-family: $display-font;
@@ -62,7 +61,7 @@ body {
     border-left-width: 0;
 
     font-family: 'Sigmar One';
-    letter-spacing: 1px;
+//        letter-spacing: 1px;
     border: none;
     line-height: $header-height;
 
@@ -73,16 +72,21 @@ body {
 
   }
   #logo span:first-child {
-    border-radius: 100%;
+    border-radius: 0 0 100% 100%;
     background-color: $that-red;
-    padding: 19px;
+  //  background-color:$that-red-trans;
+    $padding:19px;
+    padding: $padding;
+    margin-right:3px;
 
-    color: white;
+    color: $background-color;
 
   }
   #logo span:last-child {
 
     color: $that-red;
+
+    //color:$that-red-trans;
   }
 }
 
@@ -109,6 +113,7 @@ body {
 
 
     > h1 {
+      margin:0;
       padding: 10px $left-pad*(100/$sample-popscript-width);
 
       font-family: $display-font;
@@ -117,6 +122,7 @@ body {
     }
 
     pre {
+      margin:0;
       font-weight: bold;
     }
 
@@ -188,7 +194,7 @@ body {
     > h1 {
       background-color: transparent;
 
-      //color:white;
+      //color:$background-color;
 
     }
   }
@@ -256,15 +262,15 @@ body {
   }
 
   pre {
-    max-height: 550px;
-    overflow: auto;
+  //  max-height: 550px;
+  //  overflow: auto;
   }
 }
 
 #popscript-calls {
   float: left;
   pre {
-    white-space: pre ;
+//    $background-color-space: pre ;
     overflow: auto;
   }
 }
@@ -273,16 +279,17 @@ body {
   z-index: $header-zindex;
 }
 
+
 #main-footer {
   padding: 15px 0;
   background-color: #000000;
   text-align: center;
-  color: white;
+  color: $background-color;
 
   font-family: $display-font;
 
   a {
-    color: white;
+    color: $background-color;
     text-decoration: underline;
   }
 }
@@ -292,6 +299,9 @@ body {
   margin: 40px 0;
 }
 #download-table {
+  max-width:440px;
+  width:440px;
+  table-layout:fixed;
   margin: auto;
   td {
     padding: 15px;

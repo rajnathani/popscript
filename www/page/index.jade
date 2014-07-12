@@ -1,0 +1,313 @@
+extend base
+
+block content
+    #content.cf.feats
+        #intro-line
+            | Pop Script is systematic way to design modal boxes, lightboxes,
+            | dropdown menus, tooltips, and any other dynamic element.
+        #popscript-class-implementation.sample-popscript-code
+            h1
+                | This page's popscript
+            pre.long-pre.
+                PS.compile({
+                    general: {<span class="nocode sample-popscript-tooltip" data-tooltip="pop class"></span>
+                        STYLE: {
+                            CLASS: {
+                                box: 'simple-box',
+                                cover: 'curtain',
+                                cross: 'cross'
+                            }
+                        },
+                        ANIMATION: {
+                            IN: {
+                                box: 'flip-in',
+                                cover: 'fade-in',
+                                duration: 500<span class="nocode sample-popscript-tooltip" data-tooltip="Animate pops using CSS3 animations"></span>
+                            },
+                            OUT: {
+                                box: 'zap-out ease-in',
+                                cover: 'fade-out',
+                                duration: 170
+                            }
+                        },
+                        POSITION: {
+                            x: 'auto'<span class="nocode sample-popscript-tooltip" data-tooltip="Align your pop the position where you think it belongs."></span>,
+                            y: 'auto'
+                        },
+                        full_draggable: 'yes',
+                        esc: 'yup'<span class="nocode sample-popscript-tooltip" data-tooltip="Mention your booleans through 'y' and 'n' words"></span>
+                    },
+                
+                    success: {
+                        STYLE: {
+                            CLASS: {
+                                box: 'success',
+                                cover: 'curtain'
+                            }
+                        },
+                        ANIMATION: {
+                            IN: {
+                                box: 'drop'
+                            },
+                            OUT: {
+                                box: 'undrop',
+                                cover: 'fade-out'
+                            }
+                        },
+                        POSITION: {
+                            y: 'top'
+                        },
+                        cross: 'no',
+                        full_draggable: 'naaaaoh',
+                        click_me_out: 'yes, tis is convenient'
+                    },
+                
+                    error: {
+                        STYLE: {
+                            CLASS: {
+                                box: 'error',
+                                cover: 'curtain',
+                                cross: 'cross'
+                            }
+                        },
+                        ANIMATION: {
+                            IN: {
+                                box: 'short-arrive-left, fade-in'
+                            },
+                            OUT: {
+                                box: 'undrop',
+                                cover: 'fade-out'
+                            }
+                        },
+                        POSITION: {
+                            x: '!10',
+                            y: '10'
+                        },
+                        full_draggable: 'yes'
+                    },
+                
+                    dropdown: {
+                        STYLE: {
+                            CLASS: {
+                                box: 'dropdown'
+                            }
+                        },
+                        ANIMATION: {
+                            IN: {
+                                box:'short-arrive-down, fade-in',
+                                duration: 90
+                            },
+                            OUT: {
+                                box: 'zap-out'
+                            }
+                        },
+                        POSITION: {
+                            z: '-1'
+                        },
+                        cross: 'no',
+                        cover: 'no',
+                        full_draggable: 'no'
+                    },
+                
+                    context_menu: {
+                        STYLE: {
+                            CLASS: {
+                                box: 'context-menu'
+                            }
+                        },
+                        ANIMATION: {
+                            IN: {
+                                box: 'short-arrive-left, fade-in'
+                            },
+                            OUT: {
+                                box: 'fade-out',
+                                duration: 40
+                            }
+                        },
+                        POSITION: {
+                            fixed: 'no',
+                            z: '-1'
+                        },
+                        cover: 'no',
+                        cross: 'no'
+                    },
+                
+                    tooltip: {<span class="nocode sample-popscript-tooltip" data-tooltip="The pop you are currently viewing"></span>
+                        STYLE: {
+                            CLASS: {
+                                box: 'popscript-tooltip'
+                            }
+                        },
+                        ANIMATION: {
+                            OUT: {
+                                box: 'fade-out',
+                                duration: 100
+                            }
+                        },
+                        POSITION: {
+                            z: '-1'
+                        },
+                        click_me_out: 'yeh',<span class="nocode sample-popscript-tooltip" data-tooltip="Click this pop to close it. Try it out right now?"></span>
+                        cross: 'no',
+                        cover: 'no',
+                        blur: 'no',
+                        esc: 'yes'
+                    },
+                
+                    tip_left: {
+                        STYLE: {
+                            CLASS: {
+                                box: 'popscript-tooltip left'
+                            }
+                        },
+                        ANIMATION: {
+                            IN: {
+                                box: 'short-arrive-left, fade-in'
+                            }
+                        }
+                    },
+                
+                    tip_right: {
+                        STYLE: {
+                            CLASS: {
+                                box: 'popscript-tooltip right'
+                            }
+                        },
+                        ANIMATION: {
+                            IN: {
+                                box: 'short-arrive-right, fade-in'
+                            }
+                        }
+                    },
+                
+                    tip_up: {
+                        STYLE: {
+                            CLASS: {
+                                box: 'popscript-tooltip up'
+                            }
+                        },
+                        ANIMATION: {
+                            IN: {
+                                box: 'short-arrive-up, fade-in'
+                            }
+                        }
+                    },
+                
+                    tip_down: {
+                        STYLE: {
+                            CLASS: {
+                                box: 'popscript-tooltip down'
+                            }
+                        },
+                        ANIMATION: {
+                            IN: {
+                                box: 'short-arrive-down, fade-in'
+                            }
+                        }
+                    },
+                
+                    roller: {
+                        STYLE: {
+                            CLASS: {
+                                box: 'roller',
+                                cover: 'curtain',
+                                cross: 'cross'
+                            }
+                        },
+                        ANIMATION: {
+                            IN: {
+                                box: 'newspaper',
+                                cover:'fade-in',
+                                duration: 400
+                            },
+                            OUT: {
+                                box: 'zap-out',
+                                cover: 'fade-out',
+                                duration: 170
+                            }
+                        },
+                        POSITION: {
+                            x: 'auto',
+                            y: '8%',
+                            roller: 'yes'
+                        }
+                    }
+                );
+                
+
+        .right-area
+            div
+                h2
+                    i.icon-ok-sign
+                    | Flexible
+                div
+                    p
+                        | Throw in pop (up) with a translucent cover if you like, enable/disable
+                        | dispatching your pop with the 'esc' key, control which element in the pop
+                        | will allow the user to drag it around. As of now there are 24 properties
+                        | which can be set, and more counting.
+                        br
+            div
+                h2
+                    i.icon-th-list
+                    | Organized
+                div
+                    p
+                        | PopScript is organized into 'pop classes' all in one place, which
+                        | can be then powerfully be combined together to form inheritance
+                        | of properties very similar to that of css.
+            div
+                h2
+                    i.icon-group
+                    | Simple
+                div
+                    p
+                        | An example of deploying a pop:
+
+                    p
+                    pre.
+                     PS.pop('success', "The transaction has been completed. Thank you!");
+                    p
+                        | OR
+                        | (depending on the situation)
+                    pre.
+                     PS.pop('error', "The transaction could &lt;b&gt;not&lt;/b&gt; be completed.");
+            div
+                h2
+                    i.icon-anchor
+                    | Robust
+                div
+                    p
+                        | Giving you features such as positioning fixed or non fixed,
+                        | dragging, closing by clicking on the cover and/or by hitting
+                        | the escape key, specifying CSS animations for better experiences,
+                        | issuing align checks on the pops visible and all very well tested.
+            div
+                h2
+                    i.icon-fullscreen
+                    | Scalable
+                div
+                    p
+                        | PopScript takes into account the scalability of your entire application:
+                        | Your application may need 1, 2, 3, 4....., n number of pop ups, tooltips, dropdowns and other pops; PopScript will not only let you create as many pops as you want,
+                        | it will even let you have all of them occur at the same time concurrently.
+            div
+                h2
+                    i.icon-magic
+                    | Dependency Free
+                div
+                    p
+                        | The only file to be inserted is 'popscript.js'.
+                        br
+                        | This is because PopScript has been built to be free from any dependency, be it
+                        | jquery.js or underscore.js, there is complete independence of any other library.
+            div
+                h2
+                    i.icon-globe
+                    | Open Source & Free
+                div
+                    p
+                        | Issued under the MIT License, this is an
+                        b  open source&nbsp;
+                        | initiative, with no monetary cost
+                        | to the developers using it, both for personal and/or commerical usage.

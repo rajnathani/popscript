@@ -2,3 +2,4 @@
 .idea
 rm.sh
 *.pyc
+node_modules/

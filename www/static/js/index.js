@@ -2,11 +2,11 @@ prettyPrint();
 
 var tooltip_gap = 400;
 
-PopScript.event.add(document, 'click', function () {
+document.addEventListener( 'click', function () {
     tooltip_gap = 10
 });
 
-var all_tooltips = PopScript.css_class.nodes('sample-popscript-tooltip');
+var all_tooltips = document.querySelectorAll('.sample-popscript-tooltip');
 var tooltip_index = 0;
 
 
@@ -16,17 +16,28 @@ if (!demo_page && tooltip_index < all_tooltips.length) {
 }
 
 document.getElementById('download').onclick = function () {
-    pop('<table id="download-table"><tr><td>JS (pick any 1)</td><td><a href="src/popscript.js">popscript.js</a></td><td><a href="src/popscript.min.js">popscript.min.js</a></td></tr><tr><td>CSS</td><td colspan="2"><a href="src/popscript.css">popscript.css</a></td></tr></table>', {style_inline_box:'padding:0', style_inline_cross:'right:-10px;top:-10px;', style_class_cross:'cross cross-hover'});
+   PS.pop('general', '<table id="download-table"> \
+   <tr> \
+   <td>Library</td> \
+   <td colspan=2><a href="/v2/dist/popscript.js">popscript.js</a></td> \
+   </tr> \
+   <tr> \
+   <td>Boilerplate</td> \
+   <td ><a href="/v2/dist/popscript-boilerplate.css">popscript-boilerplate.css</a></td> \
+   <td ><a href="/v2/dist/popscript-boilerplate.js">popscript-boilerplate.js</a></td> \
+   </tr> \
+   </table>', {style_inline_box:'padding:0;width:440px', style_inline_cross:'right:-10px;top:-10px;', style_class_cross:'cross cross-hover'});
     return false;
 };
 
 function popTooltip() {
-    pop(
-        all_tooltips[tooltip_index].getAttribute('data-tooltip')
-        , 'tooltip tip_left', {
+   PS.pop(
+        'tooltip tip_left',all_tooltips[tooltip_index].getAttribute('data-tooltip')
+        , {
             nearElement: [all_tooltips[tooltip_index], function (x, y, width, height) {
                 return [x + width + 30, y - 8]
-            }]
+            }],
+//            style_inline_box:'color:rgb(20,20,20); background-color:white; border-color:white !important;'
         });
     tooltip_index++;
 
@@ -80,46 +91,43 @@ window.onresize = responsive;
 if (demo_page) {
     /* General*/
     document.getElementById('demo-general').onclick = function () {
-        pop('This is a general box');
+       PS.pop('general','This is an example.<br>You can insert HTML markup or a DOM node in this box.');
     };
 
     /* Success*/
     document.getElementById('demo-success').onclick = function () {
-        pop('Your comment was successfully posted! (click to close)',
-            'success');
+       PS.pop('success','Your comment was successfully posted! (click to close)');
     };
 
     /* Error*/
     document.getElementById('demo-error').onclick = function () {
-        pop('Error 418: You are a teapot',
-            'error');
+       PS.pop('error','Error 418: You are a teapot');
     };
 
     /* Dropdown*/
     var dropdown_button = document.getElementById('demo-dropdown');
-    pop([dropdown_button, 'click', 'click'],
+    PS.pop('dropdown',
         '<ul>' +
             '<li>About</li>' +
             '<li>Help</li>' +
             '<li>Log Out</li>' +
         '</ul>',
-        'dropdown',
-        { nearElement: [dropdown_button, function (x, y, w, h) {
+        {
+          binder:[dropdown_button, 'click'],
+          nearElement: [dropdown_button, function (x, y, w, h) {
             return [x, y + h + 4]
-        }]}
-    );
+        }]});
 
 
     /* Context Menu*/
     document.getElementById('demo-context-menu').oncontextmenu = function (event) {
         event = event || window.event;
-        pop('<ul>' +
+       PS.pop('context_menu','<ul>' +
                 '<li>Cut</li>' +
                 '<li>Copy</li>' +
                 '<li>Paste</li>' +
                 '<li>Share</li>' +
             '</ul>',
-            'context_menu',
             {POSITION: {
                 y: event.clientY + '+scrolled',
                 x: event.clientX + '+scrolled' }
@@ -132,56 +140,54 @@ if (demo_page) {
 
     /* Tooltip Left*/
     var tooltip_left_button = document.getElementById('demo-tooltip-left');
-    pop([tooltip_left_button, ['mouseover', 'click'], ['mouseout', 'click']],
-        'pop from the left',
+    PS.pop(
         'tooltip tip_right',
-        {nearElement: [tooltip_left_button, function (x, y, w, h) {
+        'pop from the left',
+        {
+          binder:[tooltip_left_button, ['mouseover', 'click'], ['mouseout', 'click']],
+          nearElement: [tooltip_left_button, function (x, y, w, h) {
             return [x - w - 6, y]
         }]}
     );
 
     /* Tooltip Right*/
     var tooltip_right_button = document.getElementById('demo-tooltip-right');
-    pop([tooltip_right_button, ['mouseover', 'click'], ['mouseout', 'click']],
-        'pop from the right',
+    PS.pop(
         'tooltip tip_left',
-        {nearElement: [tooltip_right_button, function (x, y, w, h) {
+        'pop from the right',
+        {
+          binder:[tooltip_right_button, ['mouseover', 'click'], ['mouseout', 'click']],
+          nearElement: [tooltip_right_button, function (x, y, w, h) {
             return [x + w + 6, y]
         }]}
     );
 
     /* Tooltip Up*/
     var tooltip_up_button = document.getElementById('demo-tooltip-up');
-    pop([tooltip_up_button, ['mouseover', 'click'], ['mouseout', 'click']],
-        'pop from the up',
+    PS.pop(
         'tooltip tip_up',
-        {nearElement: [tooltip_up_button, function (x, y, w, h) {
+        'pop from the up',
+        {
+          binder:[tooltip_up_button, ['mouseover', 'click'], ['mouseout', 'click']],
+          nearElement: [tooltip_up_button, function (x, y, w, h) {
             return [x, y - h]
         }]}
     );
 
     /* Tooltip Down*/
     var tooltip_down_down = document.getElementById('demo-tooltip-down');
-    pop([tooltip_down_down, ['mouseover', 'click'], ['mouseout', 'click']],
-        'pop from down below',
+    PS.pop(
         'tooltip tip_down',
-        {nearElement: [tooltip_down_down, function (x, y, w, h) {
+        'pop from down below',
+        {
+          binder:[tooltip_down_down, ['mouseover', 'click'], ['mouseout', 'click']],
+          nearElement: [tooltip_down_down, function (x, y, w, h) {
             return [x, y + h + 6]
         }]}
     );
 
     /* Roller*/
-    pop([document.getElementById('demo-roller'), 'click'],
-        '<iframe src="http://relfor.co/about"></iframe>',
-        'roller');
-
+    document.getElementById('demo-roller').onclick = function () {
+        PS.pop('roller','<iframe src="http://relfor.co/about"></iframe>');
+    };
 }
-
-
-
-
-
-
-
-
-

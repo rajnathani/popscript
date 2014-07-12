@@ -1,6 +1,6 @@
 $left-pad: 5%;
 $sample-popscript-width:40;
-$header-height: 65px;
+$header-height: 60px;
 $display-font:'Skranji';
 $text-font:'Noto Sans';
 $header-zindex: 1000;
@@ -8,11 +8,17 @@ $display-font-medium-size:25px;
 $display-font-large-size:40px;
 $background-color:whitesmoke;
 $that-grey:gainsboro;
-$that-red:rgb(230,18,28);
-$that-green: rgb(92, 171, 83);
+$that-light-black:rgb(60,60,60);
+$that-red:rgb(220,18,28);
+$that-red-trans:rgba(230,18,28,0.8);
+$that-green: rgb(102, 151, 93);
+$that-blue:rgb(81,115,229);
 $nice-border: 2px solid $that-grey;
 
-
+$that-gradient:repeating-linear-gradient(45deg, black 0px, black 10%, $that-light-black 10%, $that-light-black 20%);
+$that-fixed-gradient:repeating-linear-gradient(45deg, black 0px, black 180px, $that-light-black 180px, $that-light-black 360px);
+$that-fixed-gradient:url('../img/grad.png');
+$that-gradient:$that-fixed-gradient;
 //sphinx
 
 $sphinx-sidebar-width: 230px;
