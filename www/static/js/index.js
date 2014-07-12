@@ -16,7 +16,7 @@ if (!demo_page && tooltip_index < all_tooltips.length) {
 }
 
 document.getElementById('download').onclick = function () {
-    pop('<table id="download-table"><tr><td>JS (pick any 1)</td><td><a href="/v/1src/popscript.js">popscript.js</a></td><td><a href="/v1/src/popscript.min.js">popscript.min.js</a></td></tr><tr><td>CSS</td><td colspan="2"><a href="/v1/src/popscript.css">popscript.css</a></td></tr></table>', {style_inline_box:'padding:0', style_inline_cross:'right:-10px;top:-10px;', style_class_cross:'cross cross-hover'});
+    pop('<table id="download-table"><tr><td>JS (pick any 1)</td><td><a href="/v1/src/popscript.js">popscript.js</a></td><td><a href="/v1/src/popscript.min.js">popscript.min.js</a></td></tr><tr><td>CSS</td><td colspan="2"><a href="/v1/src/popscript.css">popscript.css</a></td></tr></table>', {style_inline_box:'padding:0', style_inline_cross:'right:-10px;top:-10px;', style_class_cross:'cross cross-hover'});
     return false;
 };
 
