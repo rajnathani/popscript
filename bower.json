@@ -1,0 +1,23 @@
+{
+  "name": "popscript",
+  "version": "2.0.0",
+  "homepage": "http://popscript.relfor.co/v2",
+  "authors": [
+    "relfor <me@relfor.co>"
+  ],
+  "description": "systematic way to design modal boxes, lightboxes, dropdown menus, tooltips, and any other dynamic elements",
+  "main": "dist/popscript.js",
+  "keywords": [
+    "lightbox",
+    "popup",
+    "tooltip"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
