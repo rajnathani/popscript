@@ -2,7 +2,7 @@ var Pop = require('./Pop.js');
 
 var eventBinder = require('./helper/eventBinder.js');
 var cssClass = require('./helper/cssClass.js');
-var createCSSSelector = require('./helper/createCSSSelector.js');
+var insertCSS = require('insert-css');
 var eventPopOut = require('./helper/eventPopOut.js');
 
 var compiler = require('./compiler/compiler.js');
@@ -94,6 +94,5 @@ module.exports = {
     eventBinder.add(document, 'click', eventPopOut.blur);
     eventBinder.add(document, 'contextmenu', eventPopOut.blur);
 
-
-    createCSSSelector('.popscript-display-none', 'display:none');
-    createCSSSelector('.popscript-drag', 'cursor:move')
+    insertCSS(".popscript-display-none { display:none }");
+    insertCSS(".popscript-drag, cursor:move")
