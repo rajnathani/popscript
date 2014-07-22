@@ -22,6 +22,7 @@
     "watchify": "^0.10.2"
   },
   "dependencies": {
-    "deepmerge": "^0.2.7"
+    "deepmerge": "^0.2.7",
+    "insert-css": "^0.2.0"
   }
 }
