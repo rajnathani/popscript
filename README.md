@@ -6,5 +6,5 @@ PopScript is a systematic way to design modal boxes, lightboxes, dropdown menus,
 
 Check the official popscript website for documentation and examples:
 
-- v1 : [popscript.relfor.co/v1/](http://popscript.rajnathani.com/v1) (**depracated**)
-- v2 : [popscript.relfor.co/v2](http://popscript.rajnathani.com/v2)
+- v1 : [popscript.rajnathani.com/v1/](http://popscript.rajnathani.com/v1) (**depracated**)
+- v2 : [popscript.rajnathani.com/v2](http://popscript.rajnathani.com/v2)
