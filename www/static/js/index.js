@@ -77,7 +77,7 @@ window.onresize = responsive;
 })();
 
 (function(){
-  pop("The current version (PopScript v1) has been depracated in favour of the new version: <a href='http://popscript.relfor.co/v2'>(PopScript v2)</a>", "success");
+  pop("The current version (PopScript v1) has been depracated in favour of the new version: <a href='https://popscript.rajnathani.com/v2'>(PopScript v2)</a>", "success");
 })();
 
 
@@ -177,7 +177,7 @@ if (demo_page) {
 
     /* Roller*/
     pop([document.getElementById('demo-roller'), 'click'],
-        '<iframe src="http://relfor.co/about"></iframe>',
+        '<iframe src="https://rajnathani.com"></iframe>',
         'roller');
 
 }
