@@ -134,7 +134,7 @@ If you have just read this documentation till :doc:`core`, then you (probably) h
 
     pop_id = pop( inner_container );
 
-Instead, PopScript provides you a simpler way. The secret is that the function :ref:`pop-out`, :ref:`pop-close`, and :ref:`pop-hide`, are all `overloaded <http://en.wikipedia.org/wiki/Function_overloading>`_ functions. You can use it to handle the events directly, here is **the recommended way** of doing it::
+Instead, PopScript provides you a simpler way. The secret is that the function :ref:`pop-out`, :ref:`pop-close`, and :ref:`pop-hide`, are all `overloaded <https://en.wikipedia.org/wiki/Function_overloading>`_ functions. You can use it to handle the events directly, here is **the recommended way** of doing it::
 
     var inner_container = document.createElement("div");
 
