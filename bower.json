@@ -1,9 +1,9 @@
 {
   "name": "popscript",
-  "version": "2.0.0",
-  "homepage": "http://popscript.relfor.co/v2",
+  "version": "2.0.1",
+  "homepage": "https://popscript.rajnathani.com/v2",
   "authors": [
-    "relfor <me@relfor.co>"
+    "Raj Nathani <hello@rajnathani.com>"
   ],
   "description": "systematic way to design modal boxes, lightboxes, dropdown menus, tooltips, and any other dynamic elements",
   "main": "dist/popscript.js",

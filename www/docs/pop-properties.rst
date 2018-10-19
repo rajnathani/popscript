@@ -347,7 +347,7 @@ Click on properties (in red) to view its role.
 
 ======== ==================================================
  Input    String
- Task     Accepts the CSS animation for the entrance of the pop's box. The input of the animation is of same format of that of the standard CSS3 animation property. There are multiple ways of entering a CSS3 animation inclusive of all animation subproperties such as keyframe name, delay, curving, duration and more. Refer to the `w3 docs <http://dev.w3.org/csswg/css-animations/>`_ for further details. Remember that multiple animations can be specified with the delimiter of a comma.Please note that supplying a duration for the animation is optional in case you specify the ``duration`` property. And if no animation is desired then input the empty string ''.
+ Task     Accepts the CSS animation for the entrance of the pop's box. The input of the animation is of same format of that of the standard CSS3 animation property. There are multiple ways of entering a CSS3 animation inclusive of all animation subproperties such as keyframe name, delay, curving, duration and more. Refer to the `w3 docs <https://dev.w3.org/csswg/css-animations/>`_ for further details. Remember that multiple animations can be specified with the delimiter of a comma.Please note that supplying a duration for the animation is optional in case you specify the ``duration`` property. And if no animation is desired then input the empty string ''.
 
  Example  'zap-in 2s, fade-in' (yes, no duration is mentioned for the second animation 'fade-in', please read on)
  Default  ''
@@ -360,7 +360,7 @@ Click on properties (in red) to view its role.
 
 ======== ==================================================
  Input    String
- Task     Accepts the CSS animation for the entrance of the pop's cover. The input of the animation is of same format of that of the standard CSS3 animation property. There are multiple ways of entering a CSS3 animation inclusive of all animation subproperties such as keyframe name, delay, curving, duration and more. Refer to the `w3 docs <http://dev.w3.org/csswg/css-animations/>`_ for further details. Remember that multiple animations can be specified with the delimiter of a comma. Please note that supplying a duration for the animation is optional in case you specify the ``duration`` property. And if no animation is desired then input the empty string ''.
+ Task     Accepts the CSS animation for the entrance of the pop's cover. The input of the animation is of same format of that of the standard CSS3 animation property. There are multiple ways of entering a CSS3 animation inclusive of all animation subproperties such as keyframe name, delay, curving, duration and more. Refer to the `w3 docs <https://dev.w3.org/csswg/css-animations/>`_ for further details. Remember that multiple animations can be specified with the delimiter of a comma. Please note that supplying a duration for the animation is optional in case you specify the ``duration`` property. And if no animation is desired then input the empty string ''.
 
  Example  'fade-in 1s'
  Default  ''
@@ -390,7 +390,7 @@ Click on properties (in red) to view its role.
 
 ======== ==================================================
  Input    String
- Task     Accepts the CSS animation for the exit of the pop's box. The input of the animation is of same format of that of the standard CSS3 animation property. There are multiple ways of entering a CSS3 animation inclusive of all animation subproperties such as keyframe name, delay, curving, duration and more. Refer to the `w3 docs <http://dev.w3.org/csswg/css-animations/>`_ for further details. Remember that multiple animations can be specified with the delimiter of a comma. Please note that supplying a duration for the animation is optional in case you specify the ``duration`` property. And if no animation is desired then input the empty string ''.
+ Task     Accepts the CSS animation for the exit of the pop's box. The input of the animation is of same format of that of the standard CSS3 animation property. There are multiple ways of entering a CSS3 animation inclusive of all animation subproperties such as keyframe name, delay, curving, duration and more. Refer to the `w3 docs <https://dev.w3.org/csswg/css-animations/>`_ for further details. Remember that multiple animations can be specified with the delimiter of a comma. Please note that supplying a duration for the animation is optional in case you specify the ``duration`` property. And if no animation is desired then input the empty string ''.
 
  Example  'zap-in 2s, fade-in' (yes, no duration is mentioned for the second animation 'fade-in', please read on)
  Default  ''
@@ -404,7 +404,7 @@ Click on properties (in red) to view its role.
 
 ======== ==================================================
  Input    String
- Task     Accepts the CSS animation for the exit of the pop's cover. The input of the animation is of same format of that of the standard CSS3 animation property. There are multiple ways of entering a CSS3 animation inclusive of all animation subproperties such as keyframe name, delay, curving, duration and more. Refer to the `w3 docs <http://dev.w3.org/csswg/css-animations/>`_ for further details. Remember that multiple animations can be specified with the delimiter of a comma. Please note that supplying a duration for the animation is optional in case you specify the ``duration`` property. And if no animation is desired then input the empty string ''.
+ Task     Accepts the CSS animation for the exit of the pop's cover. The input of the animation is of same format of that of the standard CSS3 animation property. There are multiple ways of entering a CSS3 animation inclusive of all animation subproperties such as keyframe name, delay, curving, duration and more. Refer to the `w3 docs <https://dev.w3.org/csswg/css-animations/>`_ for further details. Remember that multiple animations can be specified with the delimiter of a comma. Please note that supplying a duration for the animation is optional in case you specify the ``duration`` property. And if no animation is desired then input the empty string ''.
 
  Example  'fade-in 1s'
  Default  ''

@@ -18,9 +18,9 @@ Let us begin with what comes out of the box, you will need these to start poppin
 
 How to put in these files?
 
-| Installating via `Web Componenets <http://www.w3.org/TR/components-intro/>`_ is currently on the wish list and therefore unavailable.
+| Installating via `Web Componenets <https://www.w3.org/TR/components-intro/>`_ is currently on the wish list and therefore unavailable.
 
-Installing via `Bower <http://bower.io/>`_ can be done using the following command::
+Installing via `Bower <https://bower.io/>`_ can be done using the following command::
 
     > bower install popscript
 
